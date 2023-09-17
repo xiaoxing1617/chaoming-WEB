@@ -1,7 +1,7 @@
 <script>
 	export default {
 		globalData: {
-			basicUrl: "http://192.168.0.107:1617",
+			basicUrl: "https://chaoming.96xy.cn/api",
 			lossChildrens:[],
 			pageIndex:1,
 			lossChildrenImgUrl:"https://res.crotg.com/",
