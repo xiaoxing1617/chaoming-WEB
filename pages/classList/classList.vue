@@ -25,7 +25,12 @@
 				</view>
 				<view class="tips">公益广告数据均来自 <span @click="jumpArchive">中国走失儿童数据库</span> 官网获得</view>
 				<view class="bottom" @click="brush" :style="`${brushPopupIsMaskClick?'background:rgba(0, 72, 254,1);color:#fff':'background:rgba(0, 72, 254,0.3);color:#eee'}`">
-					{{brushPopupIsMaskClick?'开始刷课':'正在执行刷课任务'}}
+					<template v-if="brushData.type=='class'">
+						{{brushPopupIsMaskClick?'开始刷课':'正在执行刷课任务'}}
+					</template>
+					<template v-else="">
+						{{brushPopupIsMaskClick?'开始刷作业':'正在执行刷作业任务'}}
+					</template>
 				</view>
 			</view>
 		</uni-popup>
@@ -82,10 +87,24 @@
 											</view>
 											<view class="tag">
 												<template v-if="!children_item.videoid">
-													<view class="brush grey">暂不支持刷作业</view>
+													
+													<view class="brush success" v-if="children_item.rec.praxise_submit_count>=2">已做完</view>
+													<view class="brush" v-else-if="children_item.rec.praxise_submit_count<=0" @click="brushPopupOpen({
+														type:'task',
+														course_id:class_item.course_id,
+														open_id:class_item.open_id,
+														id:children_item.id,
+													})">刷作业</view>
+													<view class="brush grey" v-else="">不可刷</view>
 												</template>
 												<template v-else-if="decimalToPercentage(children_item.rec.progress)<100">
-													<view class="brush" @click="brushPopupOpen(class_item.course_id,class_item.open_id,children_item.id,children_item.video_time)">刷课</view>
+													<view class="brush" @click="brushPopupOpen({
+														type:'class',
+														course_id:class_item.course_id,
+														open_id:class_item.open_id,
+														id:children_item.id,
+														video_time:children_item.video_time
+													})">刷课</view>
 												</template>
 												<template v-else="">
 													<view class="brush success">已学完</view>
@@ -97,7 +116,12 @@
 							</template>
 						</uni-collapse-item>
 					</uni-collapse>
-
+					<view class="wx-public-account" style="width: 80%;">
+					长按二维码关注我们的微信公众号
+					<view>
+						<image src="/static/wx-public-account.jpg"></image>
+					</view>
+				</view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -215,29 +239,42 @@
 				this.getClassDetails(course_id, open_id);
 			},
 			/**
-			 * 刷课弹窗打开
+			 * 刷课/刷作业弹窗打开
 			 */
-			brushPopupOpen(course_id,open_id,id,video_time){
-				this.brushData = {
-					course_id,open_id,id,video_time
-				};
+			brushPopupOpen(obj){
+				this.brushData = obj;
 				this.randomItemLossChildren = this.APP.getItemLossChildren();
 				this.$refs.brushPopup.open("bottom")
 			},
 			/**
-			 * 刷课请求
+			 * 刷课/刷作业请求
 			 */
 			brush(){
-				this.brushPopupIsMaskClick = false;
-				uni.request({
-					url: this.APP.globalData.basicUrl + "/Index/brushClass",
-					data: {
+				let path,data;
+				if(this.brushData.type=="class"){
+					path = "/Index/brushClass";
+					data = {
 						token: this.login_token,
 						course_id:this.brushData.course_id,
 						open_id:this.brushData.open_id,
 						id:this.brushData.id,
 						video_time:this.brushData.video_time,
-					},
+					}
+				}else if(this.brushData.type=="task"){
+					path = "/Index/brushTask";
+					data = {
+						token: this.login_token,
+						course_id:this.brushData.course_id,
+						open_id:this.brushData.open_id,
+						id:this.brushData.id,
+					}
+				}else{
+					return false;
+				}
+				this.brushPopupIsMaskClick = false;
+				uni.request({
+					url: this.APP.globalData.basicUrl + path,
+					data,
 					success: (res) => {
 						this.brushPopupIsMaskClick = true;
 						if (res.data && res.data?.code && res.data.code * 1 === 1) {
@@ -246,7 +283,7 @@
 						} else {
 							this.loginLoading = false;
 							this.msg.type = "error";
-							this.msg.content = res.data.msg;
+							this.msg.content = res.data.msg?res.data.msg:'未知错误';
 							this.$refs.alertDialog.open()
 						}
 					},

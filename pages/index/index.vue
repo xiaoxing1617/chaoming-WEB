@@ -7,7 +7,14 @@
 		<view v-if="user_realname" style="width: 100%;">
 			<button class="login" @click="jumpClassList">同意以下须知并进入</button>
 			<button class="exit" @click="exit">退出帐号登录</button>
+			
 			<view class="tips">
+				<view class="wx-public-account">
+					长按二维码关注我们的微信公众号
+					<view>
+						<image src="/static/wx-public-account.jpg"></image>
+					</view>
+				</view>
 				<ol start="1">
 					<li>开发者微信号（前面有一个下划线）：<span style="font-weight: 800;" @click="copyWx">_xiaoxing1617（点击复制）</span></li>
 					<li>为了系统稳定完成刷课操作，系统会缓存您的账号密码，请知晓</li>
@@ -46,6 +53,12 @@
 				</checkbox-group>
 			</form>
 			<view class="tips">
+				<view class="wx-public-account">
+					长按二维码关注我们的微信公众号
+					<view>
+						<image src="/static/wx-public-account.jpg"></image>
+					</view>
+				</view>
 				<ol start="1">
 					<li>开发者微信号（前面有一个下划线）：<span style="font-weight: 800;" @click="copyWx">_xiaoxing1617（点击复制）</span></li>
 					<li>为了系统稳定完成刷课操作，系统会缓存您的账号密码，请知晓</li>

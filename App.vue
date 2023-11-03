@@ -2,6 +2,7 @@
 	export default {
 		globalData: {
 			basicUrl: "https://chaoming.96xy.cn/api",
+			// basicUrl: "http://127.1.0.4",
 			lossChildrens:[],
 			pageIndex:1,
 			lossChildrenImgUrl:"https://res.crotg.com/",
@@ -197,5 +198,24 @@
 	.uni-collapse-item-border{
 		border-bottom: 1px #333 solid !important;
 		height: 127rpx !important;
+	}
+	.wx-public-account{
+		text-align: center;
+		color: #0867CE;
+		font-size: 1rem;
+		padding: 0.5rem 1rem;
+		margin: 0.3rem auto;
+		border: 2px solid #0867CE;
+		border-radius: 0.5rem;
+	}
+	.wx-public-account>view{
+		width: 9rem;
+		height: 9rem;
+		margin: 0rem auto;
+		margin-top: 0.5rem;
+	}
+	.wx-public-account>view>image{
+		width: 100%;
+		height: 100%;
 	}
 </style>
