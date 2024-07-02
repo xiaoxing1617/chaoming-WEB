@@ -41,6 +41,7 @@
 				第{{item.semester}}学期
 			</view>
 		</view>
+		<view class="test-but" @click="jumpTestList">考试列表</view>
 		<swiper class="swiper" @change="currentChange" :current="current"
 			:style="`height: ${windowHeight - headHeight - remainHeight}px;`" :indicator-dots="false" :autoplay="false"
 			:duration="300">
@@ -89,13 +90,14 @@
 												<template v-if="!children_item.videoid">
 													
 													<view class="brush success" v-if="children_item.rec.praxise_submit_count>=2">已做完</view>
+													<view class="brush grey" v-else-if="children_item.praxise_count<=0">非作业</view>
 													<view class="brush" v-else-if="children_item.rec.praxise_submit_count<=0" @click="brushPopupOpen({
 														type:'task',
 														course_id:class_item.course_id,
 														open_id:class_item.open_id,
 														id:children_item.id,
 													})">刷作业</view>
-													<view class="brush grey" v-else="">不可刷</view>
+													<view class="brush grey" v-else="">无法刷</view>
 												</template>
 												<template v-else-if="decimalToPercentage(children_item.rec.progress)<100">
 													<view class="brush" @click="brushPopupOpen({
@@ -117,6 +119,7 @@
 						</uni-collapse-item>
 					</uni-collapse>
 					<view class="wx-public-account" style="width: 80%;">
+						
 					长按二维码关注我们的微信公众号
 					<view>
 						<image src="/static/wx-public-account.jpg"></image>
@@ -159,6 +162,11 @@
 			}
 		},
 		methods: {
+			jumpTestList(){
+				uni.navigateTo({
+					url: '/pages/testList/testList'
+				});
+			},
 			formatSecondsToTime(seconds) {
 				const hours = Math.floor(seconds / 3600);
 				const minutes = Math.floor((seconds % 3600) / 60);
@@ -599,5 +607,18 @@
 	}
 	.brush-popup-view .tips span{
 		font-weight: 800;
+	}
+	.test-but {
+		width: 90%;
+		margin: 10rpx auto;
+		margin-top: 20rpx;
+		border-radius: 50rpx;
+		padding: 12rpx 20rpx;
+		text-align: center;
+		font-size: 29rpx;
+		font-weight: 800;
+		background: #0048FE;
+		color: #fff;
+		letter-spacing: 7rpx;
 	}
 </style>

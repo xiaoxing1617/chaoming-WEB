@@ -16,7 +16,17 @@
                 "navigationBarTitleText": "课程列表",
                 "enablePullDownRefresh": false
             }
-            
+        },
+        {
+        	"path" : "pages/testList/testList",
+        	"style" :
+        	{
+        		"navigationBarBackgroundColor":"#111316",
+        		"navigationBarTextColor":"#FFF",
+        		"navigationBarTextStyle": "white",
+        	    "navigationBarTitleText": "考试列表",
+        	    "enablePullDownRefresh": false
+        	}
         }
     ],
 	"globalStyle": {
