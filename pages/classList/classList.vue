@@ -3,7 +3,7 @@
 		<!-- 刷课提示 -->
 		<uni-popup ref="brushPopup" :is-mask-click="brushPopupIsMaskClick">
 			<view class="brush-popup-view">
-				<view class="main">
+				<!-- <view class="main">
 					<view class="title">公益广告</view>
 					<view class="info" v-if="randomItemLossChildren">
 						<view class="left">
@@ -23,7 +23,18 @@
 						暂时未获取到走失儿童的数据，您可以主动前往<span @click="jumpArchive">中国走失儿童数据库</span>官网进行查看
 					</view>
 				</view>
-				<view class="tips">公益广告数据均来自 <span @click="jumpArchive">中国走失儿童数据库</span> 官网获得</view>
+				<view class="tips">公益广告数据均来自 <span @click="jumpArchive">中国走失儿童数据库</span> 官网获得</view> -->
+				
+				<view class="main">
+					<view class="title">{{brushData.name}}</view>
+					<view class="ad-view">
+						<view>
+							<image src="/static/wx-public-account.jpg"></image>
+						</view>
+						长按关注公众号
+					</view>
+				</view>
+				<view class="tips">系统由 <span>星益云</span> 提供技术支持</view>
 				<view class="bottom" @click="brush" :style="`${brushPopupIsMaskClick?'background:rgba(0, 72, 254,1);color:#fff':'background:rgba(0, 72, 254,0.3);color:#eee'}`">
 					<template v-if="brushData.type=='class'">
 						{{brushPopupIsMaskClick?'开始刷课':'正在执行刷课任务'}}
@@ -41,9 +52,9 @@
 				第{{item.semester}}学期
 			</view>
 		</view>
-		<view class="test-but" @click="jumpTestList">考试列表</view>
+		<!-- <view class="test-but" @click="jumpTestList">考试列表</view> -->
 		<swiper class="swiper" @change="currentChange" :current="current"
-			:style="`height: ${windowHeight - headHeight - remainHeight}px;`" :indicator-dots="false" :autoplay="false"
+			:style="`height: ${swiper_height}px;`" :indicator-dots="false" :autoplay="false"
 			:duration="300">
 			<swiper-item v-for="(item,index) in list">
 				<scroll-view :scroll-y="true" class="swiper-item">
@@ -96,6 +107,7 @@
 														course_id:class_item.course_id,
 														open_id:class_item.open_id,
 														id:children_item.id,
+														name:children_item.name,
 													})">刷作业</view>
 													<view class="brush grey" v-else="">无法刷</view>
 												</template>
@@ -105,7 +117,8 @@
 														course_id:class_item.course_id,
 														open_id:class_item.open_id,
 														id:children_item.id,
-														video_time:children_item.video_time
+														video_time:children_item.video_time,
+														name:children_item.name,
 													})">刷课</view>
 												</template>
 												<template v-else="">
@@ -159,6 +172,11 @@
 				randomItemLossChildren:false,
 				brushData:{},
 				brushPopupIsMaskClick:true,
+			}
+		},
+		computed:{
+			swiper_height(){
+				return this.windowHeight - this.headHeight - this.remainHeight
 			}
 		},
 		methods: {
@@ -251,7 +269,7 @@
 			 */
 			brushPopupOpen(obj){
 				this.brushData = obj;
-				this.randomItemLossChildren = this.APP.getItemLossChildren();
+				// this.randomItemLossChildren = this.APP.getItemLossChildren();
 				this.$refs.brushPopup.open("bottom")
 			},
 			/**
@@ -532,10 +550,14 @@
 		position: relative;
 	}
 	.brush-popup-view .main .title{
-		color: #fff;
+		color: #0867CE;
 		text-align: center;
-		font-size: 28rpx;
+		font-size: 30rpx;
 		font-weight: 800;
+		padding: 0 0.7rem;
+		white-space: nowrap; /* 防止文本换行 */
+		overflow: hidden; /* 隐藏超出元素宽度的文本 */
+		text-overflow: ellipsis; /* 显示省略号 */
 	}
 	.brush-popup-view .bottom{
 		position: absolute;
@@ -620,5 +642,23 @@
 		background: #0048FE;
 		color: #fff;
 		letter-spacing: 7rpx;
+	}
+	
+	.ad-view{
+		text-align: center;
+		color: #fff;
+		font-size: 0.8rem;
+		padding: 0.5rem 1rem;
+		margin: 0.1rem auto;
+	}
+	.ad-view>view{
+		width: 8rem;
+		height: 8rem;
+		margin: 0rem auto;
+		margin-bottom: 0.5rem;
+	}
+	.ad-view>view>image{
+		width: 100%;
+		height: 100%;
 	}
 </style>

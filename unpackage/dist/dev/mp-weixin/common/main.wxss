@@ -1,0 +1,200 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+.uni-radio-input,
+.uni-checkbox-input {
+	background: #4B5364 !important;
+	border: 1px solid #21252B !important;
+}
+.uni-radio-input-checked,
+.uni-checkbox-input-checked {
+	background-color: rgb(0, 72, 254) !important;
+	border-color: rgb(0, 72, 254) !important;
+}
+.uni-checkbox-input-checked::before {
+	color: #fff !important;
+}
+.uni-popup-dialog {
+	background: #21252B !important;
+}
+.uni-dialog-button-group {
+	border-top-color: #333 !important;
+}
+.uni-border-left {
+	border-left-color: #333 !important;
+}
+.uni-dialog-button-text {
+	color: #eee !important;
+}
+.uni-button-color {
+	color: #0867CE !important;
+}
+.uni-dialog-content-text {
+	color: #aaa !important;
+}
+.uni-scroll-view-content {
+	background: #282C35 !important;
+}
+.left-item-title {
+	color: #aaa !important;
+}
+.left-item-card {
+	background: #21252B !important;
+}
+.left-item-card-info {
+	border-bottom: 1px solid #333 !important;
+}
+.left-item-card-name {
+	color: #eee !important;
+}
+.liu-search {
+	background: #21242D !important;
+	border: none !important;
+}
+.liu-input {
+	background: #111316 !important;
+}
+.liu-input .uni-input-input {
+	color: #eee !important;
+}
+.liu-scroll-right-name {
+	color: #eee !important;
+}
+.liu-list {
+	background: #21242D !important;
+}
+.left-item-card .img-info {
+	border: solid #555 1px !important;
+}
+.uni-collapse,.uni-collapse-item__title-box{
+    background: #21242D !important;
+}
+.uni-collapse-item__title-box{
+	color: #eee !important;
+}
+.uni-collapse-item__wrap{
+    background: #282C35 !important;
+}
+.uni-collapse-item--border{
+    border-bottom: #2C2F37 solid 1px !important;
+}
+.uni-collapse-item-border{
+	border-bottom: 1px #333 solid !important;
+	height: 127rpx !important;
+}
+.wx-public-account{
+	text-align: center;
+	color: #0867CE;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	margin: 0.3rem auto;
+	border: 2px solid #0867CE;
+	border-radius: 0.5rem;
+}
+.wx-public-account>view{
+	width: 9rem;
+	height: 9rem;
+	margin: 0rem auto;
+	margin-top: 0.5rem;
+}
+.wx-public-account>view>image{
+	width: 100%;
+	height: 100%;
+}
+

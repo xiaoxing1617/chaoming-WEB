@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classList/classList",
+    "pages/testList/testList"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "朝明在线刷课系统",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#BFBFBF",
+    "selectedColor": "#2595E8",
+    "backgroundColor": "#111316",
+    "list": [
+      {
+        "pagePath": "pages/classList/classList",
+        "text": "课程",
+        "iconPath": "static/class_list_0.png",
+        "selectedIconPath": "static/class_list_1.png"
+      },
+      {
+        "pagePath": "pages/testList/testList",
+        "text": "考试",
+        "iconPath": "static/test_list_0.png",
+        "selectedIconPath": "static/test_list_1.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

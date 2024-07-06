@@ -1,0 +1,74 @@
+
+page {
+	width: 100%;
+	background: #1C2025;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 0 50rpx;
+	padding-bottom: 100px;
+}
+.logo {
+	height: 200rpx;
+	width: 200rpx;
+	margin-top: 100rpx;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50rpx;
+}
+.text-area {
+	display: flex;
+	justify-content: center;
+}
+.title {
+	font-size: 36rpx;
+	color: #8f8f94;
+}
+.input {
+	background: #282C35;
+	border-radius: 20rpx;
+	padding: 20rpx 50rpx;
+	color: #e0e0e0;
+	margin-bottom: 20rpx;
+	text-align: center;
+	font-size: 35rpx;
+}
+.tips {
+	margin-top: 20rpx;
+	color: #a0a0a0;
+	font-size: 30rpx;
+}
+.login {
+	margin-top: 30rpx;
+	margin-bottom: 20rpx;
+	border-radius: 50rpx;
+	color: #eee;
+	background: #0048FE;
+	width: 100%;
+	font-size: 35rpx;
+	font-weight: 800;
+}
+.exit{
+	margin-top: 30rpx;
+	margin-bottom: 20rpx;
+	border-radius: 50rpx;
+	color: #000;
+	background: #eee;
+	width: 100%;
+	font-size: 35rpx;
+	font-weight: 800;
+}
+.radio {
+	text-align: center;
+	color: #e0e0e0;
+	margin-bottom: 20rpx;
+	font-size: 32rpx;
+}
+.radio>label {
+	margin: 0 20rpx;
+}
+

@@ -5,35 +5,51 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}
-	    ,{
-            "path" : "pages/classList/classList",
-            "style" :                                                                                    
-            {
-				"navigationBarBackgroundColor":"#111316",
-				"navigationBarTextColor":"#FFF",
+		}, {
+			"path": "pages/classList/classList",
+			"style": {
+				"navigationBarBackgroundColor": "#111316",
+				"navigationBarTextColor": "#FFF",
 				"navigationBarTextStyle": "white",
-                "navigationBarTitleText": "课程列表",
-                "enablePullDownRefresh": false
-            }
-        },
-        {
-        	"path" : "pages/testList/testList",
-        	"style" :
-        	{
-        		"navigationBarBackgroundColor":"#111316",
-        		"navigationBarTextColor":"#FFF",
-        		"navigationBarTextStyle": "white",
-        	    "navigationBarTitleText": "考试列表",
-        	    "enablePullDownRefresh": false
-        	}
-        }
-    ],
+				"navigationBarTitleText": "课程列表",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/testList/testList",
+			"style": {
+				"navigationBarBackgroundColor": "#111316",
+				"navigationBarTextColor": "#FFF",
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "考试列表",
+				"enablePullDownRefresh": false
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "朝明在线刷课系统",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#BFBFBF",
+		"selectedColor": "#2595E8",
+		"backgroundColor": "#111316",
+		"list":[
+			{
+				"pagePath":"pages/classList/classList",
+				"text":"课程",
+				"iconPath":"static/class_list_0.png",
+				"selectedIconPath":"static/class_list_1.png"
+			},
+			{
+				"pagePath":"pages/testList/testList",
+				"text":"考试",
+				"iconPath":"static/test_list_0.png",
+				"selectedIconPath":"static/test_list_1.png"
+			}
+		]
 	},
 	"uniIdRouter": {}
 }

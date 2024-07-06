@@ -9,7 +9,7 @@
 		},
 		onLaunch: function() {
 			console.log('App Launch')
-			this.getLossChildrens();
+			// this.getLossChildrens();
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -22,7 +22,6 @@
 			 * 获取一个随机的失踪儿童数据
 			 */
 			getItemLossChildren(){
-				console.log("getItemLossChildren");
 				let lossChildrens = this.globalData.lossChildrens;
 				if(lossChildrens && lossChildrens.length>=1){
 					// 生成一个随机索引

@@ -65,57 +65,48 @@
 			}
 		},
 		methods: {
+			/**
+			 * 查看考试答案
+			 * @param {Object} id
+			 */
 			getTestAnswer(id) {
 				const item = this.list.find(item => item.id === id);
 				this.testAnswer.title = item.title;
 				let _this = this;
-				this.APP.getUserInfo().then((data) => {
-					let login_token = uni.getStorageSync('login_token');
-					if (!login_token) {
-						uni.setStorageSync('login_token', null);
-					} else {
-						this.login_token = login_token;
-					}
-					uni.showLoading({
-						title: '请稍后...',
-						mask: true,
-					});
-					uni.request({
-						url: this.APP.globalData.basicUrl + "/Index/viewTestAnswer",
-						data: {
-							token: this.login_token,
-							test_id: item.id,
-							index: item.order,
-						},
-						success: (res) => {
-							uni.hideLoading();
-							if (res.data && res.data?.code && res.data.code * 1 === 1) {
-								this.testAnswer.list = res.data.data;
-								this.$refs.brushPopup.open("bottom")
-							} else {
-								this.msg.type = "error";
-								this.msg.content = res.data.msg;
-								this.$refs.alertDialog.open()
-							}
-						},
-						fail() {
-							uni.hideLoading();
+				let login_token = uni.getStorageSync('login_token');
+				if (!login_token) {
+					uni.setStorageSync('login_token', null);
+				} else {
+					this.login_token = login_token;
+				}
+				uni.showLoading({
+					title: '请稍后...',
+					mask: true,
+				});
+				uni.request({
+					url: this.APP.globalData.basicUrl + "/Index/viewTestAnswer",
+					data: {
+						token: this.login_token,
+						test_id: item.id,
+						index: item.order,
+					},
+					success: (res) => {
+						uni.hideLoading();
+						if (res.data && res.data?.code && res.data.code * 1 === 1) {
+							this.testAnswer.list = res.data.data;
+							this.$refs.brushPopup.open("bottom")
+						} else {
 							this.msg.type = "error";
-							this.msg.content = "系统繁忙";
+							this.msg.content = res.data.msg;
 							this.$refs.alertDialog.open()
 						}
-					})
-				}).catch((msg) => {
-					this.msg.type = "error";
-					this.msg.content = msg;
-					this.msg.confirm_txt = "去登录";
-					this.msg.confirm = this.msg.close = function() {
-						uni.navigateTo({
-							url: '/pages/index/index'
-						});
+					},
+					fail() {
+						uni.hideLoading();
+						this.msg.type = "error";
+						this.msg.content = "系统繁忙";
+						this.$refs.alertDialog.open()
 					}
-					this.$refs.alertDialog.open()
-
 				})
 			},
 			tips() {
@@ -123,6 +114,9 @@
 				this.msg.content = "您需要先进入考试才能解密获取本场考试的答案。（须知：朝明在线或本程序出现问题时可能无法解密成功）";
 				this.$refs.alertDialog.open()
 			},
+			/**
+			 * 获取考试列表
+			 */
 			getMeTestList() {
 				let _this = this;
 				this.APP.getUserInfo().then((data) => {
@@ -273,30 +267,35 @@
 		font-weight: 800;
 		margin-bottom: 10rpx;
 	}
-	.answer-list{
+
+	.answer-list {
 		height: 540rpx;
 		overflow-y: scroll;
 		color: #fff;
 		padding: 5rpx 15rpx;
 	}
-	.answer-list>.item{
+
+	.answer-list>.item {
 		border-bottom: #282C35 solid 1rpx;
 		margin: 10rpx auto;
 		padding-bottom: 15rpx;
 	}
-	.answer-list>.item .topic{
+
+	.answer-list>.item .topic {
 		font-size: 30rpx;
 		background: #1b212b;
 		border-radius: 12rpx;
 		padding: 8rpx 12rpx;
 		margin-bottom: 5rpx;
 	}
-	.answer-list>.item .topic>span{
+
+	.answer-list>.item .topic>span {
 		color: #0048FE;
 		font-weight: 800;
 		font-size: 32rpx;
 	}
-	.answer-list>.item .answer{
+
+	.answer-list>.item .answer {
 		font-size: 30rpx;
 		padding-left: 10rpx;
 	}
