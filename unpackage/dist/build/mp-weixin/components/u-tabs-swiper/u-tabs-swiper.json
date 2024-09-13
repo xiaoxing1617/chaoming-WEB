@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "u-badge": "/components/u-badge/u-badge"
+  },
+  "component": true
+}

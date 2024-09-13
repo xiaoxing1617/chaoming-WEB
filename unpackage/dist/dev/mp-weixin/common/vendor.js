@@ -777,11 +777,11 @@ function populateParameters(result) {
   var parameters = {
     appId: "__UNI__45E38F0",
     appName: "ChaoMingBrushClass",
-    appVersion: "1.0.0",
-    appVersionCode: "100",
+    appVersion: "1.0.2",
+    appVersionCode: "102",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "4.15",
-    uniRuntimeVersion: "4.15",
+    uniCompileVersion: "4.24",
+    uniRuntimeVersion: "4.24",
     uniPlatform: undefined || "mp-weixin",
     deviceBrand: deviceBrand,
     deviceModel: model,
@@ -876,8 +876,8 @@ var getAppBaseInfo = {
     result = sortObject(Object.assign(result, {
       appId: "__UNI__45E38F0",
       appName: "ChaoMingBrushClass",
-      appVersion: "1.0.0",
-      appVersionCode: "100",
+      appVersion: "1.0.2",
+      appVersionCode: "102",
       appLanguage: getAppLanguage(hostLanguage),
       hostVersion: version,
       hostLanguage: hostLanguage,
@@ -1557,7 +1557,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8923,7 +8923,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8944,14 +8944,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9047,7 +9047,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ChaoMingBrushClass","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9478,9 +9478,383 @@ internalMixin(Vue);
 /* 27 */,
 /* 28 */,
 /* 29 */,
-/* 30 */,
-/* 31 */,
+/* 30 */
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/@babel/runtime/regenerator/index.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// TODO(Babel 8): Remove this file.
+
+var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 31)();
+module.exports = runtime;
+
+/***/ }),
+/* 31 */
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
+function _regeneratorRuntime() {
+  "use strict";
+
+  /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+  module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
+    return e;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  var t,
+    e = {},
+    r = Object.prototype,
+    n = r.hasOwnProperty,
+    o = Object.defineProperty || function (t, e, r) {
+      t[e] = r.value;
+    },
+    i = "function" == typeof Symbol ? Symbol : {},
+    a = i.iterator || "@@iterator",
+    c = i.asyncIterator || "@@asyncIterator",
+    u = i.toStringTag || "@@toStringTag";
+  function define(t, e, r) {
+    return Object.defineProperty(t, e, {
+      value: r,
+      enumerable: !0,
+      configurable: !0,
+      writable: !0
+    }), t[e];
+  }
+  try {
+    define({}, "");
+  } catch (t) {
+    define = function define(t, e, r) {
+      return t[e] = r;
+    };
+  }
+  function wrap(t, e, r, n) {
+    var i = e && e.prototype instanceof Generator ? e : Generator,
+      a = Object.create(i.prototype),
+      c = new Context(n || []);
+    return o(a, "_invoke", {
+      value: makeInvokeMethod(t, r, c)
+    }), a;
+  }
+  function tryCatch(t, e, r) {
+    try {
+      return {
+        type: "normal",
+        arg: t.call(e, r)
+      };
+    } catch (t) {
+      return {
+        type: "throw",
+        arg: t
+      };
+    }
+  }
+  e.wrap = wrap;
+  var h = "suspendedStart",
+    l = "suspendedYield",
+    f = "executing",
+    s = "completed",
+    y = {};
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+  var p = {};
+  define(p, a, function () {
+    return this;
+  });
+  var d = Object.getPrototypeOf,
+    v = d && d(d(values([])));
+  v && v !== r && n.call(v, a) && (p = v);
+  var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p);
+  function defineIteratorMethods(t) {
+    ["next", "throw", "return"].forEach(function (e) {
+      define(t, e, function (t) {
+        return this._invoke(e, t);
+      });
+    });
+  }
+  function AsyncIterator(t, e) {
+    function invoke(r, o, i, a) {
+      var c = tryCatch(t[r], t, o);
+      if ("throw" !== c.type) {
+        var u = c.arg,
+          h = u.value;
+        return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) {
+          invoke("next", t, i, a);
+        }, function (t) {
+          invoke("throw", t, i, a);
+        }) : e.resolve(h).then(function (t) {
+          u.value = t, i(u);
+        }, function (t) {
+          return invoke("throw", t, i, a);
+        });
+      }
+      a(c.arg);
+    }
+    var r;
+    o(this, "_invoke", {
+      value: function value(t, n) {
+        function callInvokeWithMethodAndArg() {
+          return new e(function (e, r) {
+            invoke(t, n, e, r);
+          });
+        }
+        return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+      }
+    });
+  }
+  function makeInvokeMethod(e, r, n) {
+    var o = h;
+    return function (i, a) {
+      if (o === f) throw Error("Generator is already running");
+      if (o === s) {
+        if ("throw" === i) throw a;
+        return {
+          value: t,
+          done: !0
+        };
+      }
+      for (n.method = i, n.arg = a;;) {
+        var c = n.delegate;
+        if (c) {
+          var u = maybeInvokeDelegate(c, n);
+          if (u) {
+            if (u === y) continue;
+            return u;
+          }
+        }
+        if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) {
+          if (o === h) throw o = s, n.arg;
+          n.dispatchException(n.arg);
+        } else "return" === n.method && n.abrupt("return", n.arg);
+        o = f;
+        var p = tryCatch(e, r, n);
+        if ("normal" === p.type) {
+          if (o = n.done ? s : l, p.arg === y) continue;
+          return {
+            value: p.arg,
+            done: n.done
+          };
+        }
+        "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg);
+      }
+    };
+  }
+  function maybeInvokeDelegate(e, r) {
+    var n = r.method,
+      o = e.iterator[n];
+    if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y;
+    var i = tryCatch(o, e.iterator, r.arg);
+    if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y;
+    var a = i.arg;
+    return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y);
+  }
+  function pushTryEntry(t) {
+    var e = {
+      tryLoc: t[0]
+    };
+    1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e);
+  }
+  function resetTryEntry(t) {
+    var e = t.completion || {};
+    e.type = "normal", delete e.arg, t.completion = e;
+  }
+  function Context(t) {
+    this.tryEntries = [{
+      tryLoc: "root"
+    }], t.forEach(pushTryEntry, this), this.reset(!0);
+  }
+  function values(e) {
+    if (e || "" === e) {
+      var r = e[a];
+      if (r) return r.call(e);
+      if ("function" == typeof e.next) return e;
+      if (!isNaN(e.length)) {
+        var o = -1,
+          i = function next() {
+            for (; ++o < e.length;) {
+              if (n.call(e, o)) return next.value = e[o], next.done = !1, next;
+            }
+            return next.value = t, next.done = !0, next;
+          };
+        return i.next = i;
+      }
+    }
+    throw new TypeError(_typeof(e) + " is not iterable");
+  }
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", {
+    value: GeneratorFunctionPrototype,
+    configurable: !0
+  }), o(GeneratorFunctionPrototype, "constructor", {
+    value: GeneratorFunction,
+    configurable: !0
+  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) {
+    var e = "function" == typeof t && t.constructor;
+    return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name));
+  }, e.mark = function (t) {
+    return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t;
+  }, e.awrap = function (t) {
+    return {
+      __await: t
+    };
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () {
+    return this;
+  }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) {
+    void 0 === i && (i = Promise);
+    var a = new AsyncIterator(wrap(t, r, n, o), i);
+    return e.isGeneratorFunction(r) ? a : a.next().then(function (t) {
+      return t.done ? t.value : a.next();
+    });
+  }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () {
+    return this;
+  }), define(g, "toString", function () {
+    return "[object Generator]";
+  }), e.keys = function (t) {
+    var e = Object(t),
+      r = [];
+    for (var n in e) {
+      r.push(n);
+    }
+    return r.reverse(), function next() {
+      for (; r.length;) {
+        var t = r.pop();
+        if (t in e) return next.value = t, next.done = !1, next;
+      }
+      return next.done = !0, next;
+    };
+  }, e.values = values, Context.prototype = {
+    constructor: Context,
+    reset: function reset(e) {
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) {
+        "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t);
+      }
+    },
+    stop: function stop() {
+      this.done = !0;
+      var t = this.tryEntries[0].completion;
+      if ("throw" === t.type) throw t.arg;
+      return this.rval;
+    },
+    dispatchException: function dispatchException(e) {
+      if (this.done) throw e;
+      var r = this;
+      function handle(n, o) {
+        return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o;
+      }
+      for (var o = this.tryEntries.length - 1; o >= 0; --o) {
+        var i = this.tryEntries[o],
+          a = i.completion;
+        if ("root" === i.tryLoc) return handle("end");
+        if (i.tryLoc <= this.prev) {
+          var c = n.call(i, "catchLoc"),
+            u = n.call(i, "finallyLoc");
+          if (c && u) {
+            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
+            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+          } else if (c) {
+            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
+          } else {
+            if (!u) throw Error("try statement without catch or finally");
+            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+          }
+        }
+      }
+    },
+    abrupt: function abrupt(t, e) {
+      for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+        var o = this.tryEntries[r];
+        if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) {
+          var i = o;
+          break;
+        }
+      }
+      i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null);
+      var a = i ? i.completion : {};
+      return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a);
+    },
+    complete: function complete(t, e) {
+      if ("throw" === t.type) throw t.arg;
+      return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y;
+    },
+    finish: function finish(t) {
+      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+        var r = this.tryEntries[e];
+        if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
+      }
+    },
+    "catch": function _catch(t) {
+      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+        var r = this.tryEntries[e];
+        if (r.tryLoc === t) {
+          var n = r.completion;
+          if ("throw" === n.type) {
+            var o = n.arg;
+            resetTryEntry(r);
+          }
+          return o;
+        }
+      }
+      throw Error("illegal catch attempt");
+    },
+    delegateYield: function delegateYield(e, r, n) {
+      return this.delegate = {
+        iterator: values(e),
+        resultName: r,
+        nextLoc: n
+      }, "next" === this.method && (this.arg = t), y;
+    }
+  }, e;
+}
+module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
 /* 32 */
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+      args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+      _next(undefined);
+    });
+  };
+}
+module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+/* 33 */,
+/* 34 */,
+/* 35 */
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -9611,7 +9985,1918 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 33 */
+/* 36 */
+/*!*********************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/index.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 37));
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 38));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 42));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 43));
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 44));
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 45));
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 46));
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 47));
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 48));
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 49));
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 50));
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 40));
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 39));
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 51));
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 41));
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 52));
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 53));
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 54));
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 55));
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 56));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 57);
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 58));
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 59));
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 60));
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 61));
+// 引入全局mixin
+
+// 引入关于是否mixin集成小程序分享的配置
+// import wxshare from './libs/mixin/mpShare.js'
+// 全局挂载引入http相关请求拦截插件
+
+function wranning(str) {
+  // 开发环境进行信息输出,主要是一些报错信息
+  // 这个环境的来由是在程序编写时候,点击hx编辑器运行调试代码的时候,详见:
+  // 	https://uniapp.dcloud.io/frame?id=%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%92%8c%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83
+  if (true) {
+    console.warn(str);
+  }
+}
+
+// 尝试判断在根目录的/store中是否有$u.mixin.js，此文件uView默认为需要挂在到全局的vuex的state变量
+// HX2.6.11版本,放到try中,控制台依然会警告,暂时不用此方式，
+// let vuexStore = {};
+// try {
+// 	vuexStore = require("@/store/$u.mixin.js");
+// } catch (e) {
+// 	//TODO handle the exception
+// }
+
+// post类型对象参数转为get类型url参数
+
+var $u = {
+  queryParams: _queryParams.default,
+  route: _route.default,
+  timeFormat: _timeFormat.default,
+  date: _timeFormat.default,
+  // 另名date
+  timeFrom: _timeFrom.default,
+  colorGradient: _colorGradient.default.colorGradient,
+  colorToRgba: _colorGradient.default.colorToRgba,
+  guid: _guid.default,
+  color: _color.default,
+  sys: _sys.sys,
+  os: _sys.os,
+  type2icon: _type2icon.default,
+  randomArray: _randomArray.default,
+  wranning: wranning,
+  get: _request.default.get,
+  post: _request.default.post,
+  put: _request.default.put,
+  'delete': _request.default.delete,
+  hexToRgb: _colorGradient.default.hexToRgb,
+  rgbToHex: _colorGradient.default.rgbToHex,
+  test: _test.default,
+  random: _random.default,
+  deepClone: _deepClone.default,
+  deepMerge: _deepMerge.default,
+  getParent: _getParent.default,
+  $parent: _$parent.default,
+  addUnit: _addUnit.default,
+  trim: _trim.default,
+  type: ['primary', 'success', 'error', 'warning', 'info'],
+  http: _request.default,
+  toast: _toast.default,
+  config: _config.default,
+  // uView配置信息相关，比如版本号
+  zIndex: _zIndex.default,
+  debounce: _debounce.default,
+  throttle: _throttle.default
+};
+
+// $u挂载到uni对象上
+uni.$u = $u;
+var install = function install(Vue) {
+  Vue.mixin(_mixin.default);
+  if (Vue.prototype.openShare) {
+    Vue.mixin(mpShare);
+  }
+  // Vue.mixin(vuexStore);
+  // 时间格式化，同时两个名称，date和timeFormat
+  Vue.filter('timeFormat', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  Vue.filter('date', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  // 将多久以前的方法，注入到全局过滤器
+  Vue.filter('timeFrom', function (timestamp, format) {
+    return (0, _timeFrom.default)(timestamp, format);
+  });
+  Vue.prototype.$u = $u;
+};
+var _default = {
+  install: install
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 37 */
+/*!********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/mixin/mixin.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
+  data: function data() {
+    return {};
+  },
+  onLoad: function onLoad() {
+    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
+    this.$u.getRect = this.$uGetRect;
+  },
+  methods: {
+    // 查询节点信息
+    // 目前此方法在支付宝小程序中无法获取组件跟接点的尺寸，为支付宝的bug(2020-07-21)
+    // 解决办法为在组件根部再套一个没有任何作用的view元素
+    $uGetRect: function $uGetRect(selector, all) {
+      var _this = this;
+      return new Promise(function (resolve) {
+        uni.createSelectorQuery().in(_this)[all ? 'selectAll' : 'select'](selector).boundingClientRect(function (rect) {
+          if (all && Array.isArray(rect) && rect.length) {
+            resolve(rect);
+          }
+          if (!all && rect) {
+            resolve(rect);
+          }
+        }).exec();
+      });
+    },
+    getParentData: function getParentData() {
+      var _this2 = this;
+      var parentName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      // 避免在created中去定义parent变量
+      if (!this.parent) this.parent = false;
+      // 这里的本质原理是，通过获取父组件实例(也即u-radio-group的this)
+      // 将父组件this中对应的参数，赋值给本组件(u-radio的this)的parentData对象中对应的属性
+      // 之所以需要这么做，是因为所有端中，头条小程序不支持通过this.parent.xxx去监听父组件参数的变化
+      this.parent = this.$u.$parent.call(this, parentName);
+      if (this.parent) {
+        // 历遍parentData中的属性，将parent中的同名属性赋值给parentData
+        Object.keys(this.parentData).map(function (key) {
+          _this2.parentData[key] = _this2.parent[key];
+        });
+      }
+    },
+    // 阻止事件冒泡
+    preventEvent: function preventEvent(e) {
+      e && e.stopPropagation && e.stopPropagation();
+    }
+  },
+  onReachBottom: function onReachBottom() {
+    uni.$emit('uOnReachBottom');
+  },
+  beforeDestroy: function beforeDestroy() {
+    var _this3 = this;
+    // 判断当前页面是否存在parent和children，一般在checkbox和checkbox-group父子联动的场景会有此情况
+    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
+    if (this.parent && uni.$u.test.array(this.parent.children)) {
+      // 组件销毁时，移除父组件中的children数组中对应的实例
+      var childrenList = this.parent.children;
+      childrenList.map(function (child, index) {
+        // 如果相等，则移除
+        if (child === _this3) {
+          childrenList.splice(index, 1);
+        }
+      });
+    }
+  }
+};
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 38 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/request/index.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 39));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 41));
+var Request = /*#__PURE__*/function () {
+  function Request() {
+    var _this = this;
+    (0, _classCallCheck2.default)(this, Request);
+    this.config = {
+      baseUrl: '',
+      // 请求的根域名
+      // 默认的请求头
+      header: {},
+      method: 'POST',
+      // 设置为json，返回后uni.request会对数据进行一次JSON.parse
+      dataType: 'json',
+      // 此参数无需处理，因为5+和支付宝小程序不支持，默认为text即可
+      responseType: 'text',
+      showLoading: true,
+      // 是否显示请求中的loading
+      loadingText: '请求中...',
+      loadingTime: 800,
+      // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
+      timer: null,
+      // 定时器
+      originalData: false,
+      // 是否在拦截器中返回服务端的原始数据，见文档说明
+      loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
+    };
+
+    // 拦截器
+    this.interceptor = {
+      // 请求前的拦截
+      request: null,
+      // 请求后的拦截
+      response: null
+    };
+
+    // get请求
+    this.get = function (url) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this.request({
+        method: 'GET',
+        url: url,
+        header: header,
+        data: data
+      });
+    };
+
+    // post请求
+    this.post = function (url) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this.request({
+        url: url,
+        method: 'POST',
+        header: header,
+        data: data
+      });
+    };
+
+    // put请求，不支持支付宝小程序(HX2.6.15)
+    this.put = function (url) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this.request({
+        url: url,
+        method: 'PUT',
+        header: header,
+        data: data
+      });
+    };
+
+    // delete请求，不支持支付宝和头条小程序(HX2.6.15)
+    this.delete = function (url) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this.request({
+        url: url,
+        method: 'DELETE',
+        header: header,
+        data: data
+      });
+    };
+  }
+  (0, _createClass2.default)(Request, [{
+    key: "setConfig",
+    value:
+    // 设置全局默认配置
+    function setConfig(customConfig) {
+      // 深度合并对象，否则会造成对象深层属性丢失
+      this.config = (0, _deepMerge.default)(this.config, customConfig);
+    }
+
+    // 主要请求部分
+  }, {
+    key: "request",
+    value: function request() {
+      var _this2 = this;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      // 检查请求拦截
+      if (this.interceptor.request && typeof this.interceptor.request === 'function') {
+        var tmpConfig = {};
+        var interceptorRequest = this.interceptor.request(options);
+        if (interceptorRequest === false) {
+          // 返回一个处于pending状态中的Promise，来取消原promise，避免进入then()回调
+          return new Promise(function () {});
+        }
+        this.options = interceptorRequest;
+      }
+      options.dataType = options.dataType || this.config.dataType;
+      options.responseType = options.responseType || this.config.responseType;
+      options.url = options.url || '';
+      options.params = options.params || {};
+      options.header = Object.assign({}, this.config.header, options.header);
+      options.method = options.method || this.config.method;
+      return new Promise(function (resolve, reject) {
+        options.complete = function (response) {
+          // 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
+          uni.hideLoading();
+          // 清除定时器，如果请求回来了，就无需loading
+          clearTimeout(_this2.config.timer);
+          _this2.config.timer = null;
+          // 判断用户对拦截返回数据的要求，如果originalData为true，返回所有的数据(response)到拦截器，否则只返回response.data
+          if (_this2.config.originalData) {
+            // 判断是否存在拦截器
+            if (_this2.interceptor.response && typeof _this2.interceptor.response === 'function') {
+              var resInterceptors = _this2.interceptor.response(response);
+              // 如果拦截器不返回false，就将拦截器返回的内容给this.$u.post的then回调
+              if (resInterceptors !== false) {
+                resolve(resInterceptors);
+              } else {
+                // 如果拦截器返回false，意味着拦截器定义者认为返回有问题，直接接入catch回调
+                reject(response);
+              }
+            } else {
+              // 如果要求返回原始数据，就算没有拦截器，也返回最原始的数据
+              resolve(response);
+            }
+          } else {
+            if (response.statusCode == 200) {
+              if (_this2.interceptor.response && typeof _this2.interceptor.response === 'function') {
+                var _resInterceptors = _this2.interceptor.response(response.data);
+                if (_resInterceptors !== false) {
+                  resolve(_resInterceptors);
+                } else {
+                  reject(response.data);
+                }
+              } else {
+                // 如果不是返回原始数据(originalData=false)，且没有拦截器的情况下，返回纯数据给then回调
+                resolve(response.data);
+              }
+            } else {
+              // 不返回原始数据的情况下，服务器状态码不为200，modal弹框提示
+              // if(response.errMsg) {
+              // 	uni.showModal({
+              // 		title: response.errMsg
+              // 	});
+              // }
+              reject(response);
+            }
+          }
+        };
+
+        // 判断用户传递的URL是否/开头,如果不是,加上/，这里使用了uView的test.js验证库的url()方法
+        options.url = _test.default.url(options.url) ? options.url : _this2.config.baseUrl + (options.url.indexOf('/') == 0 ? options.url : '/' + options.url);
+
+        // 是否显示loading
+        // 加一个是否已有timer定时器的判断，否则有两个同时请求的时候，后者会清除前者的定时器id
+        // 而没有清除前者的定时器，导致前者超时，一直显示loading
+        if (_this2.config.showLoading && !_this2.config.timer) {
+          _this2.config.timer = setTimeout(function () {
+            uni.showLoading({
+              title: _this2.config.loadingText,
+              mask: _this2.config.loadingMask
+            });
+            _this2.config.timer = null;
+          }, _this2.config.loadingTime);
+        }
+        uni.request(options);
+      });
+      // .catch(res => {
+      // 	// 如果返回reject()，不让其进入this.$u.post().then().catch()后面的catct()
+      // 	// 因为很多人都会忘了写后面的catch()，导致报错捕获不到catch
+      // 	return new Promise(()=>{});
+      // })
+    }
+  }]);
+  return Request;
+}();
+var _default = new Request();
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 39 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/deepMerge.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 40));
+// JS对象深度合并
+function deepMerge() {
+  var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  target = (0, _deepClone.default)(target);
+  if ((0, _typeof2.default)(target) !== 'object' || (0, _typeof2.default)(source) !== 'object') return false;
+  for (var prop in source) {
+    if (!source.hasOwnProperty(prop)) continue;
+    if (prop in target) {
+      if ((0, _typeof2.default)(target[prop]) !== 'object') {
+        target[prop] = source[prop];
+      } else {
+        if ((0, _typeof2.default)(source[prop]) !== 'object') {
+          target[prop] = source[prop];
+        } else {
+          if (target[prop].concat && source[prop].concat) {
+            target[prop] = target[prop].concat(source[prop]);
+          } else {
+            target[prop] = deepMerge(target[prop], source[prop]);
+          }
+        }
+      }
+    } else {
+      target[prop] = source[prop];
+    }
+  }
+  return target;
+}
+var _default = deepMerge;
+exports.default = _default;
+
+/***/ }),
+/* 40 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/deepClone.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
+// 判断arr是否为一个数组，返回一个bool值
+function isArray(arr) {
+  return Object.prototype.toString.call(arr) === '[object Array]';
+}
+
+// 深度克隆
+function deepClone(obj) {
+  // 对常见的“非”值，直接返回原来值
+  if ([null, undefined, NaN, false].includes(obj)) return obj;
+  if ((0, _typeof2.default)(obj) !== "object" && typeof obj !== 'function') {
+    //原始类型直接返回
+    return obj;
+  }
+  var o = isArray(obj) ? [] : {};
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      o[i] = (0, _typeof2.default)(obj[i]) === "object" ? deepClone(obj[i]) : obj[i];
+    }
+  }
+  return o;
+}
+var _default = deepClone;
+exports.default = _default;
+
+/***/ }),
+/* 41 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/test.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
+/**
+ * 验证电子邮箱格式
+ */
+function email(value) {
+  return /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/.test(value);
+}
+
+/**
+ * 验证手机格式
+ */
+function mobile(value) {
+  return /^1[3-9]\d{9}$/.test(value);
+}
+
+/**
+ * 验证URL格式
+ */
+function url(value) {
+  return /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/.test(value);
+}
+
+/**
+ * 验证日期格式
+ */
+function date(value) {
+  return !/Invalid|NaN/.test(new Date(value).toString());
+}
+
+/**
+ * 验证ISO类型的日期格式
+ */
+function dateISO(value) {
+  return /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(value);
+}
+
+/**
+ * 验证十进制数字
+ */
+function number(value) {
+  return /^[\+-]?(\d+\.?\d*|\.\d+|\d\.\d+e\+\d+)$/.test(value);
+}
+
+/**
+ * 验证整数
+ */
+function digits(value) {
+  return /^\d+$/.test(value);
+}
+
+/**
+ * 验证身份证号码
+ */
+function idCard(value) {
+  return /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value);
+}
+
+/**
+ * 是否车牌号
+ */
+function carNo(value) {
+  // 新能源车牌
+  var xreg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
+  // 旧车牌
+  var creg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
+  if (value.length === 7) {
+    return creg.test(value);
+  } else if (value.length === 8) {
+    return xreg.test(value);
+  } else {
+    return false;
+  }
+}
+
+/**
+ * 金额,只允许2位小数
+ */
+function amount(value) {
+  //金额，只允许保留两位小数
+  return /^[1-9]\d*(,\d{3})*(\.\d{1,2})?$|^0\.\d{1,2}$/.test(value);
+}
+
+/**
+ * 中文
+ */
+function chinese(value) {
+  var reg = /^[\u4e00-\u9fa5]+$/gi;
+  return reg.test(value);
+}
+
+/**
+ * 只能输入字母
+ */
+function letter(value) {
+  return /^[a-zA-Z]*$/.test(value);
+}
+
+/**
+ * 只能是字母或者数字
+ */
+function enOrNum(value) {
+  //英文或者数字
+  var reg = /^[0-9a-zA-Z]*$/g;
+  return reg.test(value);
+}
+
+/**
+ * 验证是否包含某个值
+ */
+function contains(value, param) {
+  return value.indexOf(param) >= 0;
+}
+
+/**
+ * 验证一个值范围[min, max]
+ */
+function range(value, param) {
+  return value >= param[0] && value <= param[1];
+}
+
+/**
+ * 验证一个长度范围[min, max]
+ */
+function rangeLength(value, param) {
+  return value.length >= param[0] && value.length <= param[1];
+}
+
+/**
+ * 是否固定电话
+ */
+function landline(value) {
+  var reg = /^\d{3,4}-\d{7,8}(-\d{3,4})?$/;
+  return reg.test(value);
+}
+
+/**
+ * 判断是否为空
+ */
+function empty(value) {
+  switch ((0, _typeof2.default)(value)) {
+    case 'undefined':
+      return true;
+    case 'string':
+      if (value.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length == 0) return true;
+      break;
+    case 'boolean':
+      if (!value) return true;
+      break;
+    case 'number':
+      if (0 === value || isNaN(value)) return true;
+      break;
+    case 'object':
+      if (null === value || value.length === 0) return true;
+      for (var i in value) {
+        return false;
+      }
+      return true;
+  }
+  return false;
+}
+
+/**
+ * 是否json字符串
+ */
+function jsonString(value) {
+  if (typeof value == 'string') {
+    try {
+      var obj = JSON.parse(value);
+      if ((0, _typeof2.default)(obj) == 'object' && obj) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
+  return false;
+}
+
+/**
+ * 是否数组
+ */
+function array(value) {
+  if (typeof Array.isArray === "function") {
+    return Array.isArray(value);
+  } else {
+    return Object.prototype.toString.call(value) === "[object Array]";
+  }
+}
+
+/**
+ * 是否对象
+ */
+function object(value) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+/**
+ * 是否短信验证码
+ */
+function code(value) {
+  var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return new RegExp("^\\d{".concat(len, "}$")).test(value);
+}
+var _default = {
+  email: email,
+  mobile: mobile,
+  url: url,
+  date: date,
+  dateISO: dateISO,
+  number: number,
+  digits: digits,
+  idCard: idCard,
+  carNo: carNo,
+  amount: amount,
+  chinese: chinese,
+  letter: letter,
+  enOrNum: enOrNum,
+  contains: contains,
+  range: range,
+  rangeLength: rangeLength,
+  empty: empty,
+  isEmpty: empty,
+  jsonString: jsonString,
+  landline: landline,
+  object: object,
+  array: array,
+  code: code
+};
+exports.default = _default;
+
+/***/ }),
+/* 42 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/queryParams.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ * 对象转url参数
+ * @param {*} data,对象
+ * @param {*} isPrefix,是否自动加上"?"
+ */
+function queryParams() {
+  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var isPrefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var arrayFormat = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'brackets';
+  var prefix = isPrefix ? '?' : '';
+  var _result = [];
+  if (['indices', 'brackets', 'repeat', 'comma'].indexOf(arrayFormat) == -1) arrayFormat = 'brackets';
+  var _loop = function _loop(key) {
+    var value = data[key];
+    // 去掉为空的参数
+    if (['', undefined, null].indexOf(value) >= 0) {
+      return "continue";
+    }
+    // 如果值为数组，另行处理
+    if (value.constructor === Array) {
+      // e.g. {ids: [1, 2, 3]}
+      switch (arrayFormat) {
+        case 'indices':
+          // 结果: ids[0]=1&ids[1]=2&ids[2]=3
+          for (var i = 0; i < value.length; i++) {
+            _result.push(key + '[' + i + ']=' + value[i]);
+          }
+          break;
+        case 'brackets':
+          // 结果: ids[]=1&ids[]=2&ids[]=3
+          value.forEach(function (_value) {
+            _result.push(key + '[]=' + _value);
+          });
+          break;
+        case 'repeat':
+          // 结果: ids=1&ids=2&ids=3
+          value.forEach(function (_value) {
+            _result.push(key + '=' + _value);
+          });
+          break;
+        case 'comma':
+          // 结果: ids=1,2,3
+          var commaStr = "";
+          value.forEach(function (_value) {
+            commaStr += (commaStr ? "," : "") + _value;
+          });
+          _result.push(key + '=' + commaStr);
+          break;
+        default:
+          value.forEach(function (_value) {
+            _result.push(key + '[]=' + _value);
+          });
+      }
+    } else {
+      _result.push(key + '=' + value);
+    }
+  };
+  for (var key in data) {
+    var _ret = _loop(key);
+    if (_ret === "continue") continue;
+  }
+  return _result.length ? prefix + _result.join('&') : '';
+}
+var _default = queryParams;
+exports.default = _default;
+
+/***/ }),
+/* 43 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/route.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 30));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 32));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+/**
+ * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+ * 并且带有路由拦截功能
+ */
+var Router = /*#__PURE__*/function () {
+  function Router() {
+    (0, _classCallCheck2.default)(this, Router);
+    // 原始属性定义
+    this.config = {
+      type: 'navigateTo',
+      url: '',
+      delta: 1,
+      // navigateBack页面后退时,回退的层数
+      params: {},
+      // 传递的参数
+      animationType: 'pop-in',
+      // 窗口动画,只在APP有效
+      animationDuration: 300,
+      // 窗口动画持续时间,单位毫秒,只在APP有效
+      intercept: false // 是否需要拦截
+    };
+    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
+    // 这里在构造函数中进行this绑定
+    this.route = this.route.bind(this);
+  }
+
+  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
+  (0, _createClass2.default)(Router, [{
+    key: "addRootPath",
+    value: function addRootPath(url) {
+      return url[0] === '/' ? url : "/".concat(url);
+    }
+
+    // 整合路由参数
+  }, {
+    key: "mixinParam",
+    value: function mixinParam(url, params) {
+      url = url && this.addRootPath(url);
+
+      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
+      // 如果有url中有get参数，转换后无需带上"?"
+      var query = '';
+      if (/.*\/.*\?.*=.*/.test(url)) {
+        // object对象转为get类型的参数
+        query = uni.$u.queryParams(params, false);
+        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
+        return url += "&" + query;
+      } else {
+        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
+        query = uni.$u.queryParams(params);
+        return url += query;
+      }
+    }
+
+    // 对外的方法名称
+  }, {
+    key: "route",
+    value: function () {
+      var _route = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var options,
+          params,
+          mergeConfig,
+          isNext,
+          _args = arguments;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
+                params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+                // 合并用户的配置和内部的默认配置
+                mergeConfig = {};
+                if (typeof options === 'string') {
+                  // 如果options为字符串，则为route(url, params)的形式
+                  mergeConfig.url = this.mixinParam(options, params);
+                  mergeConfig.type = 'navigateTo';
+                } else {
+                  mergeConfig = uni.$u.deepClone(options, this.config);
+                  // 否则正常使用mergeConfig中的url和params进行拼接
+                  mergeConfig.url = this.mixinParam(options.url, options.params);
+                }
+                if (params.intercept) {
+                  this.config.intercept = params.intercept;
+                }
+                // params参数也带给拦截器
+                mergeConfig.params = params;
+                // 合并内外部参数
+                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
+                // 判断用户是否定义了拦截器
+                if (!(typeof uni.$u.routeIntercept === 'function')) {
+                  _context.next = 14;
+                  break;
+                }
+                _context.next = 10;
+                return new Promise(function (resolve, reject) {
+                  uni.$u.routeIntercept(mergeConfig, resolve);
+                });
+              case 10:
+                isNext = _context.sent;
+                // 如果isNext为true，则执行路由跳转
+                isNext && this.openPage(mergeConfig);
+                _context.next = 15;
+                break;
+              case 14:
+                this.openPage(mergeConfig);
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+      function route() {
+        return _route.apply(this, arguments);
+      }
+      return route;
+    }() // 执行路由跳转
+  }, {
+    key: "openPage",
+    value: function openPage(config) {
+      // 解构参数
+      var url = config.url,
+        type = config.type,
+        delta = config.delta,
+        animationType = config.animationType,
+        animationDuration = config.animationDuration;
+      if (config.type == 'navigateTo' || config.type == 'to') {
+        uni.navigateTo({
+          url: url,
+          animationType: animationType,
+          animationDuration: animationDuration
+        });
+      }
+      if (config.type == 'redirectTo' || config.type == 'redirect') {
+        uni.redirectTo({
+          url: url
+        });
+      }
+      if (config.type == 'switchTab' || config.type == 'tab') {
+        uni.switchTab({
+          url: url
+        });
+      }
+      if (config.type == 'reLaunch' || config.type == 'launch') {
+        uni.reLaunch({
+          url: url
+        });
+      }
+      if (config.type == 'navigateBack' || config.type == 'back') {
+        uni.navigateBack({
+          delta: delta
+        });
+      }
+    }
+  }]);
+  return Router;
+}();
+var _default = new Router().route;
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 44 */
+/*!****************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/timeFormat.js ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// padStart 的 polyfill，因为某些机型或情况，还无法支持es7的padStart，比如电脑版的微信小程序
+// 所以这里做一个兼容polyfill的兼容处理
+if (!String.prototype.padStart) {
+  // 为了方便表示这里 fillString 用了ES6 的默认参数，不影响理解
+  String.prototype.padStart = function (maxLength) {
+    var fillString = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ' ';
+    if (Object.prototype.toString.call(fillString) !== "[object String]") throw new TypeError('fillString must be String');
+    var str = this;
+    // 返回 String(str) 这里是为了使返回的值是字符串字面量，在控制台中更符合直觉
+    if (str.length >= maxLength) return String(str);
+    var fillLength = maxLength - str.length,
+      times = Math.ceil(fillLength / fillString.length);
+    while (times >>= 1) {
+      fillString += fillString;
+      if (times === 1) {
+        fillString += fillString;
+      }
+    }
+    return fillString.slice(0, fillLength) + str;
+  };
+}
+
+// 其他更多是格式化有如下:
+// yyyy:mm:dd|yyyy:mm|yyyy年mm月dd日|yyyy年mm月dd日 hh时MM分等,可自定义组合
+function timeFormat() {
+  var dateTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var fmt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'yyyy-mm-dd';
+  // 如果为null,则格式化当前时间
+  if (!dateTime) dateTime = Number(new Date());
+  // 如果dateTime长度为10或者13，则为秒和毫秒的时间戳，如果超过13位，则为其他的时间格式
+  if (dateTime.toString().length == 10) dateTime *= 1000;
+  var date = new Date(dateTime);
+  var ret;
+  var opt = {
+    "y+": date.getFullYear().toString(),
+    // 年
+    "m+": (date.getMonth() + 1).toString(),
+    // 月
+    "d+": date.getDate().toString(),
+    // 日
+    "h+": date.getHours().toString(),
+    // 时
+    "M+": date.getMinutes().toString(),
+    // 分
+    "s+": date.getSeconds().toString() // 秒
+    // 有其他格式化字符需求可以继续添加，必须转化成字符串
+  };
+
+  for (var k in opt) {
+    ret = new RegExp("(" + k + ")").exec(fmt);
+    if (ret) {
+      fmt = fmt.replace(ret[1], ret[1].length == 1 ? opt[k] : opt[k].padStart(ret[1].length, "0"));
+    }
+    ;
+  }
+  ;
+  return fmt;
+}
+var _default = timeFormat;
+exports.default = _default;
+
+/***/ }),
+/* 45 */
+/*!**************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/timeFrom.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 44));
+/**
+ * 时间戳转为多久之前
+ * @param String timestamp 时间戳
+ * @param String | Boolean format 如果为时间格式字符串，超出一定时间范围，返回固定的时间格式；
+ * 如果为布尔值false，无论什么时间，都返回多久以前的格式
+ */
+function timeFrom() {
+  var dateTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'yyyy-mm-dd';
+  // 如果为null,则格式化当前时间
+  if (!dateTime) dateTime = Number(new Date());
+  // 如果dateTime长度为10或者13，则为秒和毫秒的时间戳，如果超过13位，则为其他的时间格式
+  if (dateTime.toString().length == 10) dateTime *= 1000;
+  var timestamp = +new Date(Number(dateTime));
+  var timer = (Number(new Date()) - timestamp) / 1000;
+  // 如果小于5分钟,则返回"刚刚",其他以此类推
+  var tips = '';
+  switch (true) {
+    case timer < 300:
+      tips = '刚刚';
+      break;
+    case timer >= 300 && timer < 3600:
+      tips = parseInt(timer / 60) + '分钟前';
+      break;
+    case timer >= 3600 && timer < 86400:
+      tips = parseInt(timer / 3600) + '小时前';
+      break;
+    case timer >= 86400 && timer < 2592000:
+      tips = parseInt(timer / 86400) + '天前';
+      break;
+    default:
+      // 如果format为false，则无论什么时间戳，都显示xx之前
+      if (format === false) {
+        if (timer >= 2592000 && timer < 365 * 86400) {
+          tips = parseInt(timer / (86400 * 30)) + '个月前';
+        } else {
+          tips = parseInt(timer / (86400 * 365)) + '年前';
+        }
+      } else {
+        tips = (0, _timeFormat.default)(timestamp, format);
+      }
+  }
+  return tips;
+}
+var _default = timeFrom;
+exports.default = _default;
+
+/***/ }),
+/* 46 */
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/colorGradient.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ * 求两个颜色之间的渐变值
+ * @param {string} startColor 开始的颜色
+ * @param {string} endColor 结束的颜色
+ * @param {number} step 颜色等分的份额
+ * */
+function colorGradient() {
+  var startColor = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'rgb(0, 0, 0)';
+  var endColor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rgb(255, 255, 255)';
+  var step = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 10;
+  var startRGB = hexToRgb(startColor, false); //转换为rgb数组模式
+  var startR = startRGB[0];
+  var startG = startRGB[1];
+  var startB = startRGB[2];
+  var endRGB = hexToRgb(endColor, false);
+  var endR = endRGB[0];
+  var endG = endRGB[1];
+  var endB = endRGB[2];
+  var sR = (endR - startR) / step; //总差值
+  var sG = (endG - startG) / step;
+  var sB = (endB - startB) / step;
+  var colorArr = [];
+  for (var i = 0; i < step; i++) {
+    //计算每一步的hex值 
+    var hex = rgbToHex('rgb(' + Math.round(sR * i + startR) + ',' + Math.round(sG * i + startG) + ',' + Math.round(sB * i + startB) + ')');
+    colorArr.push(hex);
+  }
+  return colorArr;
+}
+
+// 将hex表示方式转换为rgb表示方式(这里返回rgb数组模式)
+function hexToRgb(sColor) {
+  var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+  sColor = sColor.toLowerCase();
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      var sColorNew = "#";
+      for (var i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
+      }
+      sColor = sColorNew;
+    }
+    //处理六位的颜色值
+    var sColorChange = [];
+    for (var _i = 1; _i < 7; _i += 2) {
+      sColorChange.push(parseInt("0x" + sColor.slice(_i, _i + 2)));
+    }
+    if (!str) {
+      return sColorChange;
+    } else {
+      return "rgb(".concat(sColorChange[0], ",").concat(sColorChange[1], ",").concat(sColorChange[2], ")");
+    }
+  } else if (/^(rgb|RGB)/.test(sColor)) {
+    var arr = sColor.replace(/(?:\(|\)|rgb|RGB)*/g, "").split(",");
+    return arr.map(function (val) {
+      return Number(val);
+    });
+  } else {
+    return sColor;
+  }
+}
+;
+
+// 将rgb表示方式转换为hex表示方式
+function rgbToHex(rgb) {
+  var _this = rgb;
+  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+  if (/^(rgb|RGB)/.test(_this)) {
+    var aColor = _this.replace(/(?:\(|\)|rgb|RGB)*/g, "").split(",");
+    var strHex = "#";
+    for (var i = 0; i < aColor.length; i++) {
+      var hex = Number(aColor[i]).toString(16);
+      hex = String(hex).length == 1 ? 0 + '' + hex : hex; // 保证每个rgb的值为2位
+      if (hex === "0") {
+        hex += hex;
+      }
+      strHex += hex;
+    }
+    if (strHex.length !== 7) {
+      strHex = _this;
+    }
+    return strHex;
+  } else if (reg.test(_this)) {
+    var aNum = _this.replace(/#/, "").split("");
+    if (aNum.length === 6) {
+      return _this;
+    } else if (aNum.length === 3) {
+      var numHex = "#";
+      for (var _i2 = 0; _i2 < aNum.length; _i2 += 1) {
+        numHex += aNum[_i2] + aNum[_i2];
+      }
+      return numHex;
+    }
+  } else {
+    return _this;
+  }
+}
+
+/**
+* JS颜色十六进制转换为rgb或rgba,返回的格式为 rgba（255，255，255，0.5）字符串
+* sHex为传入的十六进制的色值
+* alpha为rgba的透明度
+*/
+function colorToRgba(color) {
+  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.3;
+  color = rgbToHex(color);
+  // 十六进制颜色值的正则表达式
+  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+  /* 16进制颜色转为RGB格式 */
+  var sColor = color.toLowerCase();
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      var sColorNew = '#';
+      for (var i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
+      }
+      sColor = sColorNew;
+    }
+    // 处理六位的颜色值
+    var sColorChange = [];
+    for (var _i3 = 1; _i3 < 7; _i3 += 2) {
+      sColorChange.push(parseInt('0x' + sColor.slice(_i3, _i3 + 2)));
+    }
+    // return sColorChange.join(',')
+    return 'rgba(' + sColorChange.join(',') + ',' + alpha + ')';
+  } else {
+    return sColor;
+  }
+}
+var _default = {
+  colorGradient: colorGradient,
+  hexToRgb: hexToRgb,
+  rgbToHex: rgbToHex,
+  colorToRgba: colorToRgba
+};
+exports.default = _default;
+
+/***/ }),
+/* 47 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/guid.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ * 本算法来源于简书开源代码，详见：https://www.jianshu.com/p/fdbf293d0a85
+ * 全局唯一标识符（uuid，Globally Unique Identifier）,也称作 uuid(Universally Unique IDentifier) 
+ * 一般用于多个组件之间,给它一个唯一的标识符,或者v-for循环的时候,如果使用数组的index可能会导致更新列表出现问题
+ * 最可能的情况是左滑删除item或者对某条信息流"不喜欢"并去掉它的时候,会导致组件内的数据可能出现错乱
+ * v-for的时候,推荐使用后端返回的id而不是循环的index
+ * @param {Number} len uuid的长度
+ * @param {Boolean} firstU 将返回的首字母置为"u"
+ * @param {Number} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
+ */
+function guid() {
+  var len = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
+  var firstU = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var radix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var uuid = [];
+  radix = radix || chars.length;
+  if (len) {
+    // 如果指定uuid长度,只是取随机的字符,0|x为位运算,能去掉x的小数位,返回整数位
+    for (var i = 0; i < len; i++) {
+      uuid[i] = chars[0 | Math.random() * radix];
+    }
+  } else {
+    var r;
+    // rfc4122标准要求返回的uuid中,某些位为固定的字符
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+    uuid[14] = '4';
+    for (var _i = 0; _i < 36; _i++) {
+      if (!uuid[_i]) {
+        r = 0 | Math.random() * 16;
+        uuid[_i] = chars[_i == 19 ? r & 0x3 | 0x8 : r];
+      }
+    }
+  }
+  // 移除第一个字符,并用u替代,因为第一个字符为数值时,该guid不能用作id或者class
+  if (firstU) {
+    uuid.shift();
+    return 'u' + uuid.join('');
+  } else {
+    return uuid.join('');
+  }
+}
+var _default = guid;
+exports.default = _default;
+
+/***/ }),
+/* 48 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/color.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// 为了让用户能够自定义主题，会逐步弃用此文件，各颜色通过css提供
+// 为了给某些特殊场景使用和向后兼容，无需删除此文件(2020-06-20)
+var color = {
+  primary: "#2979ff",
+  primaryDark: "#2b85e4",
+  primaryDisabled: "#a0cfff",
+  primaryLight: "#ecf5ff",
+  bgColor: "#f3f4f6",
+  info: "#909399",
+  infoDark: "#82848a",
+  infoDisabled: "#c8c9cc",
+  infoLight: "#f4f4f5",
+  warning: "#ff9900",
+  warningDark: "#f29100",
+  warningDisabled: "#fcbd71",
+  warningLight: "#fdf6ec",
+  error: "#fa3534",
+  errorDark: "#dd6161",
+  errorDisabled: "#fab6b6",
+  errorLight: "#fef0f0",
+  success: "#19be6b",
+  successDark: "#18b566",
+  successDisabled: "#71d5a1",
+  successLight: "#dbf1e1",
+  mainColor: "#303133",
+  contentColor: "#606266",
+  tipsColor: "#909399",
+  lightColor: "#c0c4cc",
+  borderColor: "#e4e7ed"
+};
+var _default = color;
+exports.default = _default;
+
+/***/ }),
+/* 49 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/type2icon.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ * 根据主题type值,获取对应的图标
+ * @param String type 主题名称,primary|info|error|warning|success
+ * @param String fill 是否使用fill填充实体的图标  
+ */
+function type2icon() {
+  var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'success';
+  var fill = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  // 如果非预置值,默认为success
+  if (['primary', 'info', 'error', 'warning', 'success'].indexOf(type) == -1) type = 'success';
+  var iconName = '';
+  // 目前(2019-12-12),info和primary使用同一个图标
+  switch (type) {
+    case 'primary':
+      iconName = 'info-circle';
+      break;
+    case 'info':
+      iconName = 'info-circle';
+      break;
+    case 'error':
+      iconName = 'close-circle';
+      break;
+    case 'warning':
+      iconName = 'error-circle';
+      break;
+    case 'success':
+      iconName = 'checkmark-circle';
+      break;
+    default:
+      iconName = 'checkmark-circle';
+  }
+  // 是否是实体类型,加上-fill,在icon组件库中,实体的类名是后面加-fill的
+  if (fill) iconName += '-fill';
+  return iconName;
+}
+var _default = type2icon;
+exports.default = _default;
+
+/***/ }),
+/* 50 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/randomArray.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// 打乱数组
+function randomArray() {
+  var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  // 原理是sort排序,Math.random()产生0<= x < 1之间的数,会导致x-0.05大于或者小于0
+  return array.sort(function () {
+    return Math.random() - 0.5;
+  });
+}
+var _default = randomArray;
+exports.default = _default;
+
+/***/ }),
+/* 51 */
+/*!*************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/addUnit.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = addUnit;
+var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 41));
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+function addUnit() {
+  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';
+  var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
+  value = String(value);
+  // 用uView内置验证规则中的number判断是否为数值
+  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
+}
+
+/***/ }),
+/* 52 */
+/*!************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/random.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function random(min, max) {
+  if (min >= 0 && max > 0 && max >= min) {
+    var gab = max - min + 1;
+    return Math.floor(Math.random() * gab + min);
+  } else {
+    return 0;
+  }
+}
+var _default = random;
+exports.default = _default;
+
+/***/ }),
+/* 53 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/trim.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function trim(str) {
+  var pos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'both';
+  if (pos == 'both') {
+    return str.replace(/^\s+|\s+$/g, "");
+  } else if (pos == "left") {
+    return str.replace(/^\s*/, '');
+  } else if (pos == 'right') {
+    return str.replace(/(\s*$)/g, "");
+  } else if (pos == 'all') {
+    return str.replace(/\s+/g, "");
+  } else {
+    return str;
+  }
+}
+var _default = trim;
+exports.default = _default;
+
+/***/ }),
+/* 54 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/toast.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function toast(title) {
+  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1500;
+  uni.showToast({
+    title: title,
+    icon: 'none',
+    duration: duration
+  });
+}
+var _default = toast;
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 55 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/getParent.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getParent;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
+// 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
+// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
+function getParent(name, keys) {
+  var parent = this.$parent;
+  // 通过while历遍，这里主要是为了H5需要多层解析的问题
+  while (parent) {
+    // 父组件
+    if (parent.$options.name !== name) {
+      // 如果组件的name不相等，继续上一级寻找
+      parent = parent.$parent;
+    } else {
+      var _ret = function () {
+        var data = {};
+        // 判断keys是否数组，如果传过来的是一个数组，那么直接使用数组元素值当做键值去父组件寻找
+        if (Array.isArray(keys)) {
+          keys.map(function (val) {
+            data[val] = parent[val] ? parent[val] : '';
+          });
+        } else {
+          // 历遍传过来的对象参数
+          for (var i in keys) {
+            // 如果子组件有此值则用，无此值则用父组件的值
+            // 判断是否空数组，如果是，则用父组件的值，否则用子组件的值
+            if (Array.isArray(keys[i])) {
+              if (keys[i].length) {
+                data[i] = keys[i];
+              } else {
+                data[i] = parent[i];
+              }
+            } else if (keys[i].constructor === Object) {
+              // 判断是否对象，如果是对象，且有属性，那么使用子组件的值，否则使用父组件的值
+              if (Object.keys(keys[i]).length) {
+                data[i] = keys[i];
+              } else {
+                data[i] = parent[i];
+              }
+            } else {
+              // 只要子组件有传值，即使是false值，也是“传值”了，也需要覆盖父组件的同名参数
+              data[i] = keys[i] || keys[i] === false ? keys[i] : parent[i];
+            }
+          }
+        }
+        return {
+          v: data
+        };
+      }();
+      if ((0, _typeof2.default)(_ret) === "object") return _ret.v;
+    }
+  }
+  return {};
+}
+
+/***/ }),
+/* 56 */
+/*!*************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/$parent.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = $parent;
+// 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
+// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
+// 这里默认值等于undefined有它的含义，因为最顶层元素(组件)的$parent就是undefined，意味着不传name
+// 值(默认为undefined)，就是查找最顶层的$parent
+function $parent() {
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+  var parent = this.$parent;
+  // 通过while历遍，这里主要是为了H5需要多层解析的问题
+  while (parent) {
+    // 父组件
+    if (parent.$options && parent.$options.name !== name) {
+      // 如果组件的name不相等，继续上一级寻找
+      parent = parent.$parent;
+    } else {
+      return parent;
+    }
+  }
+  return false;
+}
+
+/***/ }),
+/* 57 */
+/*!*********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/sys.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.os = os;
+exports.sys = sys;
+function os() {
+  return uni.getSystemInfoSync().platform;
+}
+;
+function sys() {
+  return uni.getSystemInfoSync();
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 58 */
+/*!**************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/debounce.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var timeout = null;
+
+/**
+ * 防抖原理：一定时间内，只有最后一次操作，再过wait毫秒后才执行函数
+ * 
+ * @param {Function} func 要执行的回调函数 
+ * @param {Number} wait 延时的时间
+ * @param {Boolean} immediate 是否立即执行 
+ * @return null
+ */
+function debounce(func) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  // 清除定时器
+  if (timeout !== null) clearTimeout(timeout);
+  // 立即执行，此类情况一般用不到
+  if (immediate) {
+    var callNow = !timeout;
+    timeout = setTimeout(function () {
+      timeout = null;
+    }, wait);
+    if (callNow) typeof func === 'function' && func();
+  } else {
+    // 设置定时器，当最后一次操作后，timeout不会再被清除，所以在延时wait毫秒后执行func回调方法
+    timeout = setTimeout(function () {
+      typeof func === 'function' && func();
+    }, wait);
+  }
+}
+var _default = debounce;
+exports.default = _default;
+
+/***/ }),
+/* 59 */
+/*!**************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/function/throttle.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var timer, flag;
+/**
+ * 节流原理：在一定时间内，只能触发一次
+ * 
+ * @param {Function} func 要执行的回调函数 
+ * @param {Number} wait 延时的时间
+ * @param {Boolean} immediate 是否立即执行
+ * @return null
+ */
+function throttle(func) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  if (immediate) {
+    if (!flag) {
+      flag = true;
+      // 如果是立即执行，则在wait毫秒内开始时执行
+      typeof func === 'function' && func();
+      timer = setTimeout(function () {
+        flag = false;
+      }, wait);
+    }
+  } else {
+    if (!flag) {
+      flag = true;
+      // 如果是非立即执行，则在wait毫秒内的结束处执行
+      timer = setTimeout(function () {
+        flag = false;
+        typeof func === 'function' && func();
+      }, wait);
+    }
+  }
+}
+;
+var _default = throttle;
+exports.default = _default;
+
+/***/ }),
+/* 60 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/config/config.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// 此版本发布于2022-04-19
+var version = '1.8.6';
+var _default = {
+  v: version,
+  version: version,
+  // 主题名称
+  type: ['primary', 'success', 'info', 'error', 'warning']
+};
+exports.default = _default;
+
+/***/ }),
+/* 61 */
+/*!**********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/libs/config/zIndex.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// uniapp在H5中各API的z-index值如下：
+/**
+ * actionsheet: 999
+ * modal: 999
+ * navigate: 998
+ * tabbar: 998
+ * toast: 999
+ */
+var _default = {
+  toast: 10090,
+  noNetwork: 10080,
+  // popup包含popup，actionsheet，keyboard，picker的值
+  popup: 10075,
+  mask: 10070,
+  navbar: 980,
+  topTips: 975,
+  sticky: 970,
+  indexListSticky: 965
+};
+exports.default = _default;
+
+/***/ }),
+/* 62 */
+/*!***********************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/index.scss ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+/* 63 */
 /*!*************************************************************************************************!*\
   !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni.promisify.adaptor.js ***!
   \*************************************************************************************************/
@@ -9634,36 +11919,6 @@ uni.addInterceptor({
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
 /* 64 */,
 /* 65 */,
 /* 66 */,
@@ -9671,6 +11926,168 @@ uni.addInterceptor({
 /* 68 */,
 /* 69 */,
 /* 70 */
+/*!********************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/static/swiper/1.png ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/swiper/1.png";
+
+/***/ }),
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */
 /*!***********************************************************************************************************************************************!*\
   !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/liu-indexed-list/components/liu-indexed-list/pinyinUtil.js ***!
   \***********************************************************************************************************************************************/
@@ -10334,251 +12751,778 @@ module.exports = {
 };
 
 /***/ }),
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */
-/*!****************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-popup/components/uni-popup/popup.js ***!
-  \****************************************************************************************************************************/
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */
+/*!****************************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/components/u-parse/libs/MpHtmlParser.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  data: function data() {
-    return {};
-  },
-  created: function created() {
-    this.popup = this.getParent();
-  },
-  methods: {
-    /**
-     * 获取父元素实例
-     */
-    getParent: function getParent() {
-      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'uniPopup';
-      var parent = this.$parent;
-      var parentName = parent.$options.name;
-      while (parentName !== name) {
-        parent = parent.$parent;
-        if (!parent) return false;
-        parentName = parent.$options.name;
-      }
-      return parent;
+/* WEBPACK VAR INJECTION */(function(uni) {/**
+ * html 解析器
+ * @tutorial https://github.com/jin-yufeng/Parser
+ * @version 20201029
+ * @author JinYufeng
+ * @listens MIT
+ */
+var cfg = __webpack_require__(/*! ./config.js */ 234),
+  blankChar = cfg.blankChar,
+  CssHandler = __webpack_require__(/*! ./CssHandler.js */ 235),
+  windowWidth = uni.getSystemInfoSync().windowWidth;
+var emoji;
+function MpHtmlParser(data) {
+  var _this = this;
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  this.attrs = {};
+  this.CssHandler = new CssHandler(options.tagStyle, windowWidth);
+  this.data = data;
+  this.domain = options.domain;
+  this.DOM = [];
+  this.i = this.start = this.audioNum = this.imgNum = this.videoNum = 0;
+  options.prot = (this.domain || '').includes('://') ? this.domain.split('://')[0] : 'http';
+  this.options = options;
+  this.state = this.Text;
+  this.STACK = [];
+  // 工具函数
+  this.bubble = function () {
+    for (var i = _this.STACK.length, item; item = _this.STACK[--i];) {
+      if (cfg.richOnlyTags[item.name]) return false;
+      item.c = 1;
     }
-  }
-};
-exports.default = _default;
-
-/***/ }),
-/* 81 */
-/*!*********************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-popup/components/uni-popup/i18n/index.js ***!
-  \*********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 82));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 83));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 84));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-/* 82 */
-/*!********************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-popup/components/uni-popup/i18n/en.json ***!
-  \********************************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\"ok\",\"uni-popup.placeholder\":\"pleace enter\",\"uni-popup.title\":\"Hint\",\"uni-popup.shareTitle\":\"Share to\"}");
-
-/***/ }),
-/* 83 */
-/*!*************************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hans.json ***!
-  \*************************************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"确定\",\"uni-popup.placeholder\":\"请输入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
-
-/***/ }),
-/* 84 */
-/*!*************************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hant.json ***!
-  \*************************************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"確定\",\"uni-popup.placeholder\":\"請輸入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
-
-/***/ }),
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */
-/*!************************************************************************************************************************************************!*\
-  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
-  \************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createAnimation = createAnimation;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
-var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-// const defaultOption = {
-// 	duration: 300,
-// 	timingFunction: 'linear',
-// 	delay: 0,
-// 	transformOrigin: '50% 50% 0'
-// }
-var MPAnimation = /*#__PURE__*/function () {
-  function MPAnimation(options, _this) {
-    (0, _classCallCheck2.default)(this, MPAnimation);
-    this.options = options;
-    // 在iOS10+QQ小程序平台下，传给原生的对象一定是个普通对象而不是Proxy对象，否则会报parameter should be Object instead of ProxyObject的错误
-    this.animation = uni.createAnimation(_objectSpread({}, options));
-    this.currentStepAnimates = {};
-    this.next = 0;
-    this.$ = _this;
-  }
-  (0, _createClass2.default)(MPAnimation, [{
-    key: "_nvuePushAnimates",
-    value: function _nvuePushAnimates(type, args) {
-      var aniObj = this.currentStepAnimates[this.next];
-      var styles = {};
-      if (!aniObj) {
-        styles = {
-          styles: {},
-          config: {}
-        };
-      } else {
-        styles = aniObj;
-      }
-      if (animateTypes1.includes(type)) {
-        if (!styles.styles.transform) {
-          styles.styles.transform = '';
-        }
-        var unit = '';
-        if (type === 'rotate') {
-          unit = 'deg';
-        }
-        styles.styles.transform += "".concat(type, "(").concat(args + unit, ") ");
-      } else {
-        styles.styles[type] = "".concat(args);
-      }
-      this.currentStepAnimates[this.next] = styles;
-    }
-  }, {
-    key: "_animateRun",
-    value: function _animateRun() {
-      var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var ref = this.$.$refs['ani'].ref;
-      if (!ref) return;
-      return new Promise(function (resolve, reject) {
-        nvueAnimation.transition(ref, _objectSpread({
-          styles: styles
-        }, config), function (res) {
-          resolve();
-        });
-      });
-    }
-  }, {
-    key: "_nvueNextAnimate",
-    value: function _nvueNextAnimate(animates) {
-      var _this2 = this;
-      var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      var fn = arguments.length > 2 ? arguments[2] : undefined;
-      var obj = animates[step];
-      if (obj) {
-        var styles = obj.styles,
-          config = obj.config;
-        this._animateRun(styles, config).then(function () {
-          step += 1;
-          _this2._nvueNextAnimate(animates, step, fn);
-        });
-      } else {
-        this.currentStepAnimates = {};
-        typeof fn === 'function' && fn();
-        this.isEnd = true;
-      }
-    }
-  }, {
-    key: "step",
-    value: function step() {
-      var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      this.animation.step(config);
-      return this;
-    }
-  }, {
-    key: "run",
-    value: function run(fn) {
-      this.$.animationData = this.animation.export();
-      this.$.timer = setTimeout(function () {
-        typeof fn === 'function' && fn();
-      }, this.$.durationTime);
-    }
-  }]);
-  return MPAnimation;
-}();
-var animateTypes1 = ['matrix', 'matrix3d', 'rotate', 'rotate3d', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scale3d', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'translate', 'translate3d', 'translateX', 'translateY', 'translateZ'];
-var animateTypes2 = ['opacity', 'backgroundColor'];
-var animateTypes3 = ['width', 'height', 'left', 'right', 'top', 'bottom'];
-animateTypes1.concat(animateTypes2, animateTypes3).forEach(function (type) {
-  MPAnimation.prototype[type] = function () {
-    var _this$animation;
-    (_this$animation = this.animation)[type].apply(_this$animation, arguments);
-    return this;
+    return true;
   };
-});
-function createAnimation(option, _this) {
-  if (!_this) return;
-  clearTimeout(_this.timer);
-  return new MPAnimation(option, _this);
+  this.decode = function (val, amp) {
+    var i = -1,
+      j,
+      en;
+    while (1) {
+      if ((i = val.indexOf('&', i + 1)) == -1) break;
+      if ((j = val.indexOf(';', i + 2)) == -1) break;
+      if (val[i + 1] == '#') {
+        en = parseInt((val[i + 2] == 'x' ? '0' : '') + val.substring(i + 2, j));
+        if (!isNaN(en)) val = val.substr(0, i) + String.fromCharCode(en) + val.substr(j + 1);
+      } else {
+        en = val.substring(i + 1, j);
+        if (cfg.entities[en] || en == amp) val = val.substr(0, i) + (cfg.entities[en] || '&') + val.substr(j + 1);
+      }
+    }
+    return val;
+  };
+  this.getUrl = function (url) {
+    if (url[0] == '/') {
+      if (url[1] == '/') url = _this.options.prot + ':' + url;else if (_this.domain) url = _this.domain + url;
+    } else if (_this.domain && url.indexOf('data:') != 0 && !url.includes('://')) url = _this.domain + '/' + url;
+    return url;
+  };
+  this.isClose = function () {
+    return _this.data[_this.i] == '>' || _this.data[_this.i] == '/' && _this.data[_this.i + 1] == '>';
+  };
+  this.section = function () {
+    return _this.data.substring(_this.start, _this.i);
+  };
+  this.parent = function () {
+    return _this.STACK[_this.STACK.length - 1];
+  };
+  this.siblings = function () {
+    return _this.STACK.length ? _this.parent().children : _this.DOM;
+  };
 }
+MpHtmlParser.prototype.parse = function () {
+  if (emoji) this.data = emoji.parseEmoji(this.data);
+  for (var c; c = this.data[this.i]; this.i++) {
+    this.state(c);
+  }
+  if (this.state == this.Text) this.setText();
+  while (this.STACK.length) {
+    this.popNode(this.STACK.pop());
+  }
+  return this.DOM;
+};
+// 设置属性
+MpHtmlParser.prototype.setAttr = function () {
+  var name = this.attrName.toLowerCase(),
+    val = this.attrVal;
+  if (cfg.boolAttrs[name]) this.attrs[name] = 'T';else if (val) {
+    if (name == 'src' || name == 'data-src' && !this.attrs.src) this.attrs.src = this.getUrl(this.decode(val, 'amp'));else if (name == 'href' || name == 'style') this.attrs[name] = this.decode(val, 'amp');else if (name.substr(0, 5) != 'data-') this.attrs[name] = val;
+  }
+  this.attrVal = '';
+  while (blankChar[this.data[this.i]]) {
+    this.i++;
+  }
+  if (this.isClose()) this.setNode();else {
+    this.start = this.i;
+    this.state = this.AttrName;
+  }
+};
+// 设置文本节点
+MpHtmlParser.prototype.setText = function () {
+  var back,
+    text = this.section();
+  if (!text) return;
+  text = cfg.onText && cfg.onText(text, function () {
+    return back = true;
+  }) || text;
+  if (back) {
+    this.data = this.data.substr(0, this.start) + text + this.data.substr(this.i);
+    var j = this.start + text.length;
+    for (this.i = this.start; this.i < j; this.i++) {
+      this.state(this.data[this.i]);
+    }
+    return;
+  }
+  if (!this.pre) {
+    // 合并空白符
+    var flag,
+      tmp = [];
+    for (var i = text.length, c; c = text[--i];) {
+      if (!blankChar[c]) {
+        tmp.unshift(c);
+        if (!flag) flag = 1;
+      } else {
+        if (tmp[0] != ' ') tmp.unshift(' ');
+        if (c == '\n' && flag == void 0) flag = 0;
+      }
+    }
+    if (flag == 0) return;
+    text = tmp.join('');
+  }
+  this.siblings().push({
+    type: 'text',
+    text: this.decode(text)
+  });
+};
+// 设置元素节点
+MpHtmlParser.prototype.setNode = function () {
+  var node = {
+      name: this.tagName.toLowerCase(),
+      attrs: this.attrs
+    },
+    close = cfg.selfClosingTags[node.name];
+  if (this.options.nodes.length) node.type = 'node';
+  this.attrs = {};
+  if (!cfg.ignoreTags[node.name]) {
+    // 处理属性
+    var attrs = node.attrs,
+      style = this.CssHandler.match(node.name, attrs, node) + (attrs.style || ''),
+      styleObj = {};
+    if (attrs.id) {
+      if (this.options.compress & 1) attrs.id = void 0;else if (this.options.useAnchor) this.bubble();
+    }
+    if (this.options.compress & 2 && attrs.class) attrs.class = void 0;
+    switch (node.name) {
+      case 'a':
+      case 'ad':
+        this.bubble();
+        break;
+      case 'font':
+        if (attrs.color) {
+          styleObj['color'] = attrs.color;
+          attrs.color = void 0;
+        }
+        if (attrs.face) {
+          styleObj['font-family'] = attrs.face;
+          attrs.face = void 0;
+        }
+        if (attrs.size) {
+          var size = parseInt(attrs.size);
+          if (size < 1) size = 1;else if (size > 7) size = 7;
+          var map = ['xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'];
+          styleObj['font-size'] = map[size - 1];
+          attrs.size = void 0;
+        }
+        break;
+      case 'embed':
+        var src = node.attrs.src || '',
+          type = node.attrs.type || '';
+        if (type.includes('video') || src.includes('.mp4') || src.includes('.3gp') || src.includes('.m3u8')) node.name = 'video';else if (type.includes('audio') || src.includes('.m4a') || src.includes('.wav') || src.includes('.mp3') || src.includes('.aac')) node.name = 'audio';else break;
+        if (node.attrs.autostart) node.attrs.autoplay = 'T';
+        node.attrs.controls = 'T';
+      case 'video':
+      case 'audio':
+        if (!attrs.id) attrs.id = node.name + ++this["".concat(node.name, "Num")];else this["".concat(node.name, "Num")]++;
+        if (node.name == 'video') {
+          if (this.videoNum > 3) node.lazyLoad = 1;
+          if (attrs.width) {
+            styleObj.width = parseFloat(attrs.width) + (attrs.width.includes('%') ? '%' : 'px');
+            attrs.width = void 0;
+          }
+          if (attrs.height) {
+            styleObj.height = parseFloat(attrs.height) + (attrs.height.includes('%') ? '%' : 'px');
+            attrs.height = void 0;
+          }
+        }
+        if (!attrs.controls && !attrs.autoplay) attrs.controls = 'T';
+        attrs.source = [];
+        if (attrs.src) {
+          attrs.source.push(attrs.src);
+          attrs.src = void 0;
+        }
+        this.bubble();
+        break;
+      case 'td':
+      case 'th':
+        if (attrs.colspan || attrs.rowspan) for (var k = this.STACK.length, item; item = this.STACK[--k];) {
+          if (item.name == 'table') {
+            item.flag = 1;
+            break;
+          }
+        }
+    }
+    if (attrs.align) {
+      if (node.name == 'table') {
+        if (attrs.align == 'center') styleObj['margin-inline-start'] = styleObj['margin-inline-end'] = 'auto';else styleObj['float'] = attrs.align;
+      } else styleObj['text-align'] = attrs.align;
+      attrs.align = void 0;
+    }
+    // 压缩 style
+    var styles = style.split(';');
+    style = '';
+    for (var i = 0, len = styles.length; i < len; i++) {
+      var info = styles[i].split(':');
+      if (info.length < 2) continue;
+      var _key = info[0].trim().toLowerCase(),
+        _value = info.slice(1).join(':').trim();
+      if (_value[0] == '-' || _value.includes('safe')) style += ";".concat(_key, ":").concat(_value);else if (!styleObj[_key] || _value.includes('import') || !styleObj[_key].includes('import')) styleObj[_key] = _value;
+    }
+    if (node.name == 'img') {
+      if (attrs.src && !attrs.ignore) {
+        if (this.bubble()) attrs.i = (this.imgNum++).toString();else attrs.ignore = 'T';
+      }
+      if (attrs.ignore) {
+        style += ';-webkit-touch-callout:none';
+        styleObj['max-width'] = '100%';
+      }
+      var width;
+      if (styleObj.width) width = styleObj.width;else if (attrs.width) width = attrs.width.includes('%') ? attrs.width : parseFloat(attrs.width) + 'px';
+      if (width) {
+        styleObj.width = width;
+        attrs.width = '100%';
+        if (parseInt(width) > windowWidth) {
+          styleObj.height = '';
+          if (attrs.height) attrs.height = void 0;
+        }
+      }
+      if (styleObj.height) {
+        attrs.height = styleObj.height;
+        styleObj.height = '';
+      } else if (attrs.height && !attrs.height.includes('%')) attrs.height = parseFloat(attrs.height) + 'px';
+    }
+    for (var key in styleObj) {
+      var value = styleObj[key];
+      if (!value) continue;
+      if (key.includes('flex') || key == 'order' || key == 'self-align') node.c = 1;
+      // 填充链接
+      if (value.includes('url')) {
+        var j = value.indexOf('(');
+        if (j++ != -1) {
+          while (value[j] == '"' || value[j] == "'" || blankChar[value[j]]) {
+            j++;
+          }
+          value = value.substr(0, j) + this.getUrl(value.substr(j));
+        }
+      }
+      // 转换 rpx
+      else if (value.includes('rpx')) value = value.replace(/[0-9.]+\s*rpx/g, function ($) {
+        return parseFloat($) * windowWidth / 750 + 'px';
+      });else if (key == 'white-space' && value.includes('pre') && !close) this.pre = node.pre = true;
+      style += ";".concat(key, ":").concat(value);
+    }
+    style = style.substr(1);
+    if (style) attrs.style = style;
+    if (!close) {
+      node.children = [];
+      if (node.name == 'pre' && cfg.highlight) {
+        this.remove(node);
+        this.pre = node.pre = true;
+      }
+      this.siblings().push(node);
+      this.STACK.push(node);
+    } else if (!cfg.filter || cfg.filter(node, this) != false) this.siblings().push(node);
+  } else {
+    if (!close) this.remove(node);else if (node.name == 'source') {
+      var parent = this.parent();
+      if (parent && (parent.name == 'video' || parent.name == 'audio') && node.attrs.src) parent.attrs.source.push(node.attrs.src);
+    } else if (node.name == 'base' && !this.domain) this.domain = node.attrs.href;
+  }
+  if (this.data[this.i] == '/') this.i++;
+  this.start = this.i + 1;
+  this.state = this.Text;
+};
+// 移除标签
+MpHtmlParser.prototype.remove = function (node) {
+  var _this2 = this;
+  var name = node.name,
+    j = this.i;
+  // 处理 svg
+  var handleSvg = function handleSvg() {
+    var src = _this2.data.substring(j, _this2.i + 1);
+    node.attrs.xmlns = 'http://www.w3.org/2000/svg';
+    for (var key in node.attrs) {
+      if (key == 'viewbox') src = " viewBox=\"".concat(node.attrs.viewbox, "\"") + src;else if (key != 'style') src = " ".concat(key, "=\"").concat(node.attrs[key], "\"") + src;
+    }
+    src = '<svg' + src;
+    var parent = _this2.parent();
+    if (node.attrs.width == '100%' && parent && (parent.attrs.style || '').includes('inline')) parent.attrs.style = 'width:300px;max-width:100%;' + parent.attrs.style;
+    _this2.siblings().push({
+      name: 'img',
+      attrs: {
+        src: 'data:image/svg+xml;utf8,' + src.replace(/#/g, '%23'),
+        style: node.attrs.style,
+        ignore: 'T'
+      }
+    });
+  };
+  if (node.name == 'svg' && this.data[j] == '/') return handleSvg(this.i++);
+  while (1) {
+    if ((this.i = this.data.indexOf('</', this.i + 1)) == -1) {
+      if (name == 'pre' || name == 'svg') this.i = j;else this.i = this.data.length;
+      return;
+    }
+    this.start = this.i += 2;
+    while (!blankChar[this.data[this.i]] && !this.isClose()) {
+      this.i++;
+    }
+    if (this.section().toLowerCase() == name) {
+      // 代码块高亮
+      if (name == 'pre') {
+        this.data = this.data.substr(0, j + 1) + cfg.highlight(this.data.substring(j + 1, this.i - 5), node.attrs) + this.data.substr(this.i - 5);
+        return this.i = j;
+      } else if (name == 'style') this.CssHandler.getStyle(this.data.substring(j + 1, this.i - 7));else if (name == 'title') this.DOM.title = this.data.substring(j + 1, this.i - 7);
+      if ((this.i = this.data.indexOf('>', this.i)) == -1) this.i = this.data.length;
+      if (name == 'svg') handleSvg();
+      return;
+    }
+  }
+};
+// 节点出栈处理
+MpHtmlParser.prototype.popNode = function (node) {
+  // 空白符处理
+  if (node.pre) {
+    node.pre = this.pre = void 0;
+    for (var i = this.STACK.length; i--;) {
+      if (this.STACK[i].pre) this.pre = true;
+    }
+  }
+  var siblings = this.siblings(),
+    len = siblings.length,
+    childs = node.children;
+  if (node.name == 'head' || cfg.filter && cfg.filter(node, this) == false) return siblings.pop();
+  var attrs = node.attrs;
+  // 替换一些标签名
+  if (cfg.blockTags[node.name]) node.name = 'div';else if (!cfg.trustTags[node.name]) node.name = 'span';
+  // 处理列表
+  if (node.c && (node.name == 'ul' || node.name == 'ol')) {
+    if ((node.attrs.style || '').includes('list-style:none')) {
+      for (var _i = 0, child; child = childs[_i++];) {
+        if (child.name == 'li') child.name = 'div';
+      }
+    } else if (node.name == 'ul') {
+      var floor = 1;
+      for (var _i2 = this.STACK.length; _i2--;) {
+        if (this.STACK[_i2].name == 'ul') floor++;
+      }
+      if (floor != 1) for (var _i3 = childs.length; _i3--;) {
+        childs[_i3].floor = floor;
+      }
+    } else {
+      for (var _i4 = 0, num = 1, _child; _child = childs[_i4++];) {
+        if (_child.name == 'li') {
+          _child.type = 'ol';
+          _child.num = function (num, type) {
+            if (type == 'a') return String.fromCharCode(97 + (num - 1) % 26);
+            if (type == 'A') return String.fromCharCode(65 + (num - 1) % 26);
+            if (type == 'i' || type == 'I') {
+              num = (num - 1) % 99 + 1;
+              var one = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
+                ten = ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'],
+                res = (ten[Math.floor(num / 10) - 1] || '') + (one[num % 10 - 1] || '');
+              if (type == 'i') return res.toLowerCase();
+              return res;
+            }
+            return num;
+          }(num++, attrs.type) + '.';
+        }
+      }
+    }
+  }
+  // 处理表格
+  if (node.name == 'table') {
+    var padding = parseFloat(attrs.cellpadding),
+      spacing = parseFloat(attrs.cellspacing),
+      border = parseFloat(attrs.border);
+    if (node.c) {
+      if (isNaN(padding)) padding = 2;
+      if (isNaN(spacing)) spacing = 2;
+    }
+    if (border) attrs.style = "border:".concat(border, "px solid gray;").concat(attrs.style || '');
+    if (node.flag && node.c) {
+      // 有 colspan 或 rowspan 且含有链接的表格转为 grid 布局实现
+      attrs.style = "".concat(attrs.style || '', ";").concat(spacing ? ";grid-gap:".concat(spacing, "px") : ';border-left:0;border-top:0');
+      var row = 1,
+        col = 1,
+        colNum,
+        trs = [],
+        children = [],
+        map = {};
+      (function f(ns) {
+        for (var i = 0; i < ns.length; i++) {
+          if (ns[i].name == 'tr') trs.push(ns[i]);else f(ns[i].children || []);
+        }
+      })(node.children);
+      for (var _i5 = 0; _i5 < trs.length; _i5++) {
+        for (var j = 0, td; td = trs[_i5].children[j]; j++) {
+          if (td.name == 'td' || td.name == 'th') {
+            while (map[row + '.' + col]) {
+              col++;
+            }
+            var cell = {
+              name: 'div',
+              c: 1,
+              attrs: {
+                style: (td.attrs.style || '') + (border ? ";border:".concat(border, "px solid gray") + (spacing ? '' : ';border-right:0;border-bottom:0') : '') + (padding ? ";padding:".concat(padding, "px") : '')
+              },
+              children: td.children
+            };
+            if (td.attrs.colspan) {
+              cell.attrs.style += ';grid-column-start:' + col + ';grid-column-end:' + (col + parseInt(td.attrs.colspan));
+              if (!td.attrs.rowspan) cell.attrs.style += ';grid-row-start:' + row + ';grid-row-end:' + (row + 1);
+              col += parseInt(td.attrs.colspan) - 1;
+            }
+            if (td.attrs.rowspan) {
+              cell.attrs.style += ';grid-row-start:' + row + ';grid-row-end:' + (row + parseInt(td.attrs.rowspan));
+              if (!td.attrs.colspan) cell.attrs.style += ';grid-column-start:' + col + ';grid-column-end:' + (col + 1);
+              for (var k = 1; k < td.attrs.rowspan; k++) {
+                map[row + k + '.' + col] = 1;
+              }
+            }
+            children.push(cell);
+            col++;
+          }
+        }
+        if (!colNum) {
+          colNum = col - 1;
+          attrs.style += ";grid-template-columns:repeat(".concat(colNum, ",auto)");
+        }
+        col = 1;
+        row++;
+      }
+      node.children = children;
+    } else {
+      attrs.style = "border-spacing:".concat(spacing, "px;").concat(attrs.style || '');
+      if (border || padding) (function f(ns) {
+        for (var i = 0, n; n = ns[i]; i++) {
+          if (n.name == 'th' || n.name == 'td') {
+            if (border) n.attrs.style = "border:".concat(border, "px solid gray;").concat(n.attrs.style || '');
+            if (padding) n.attrs.style = "padding:".concat(padding, "px;").concat(n.attrs.style || '');
+          } else f(n.children || []);
+        }
+      })(childs);
+    }
+    if (this.options.autoscroll) {
+      var table = Object.assign({}, node);
+      node.name = 'div';
+      node.attrs = {
+        style: 'overflow:scroll'
+      };
+      node.children = [table];
+    }
+  }
+  this.CssHandler.pop && this.CssHandler.pop(node);
+  // 自动压缩
+  if (node.name == 'div' && !Object.keys(attrs).length && childs.length == 1 && childs[0].name == 'div') siblings[len - 1] = childs[0];
+};
+// 状态机
+MpHtmlParser.prototype.Text = function (c) {
+  if (c == '<') {
+    var next = this.data[this.i + 1],
+      isLetter = function isLetter(c) {
+        return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
+      };
+    if (isLetter(next)) {
+      this.setText();
+      this.start = this.i + 1;
+      this.state = this.TagName;
+    } else if (next == '/') {
+      this.setText();
+      if (isLetter(this.data[++this.i + 1])) {
+        this.start = this.i + 1;
+        this.state = this.EndTag;
+      } else this.Comment();
+    } else if (next == '!' || next == '?') {
+      this.setText();
+      this.Comment();
+    }
+  }
+};
+MpHtmlParser.prototype.Comment = function () {
+  var key;
+  if (this.data.substring(this.i + 2, this.i + 4) == '--') key = '-->';else if (this.data.substring(this.i + 2, this.i + 9) == '[CDATA[') key = ']]>';else key = '>';
+  if ((this.i = this.data.indexOf(key, this.i + 2)) == -1) this.i = this.data.length;else this.i += key.length - 1;
+  this.start = this.i + 1;
+  this.state = this.Text;
+};
+MpHtmlParser.prototype.TagName = function (c) {
+  if (blankChar[c]) {
+    this.tagName = this.section();
+    while (blankChar[this.data[this.i]]) {
+      this.i++;
+    }
+    if (this.isClose()) this.setNode();else {
+      this.start = this.i;
+      this.state = this.AttrName;
+    }
+  } else if (this.isClose()) {
+    this.tagName = this.section();
+    this.setNode();
+  }
+};
+MpHtmlParser.prototype.AttrName = function (c) {
+  if (c == '=' || blankChar[c] || this.isClose()) {
+    this.attrName = this.section();
+    if (blankChar[c]) while (blankChar[this.data[++this.i]]) {
+      ;
+    }
+    if (this.data[this.i] == '=') {
+      while (blankChar[this.data[++this.i]]) {
+        ;
+      }
+      this.start = this.i--;
+      this.state = this.AttrValue;
+    } else this.setAttr();
+  }
+};
+MpHtmlParser.prototype.AttrValue = function (c) {
+  if (c == '"' || c == "'") {
+    this.start++;
+    if ((this.i = this.data.indexOf(c, this.i + 1)) == -1) return this.i = this.data.length;
+    this.attrVal = this.section();
+    this.i++;
+  } else {
+    for (; !blankChar[this.data[this.i]] && !this.isClose(); this.i++) {
+      ;
+    }
+    this.attrVal = this.section();
+  }
+  this.setAttr();
+};
+MpHtmlParser.prototype.EndTag = function (c) {
+  if (blankChar[c] || c == '>' || c == '/') {
+    var name = this.section().toLowerCase();
+    for (var i = this.STACK.length; i--;) {
+      if (this.STACK[i].name == name) break;
+    }
+    if (i != -1) {
+      var node;
+      while ((node = this.STACK.pop()).name != name) {
+        this.popNode(node);
+      }
+      this.popNode(node);
+    } else if (name == 'p' || name == 'br') this.siblings().push({
+      name: name,
+      attrs: {}
+    });
+    this.i = this.data.indexOf('>', this.i);
+    this.start = this.i + 1;
+    if (this.i == -1) this.i = this.data.length;else this.state = this.Text;
+  }
+};
+module.exports = MpHtmlParser;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 234 */
+/*!**********************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/components/u-parse/libs/config.js ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(wx) {/* 配置文件 */
+var cfg = {
+  // 出错占位图
+  errorImg: null,
+  // 过滤器函数
+  filter: null,
+  // 代码高亮函数
+  highlight: null,
+  // 文本处理函数
+  onText: null,
+  // 实体编码列表
+  entities: {
+    quot: '"',
+    apos: "'",
+    semi: ';',
+    nbsp: '\xA0',
+    ensp: "\u2002",
+    emsp: "\u2003",
+    ndash: '–',
+    mdash: '—',
+    middot: '·',
+    lsquo: '‘',
+    rsquo: '’',
+    ldquo: '“',
+    rdquo: '”',
+    bull: '•',
+    hellip: '…'
+  },
+  blankChar: makeMap(' ,\xA0,\t,\r,\n,\f'),
+  boolAttrs: makeMap('allowfullscreen,autoplay,autostart,controls,ignore,loop,muted'),
+  // 块级标签，将被转为 div
+  blockTags: makeMap('address,article,aside,body,caption,center,cite,footer,header,html,nav,pre,section'),
+  // 将被移除的标签
+  ignoreTags: makeMap('area,base,canvas,frame,iframe,input,link,map,meta,param,script,source,style,svg,textarea,title,track,wbr'),
+  // 只能被 rich-text 显示的标签
+  richOnlyTags: makeMap('a,colgroup,fieldset,legend'),
+  // 自闭合的标签
+  selfClosingTags: makeMap('area,base,br,col,circle,ellipse,embed,frame,hr,img,input,line,link,meta,param,path,polygon,rect,source,track,use,wbr'),
+  // 信任的标签
+  trustTags: makeMap('a,abbr,ad,audio,b,blockquote,br,code,col,colgroup,dd,del,dl,dt,div,em,fieldset,h1,h2,h3,h4,h5,h6,hr,i,img,ins,label,legend,li,ol,p,q,source,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,title,ul,video'),
+  // 默认的标签样式
+  userAgentStyles: {
+    address: 'font-style:italic',
+    big: 'display:inline;font-size:1.2em',
+    blockquote: 'background-color:#f6f6f6;border-left:3px solid #dbdbdb;color:#6c6c6c;padding:5px 0 5px 10px',
+    caption: 'display:table-caption;text-align:center',
+    center: 'text-align:center',
+    cite: 'font-style:italic',
+    dd: 'margin-left:40px',
+    mark: 'background-color:yellow',
+    pre: 'font-family:monospace;white-space:pre;overflow:scroll',
+    s: 'text-decoration:line-through',
+    small: 'display:inline;font-size:0.8em',
+    u: 'text-decoration:underline'
+  }
+};
+function makeMap(str) {
+  var map = Object.create(null),
+    list = str.split(',');
+  for (var i = list.length; i--;) {
+    map[list[i]] = true;
+  }
+  return map;
+}
+if (wx.canIUse('editor')) {
+  cfg.blockTags.pre = void 0;
+  cfg.ignoreTags.rp = true;
+  Object.assign(cfg.richOnlyTags, makeMap('bdi,bdo,caption,rt,ruby'));
+  Object.assign(cfg.trustTags, makeMap('bdi,bdo,caption,pre,rt,ruby'));
+}
+module.exports = cfg;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
+
+/***/ }),
+/* 235 */
+/*!**************************************************************************************************************!*\
+  !*** C:/Users/Aadministrator/Desktop/FilmQuickLook/ChaoMingBrushClass/components/u-parse/libs/CssHandler.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var cfg = __webpack_require__(/*! ./config.js */ 234),
+  isLetter = function isLetter(c) {
+    return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
+  };
+function CssHandler(tagStyle) {
+  var styles = Object.assign(Object.create(null), cfg.userAgentStyles);
+  for (var item in tagStyle) {
+    styles[item] = (styles[item] ? styles[item] + ';' : '') + tagStyle[item];
+  }
+  this.styles = styles;
+}
+CssHandler.prototype.getStyle = function (data) {
+  this.styles = new parser(data, this.styles).parse();
+};
+CssHandler.prototype.match = function (name, attrs) {
+  var tmp,
+    matched = (tmp = this.styles[name]) ? tmp + ';' : '';
+  if (attrs.class) {
+    var items = attrs.class.split(' ');
+    for (var i = 0, item; item = items[i]; i++) {
+      if (tmp = this.styles['.' + item]) matched += tmp + ';';
+    }
+  }
+  if (tmp = this.styles['#' + attrs.id]) matched += tmp + ';';
+  return matched;
+};
+module.exports = CssHandler;
+function parser(data, init) {
+  this.data = data;
+  this.floor = 0;
+  this.i = 0;
+  this.list = [];
+  this.res = init;
+  this.state = this.Space;
+}
+parser.prototype.parse = function () {
+  for (var c; c = this.data[this.i]; this.i++) {
+    this.state(c);
+  }
+  return this.res;
+};
+parser.prototype.section = function () {
+  return this.data.substring(this.start, this.i);
+};
+// 状态机
+parser.prototype.Space = function (c) {
+  if (c == '.' || c == '#' || isLetter(c)) {
+    this.start = this.i;
+    this.state = this.Name;
+  } else if (c == '/' && this.data[this.i + 1] == '*') this.Comment();else if (!cfg.blankChar[c] && c != ';') this.state = this.Ignore;
+};
+parser.prototype.Comment = function () {
+  this.i = this.data.indexOf('*/', this.i) + 1;
+  if (!this.i) this.i = this.data.length;
+  this.state = this.Space;
+};
+parser.prototype.Ignore = function (c) {
+  if (c == '{') this.floor++;else if (c == '}' && ! --this.floor) {
+    this.list = [];
+    this.state = this.Space;
+  }
+};
+parser.prototype.Name = function (c) {
+  if (cfg.blankChar[c]) {
+    this.list.push(this.section());
+    this.state = this.NameSpace;
+  } else if (c == '{') {
+    this.list.push(this.section());
+    this.Content();
+  } else if (c == ',') {
+    this.list.push(this.section());
+    this.Comma();
+  } else if (!isLetter(c) && (c < '0' || c > '9') && c != '-' && c != '_') this.state = this.Ignore;
+};
+parser.prototype.NameSpace = function (c) {
+  if (c == '{') this.Content();else if (c == ',') this.Comma();else if (!cfg.blankChar[c]) this.state = this.Ignore;
+};
+parser.prototype.Comma = function () {
+  while (cfg.blankChar[this.data[++this.i]]) {
+    ;
+  }
+  if (this.data[this.i] == '{') this.Content();else {
+    this.start = this.i--;
+    this.state = this.Name;
+  }
+};
+parser.prototype.Content = function () {
+  this.start = ++this.i;
+  if ((this.i = this.data.indexOf('}', this.i)) == -1) this.i = this.data.length;
+  var content = this.section();
+  for (var i = 0, item; item = this.list[i++];) {
+    if (this.res[item]) this.res[item] += ';' + content;else this.res[item] = content;
+  }
+  this.list = [];
+  this.state = this.Space;
+};
 
 /***/ })
 ]]);

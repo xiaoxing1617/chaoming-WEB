@@ -1,0 +1,1 @@
+<view class="{{['x-text',classList]}}" style="{{'color:'+(color)+';'+('font-size:'+($root.m0)+';')+('-webkit-line-clamp:'+(ellipsis)+';')+('margin:'+($root.m1)+';')}}" scroll-y="{{true}}"><block wx:if="{{icon}}"><u-icon style="margin-right:8rpx;" vue-id="0d213b49-1" name="{{icon}}" size="{{iconSize}}" bind:__l="__l"></u-icon></block>{{''+value+''}}</view>

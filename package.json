@@ -1,0 +1,35 @@
+{
+	"name": "uView",
+	"version": "1.8.6",
+	"description": "uView UI，是uni-app生态优秀的UI框架，全面的组件和便捷的工具会让您信手拈来，如鱼得水",
+	"main": "index.js",
+	"keywords": [
+		"uview",
+		"ui",
+		"uni-app"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"svgicon": "node ./uni_modules/zui-svg-icon/tools/generate-svg-icon.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"devDependencies": {
+		"sass-loader": "^8.0.2"
+	},
+	"author": "uView",
+	"license": "MIT",
+	"id": "uview-v1",
+	"dcloudext": {
+		"category": [
+			"前端组件",
+			"通用组件"
+		]
+	},
+	"dependencies": {
+		"sass": "^1.77.8",
+		"svgo": "^3.3.2"
+	}
+}

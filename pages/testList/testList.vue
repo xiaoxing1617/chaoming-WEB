@@ -1,302 +1,242 @@
 <template>
 	<view>
-		<view class="refresh" @click="getMeTestList">刷新列表</view>
-		<view class="li" v-for="(item,index) in list">
-			<view class="status" v-if="item.status == 'not'">未开始</view>
-			<view class="status" style="background: #f00;" v-else-if="item.status == 'wait'">待考试</view>
-			<view class="status" style="background: #0048FE;" v-else-if="item.status == 'proceed'">考试中</view>
-			<view class="status" style="background: #1CAD1B;" v-else-if="item.status == 'finish'">已结束</view>
-			<view class="title">{{item.title}}</view>
-			<view class="txt">考试ID：{{item.id}}（{{item.order}}）</view>
-			<view class="txt">开始时间：{{item.open_start}}</view>
-			<view class="txt">结束时间：{{item.open_end}}</view>
-			<view class="txt">总分：{{item.total_score}}分</view>
-			<view class="txt">得分：{{item.get_score}}分</view>
-			<view class="txt">时长：{{item.time_length}}分钟</view>
+		<u-navbar :back-icon-name="load?'hourglass-half-fill':'reload'" :custom-back="reload" back-icon-color="#fff"
+			:back-text="load?'请稍后':'刷新'" :back-text-style="{ color: '#fff' }" :back-icon-size="35" title="考试列表"
+			:title-size="34" title-color="#fff" :background="background">
+		</u-navbar>
 
-
-			<view class="but" style="background: #4B5364;" v-if="!item.is_support">不支持解密
-			</view>
-			<view class="but" style="background: #f00;" v-else-if="item.status == 'wait'" @click="tips">等待进入考试</view>
-			<view class="but" v-else-if="item.status == 'proceed'" @click="getTestAnswer(item.id)">解密答案</view>
-			<view class="but" v-else-if="item.status == 'finish'" @click="getTestAnswer(item.id)">查看答案</view>
+		<view style="text-align: center;margin-top: 48rpx;" v-if="load">
+			<u-loading color="red" mode="circle" :size="66"></u-loading>
 		</view>
-		<uni-popup ref="alertDialog" type="dialog">
-			<uni-popup-dialog :type="msg.type" :cancelText="msg.close_txt" :confirmText="msg.confirm_txt" title="提示"
-				:content="msg.content" @confirm="msg.confirm" @close="msg.close"></uni-popup-dialog>
-		</uni-popup>
 
-		<uni-popup ref="brushPopup">
-			<view class="brush-popup-view">
-				<view class="main">
-					<view class="title">{{testAnswer.title}}</view>
-					<view class="answer-list">
-						<view class="item" v-for="(item,index) in testAnswer.list">
-							<view class="topic"><span>{{index+1}}.&nbsp;</span>&nbsp;{{item.title}}</view>
-							<view class="answer">{{item.op}}</view>
-						</view>
-					</view>
+		<view class="content" v-else>
+			<u-card v-for="(item,index) of list" :border-radius="22" box-shadow="0 4px 8px 0 rgba(0, 44, 102, 0.05)">
+				<view class="" slot="head">
+					<u-tag :text="getStatusName(item.status)[1]" mode="dark" shape="circleLeft"
+						:type="getStatusName(item.status)[0]" style="margin-right: 13rpx;" /><span
+						style="font-size: 33rpx;">{{item.title}}</span>
 				</view>
-			</view>
-		</uni-popup>
+				<view class="" slot="body">
+					<x-text :value="'试卷ID：'+item.id+'（'+item.order+'）'" :size="30" :margin="[0,12,0,12]" color="#000"
+						block :ellipsis="1"></x-text>
+					<x-text :value="'答题时长：'+item.time_length+'分钟'" :size="30" :margin="[0,12,0,12]" color="#000"
+						block></x-text>
+					<x-text :value="'试卷总分：'+item.total_score+'分'" :size="30" :margin="[0,12,0,12]" color="#000"
+						block></x-text>
+					<x-text :value="'考试得分：'+item.get_score+'分'" :size="30" :margin="[0,12,0,12]" color="#000"
+						block></x-text>
+					<x-text :value="'开放时间：'+item.open_start+'~'+item.open_end" :size="30" :margin="[0,12,0,12]"
+						color="#000" block></x-text>
+				</view>
+				<view class="" slot="foot">
+					<template v-if="item.status=='error'">
+						<!-- 错误 -->
+						<u-button type="error" :ripple="true"
+							@click="tips(item.error_directions)">{{item.error_title}}</u-button>
+					</template>
+
+					<template v-else-if="item.status=='finish'">
+						<!-- 已结束 -->
+						<u-button type="success" :ripple="true" v-if="item.is_support"
+							@click="viewTestAnswer(item.title,item.id,item.order)">已结束，查看试卷答案</u-button>
+						<u-button :disabled="true" v-else>不支持查看试卷答案</u-button>
+					</template>
+					<template v-else-if="item.status=='wait'">
+						<!-- 等待开放-->
+						<u-button type="default" @click="tips('等待该场考试开放作答时间')" :ripple="true">等待开放时间</u-button>
+					</template>
+
+					<template v-else>
+						<!-- 已开放，未考试 / 正在答题中-->
+						<template v-if="item.is_support">
+							<!-- 支持查看答案 -->
+							<u-button type="warning"
+								@click="tips('请先通过另一个设备进入朝明在线考试答题界面，然后回到本小程序点左上角“刷新”即可查看本场考试答案！有什么不懂的可以联系客服！')"
+								:ripple="true" v-if="item.status=='not'">请先进入考试答题</u-button>
+							<u-button type="primary" @click="viewTestAnswer(item.title,item.id,item.order)"
+								:ripple="true" v-if="item.status=='proceed'">正在答题，查看试卷答案</u-button>
+						</template>
+						<template v-else>
+							<u-button :disabled="true">暂不支持查看试卷答案</u-button>
+						</template>
+
+					</template>
+				</view>
+			</u-card>
+		</view>
+		<xingCommon ref="xingCommon" />
+
+		<!-- 课程列表-弹出层 -->
+		<u-popup v-model="popup.show" style="overflow: hidden;" mode="bottom" height="1200rpx" border-radius="23">
+			<x-text :margin="[19,12,8,12]" :ellipsis="1" :size="37" center :value="popup.title" color="#0048FE"
+				style="border-bottom: solid #dcdfe6 2rpx;" block="" bold=""></x-text>
+			<u-row>
+				<u-col :span="12" v-for="(item,index) of popup.list">
+					<x-text :margin="[8,12,8,15]" :size="31" color="#000" :value="index+1+'.'+item.title" bold=""
+						block=""></x-text>
+					<x-text icon="attach" :margin="[0,12,10,15]" :size="31" :value="item.op" color="#000" block=""
+						bold=""></x-text>
+					<view style="padding-top:8rpx;border-bottom: solid #f5f5f5 1rpx;width: 96%;margin-bottom: 12rpx;">
+					</view>
+				</u-col>
+			</u-row>
+		</u-popup>
 	</view>
 </template>
 
 <script>
+	const APP = getApp();
 	export default {
 		data() {
 			return {
+				load: false,
+				background: {
+					backgroundImage: 'linear-gradient(to left, #0048FE 0%, #3a72fe 100%)'
+				},
 				list: [],
-				APP: getApp(),
-				msg: {
-					type: "error",
-					content: "",
-					confirm() {},
-					close() {},
-					confirm_txt: "知道了",
-					close_txt: "关闭",
-				},
-				testAnswer: {
+				popup: {
+					show: false,
 					title: "",
-					list: [
-
-					],
-				},
+					list: []
+				}
 			}
 		},
+		onShareAppMessage(res) {
+			return {
+				title: '朝明辅助-考试列表',
+				path: '/pages/textList/textList'
+			}
+		},
+		onShareTimeline(res) {
+			return {
+				title: '朝明辅助-考试列表',
+				path: '/pages/textList/textList'
+			}
+		},
+		onLoad() {
+			this.$nextTick(() => {
+				this.$x = this.$refs.xingCommon;
+			})
+		},
+		onShow() {
+			this.reload();
+		},
 		methods: {
-			/**
-			 * 查看考试答案
-			 * @param {Object} id
-			 */
-			getTestAnswer(id) {
-				const item = this.list.find(item => item.id === id);
-				this.testAnswer.title = item.title;
-				let _this = this;
-				let login_token = uni.getStorageSync('login_token');
-				if (!login_token) {
-					uni.setStorageSync('login_token', null);
-				} else {
-					this.login_token = login_token;
-				}
-				uni.showLoading({
-					title: '请稍后...',
-					mask: true,
-				});
-				uni.request({
-					url: this.APP.globalData.basicUrl + "/Index/viewTestAnswer",
-					data: {
-						token: this.login_token,
-						test_id: item.id,
-						index: item.order,
+			viewTestAnswer(title, id, order) {
+				this.$x.openModal({
+					showTitle: true,
+					title: "温馨提示",
+					content: "请务必先完成该考试课程的所有作业，因为解密试卷答案需要从作业中获取，若有未完成的请及时刷取！",
+					confirmText: "确认查看",
+					cancelText: "取消",
+					showCancelButton: true,
+					confirm: () => {
+
+						uni.showLoading({
+							title: '正在获取...',
+							mask: true,
+						});
+
+						APP.request({
+							url: "/Index/viewTestAnswer",
+							data: {
+								test_id: id,
+								index: order,
+							},
+							success: (res) => {
+								uni.hideLoading();
+								if (res.data && res.data?.code && res.data.code * 1 === 1) {
+									this.popup.show = true;
+									this.popup.title = title;
+									this.popup.list = res.data.data;
+									console.log("viewTestAnswer", this.popup.list);
+								} else {
+									this.$x.openModal({
+										content: res.data.msg,
+										confirmText: "确定",
+									})
+								}
+							},
+							fail() {
+								uni.hideLoading();
+								this.$x.openModal({
+									content: "系统繁忙，请稍后重试！",
+									confirmText: "确定",
+								})
+							}
+						})
 					},
-					success: (res) => {
-						uni.hideLoading();
-						if (res.data && res.data?.code && res.data.code * 1 === 1) {
-							this.testAnswer.list = res.data.data;
-							this.$refs.brushPopup.open("bottom")
-						} else {
-							this.msg.type = "error";
-							this.msg.content = res.data.msg;
-							this.$refs.alertDialog.open()
-						}
-					},
-					fail() {
-						uni.hideLoading();
-						this.msg.type = "error";
-						this.msg.content = "系统繁忙";
-						this.$refs.alertDialog.open()
-					}
 				})
 			},
-			tips() {
-				this.msg.type = "info";
-				this.msg.content = "您需要先进入考试才能解密获取本场考试的答案。（须知：朝明在线或本程序出现问题时可能无法解密成功）";
-				this.$refs.alertDialog.open()
+			tips(msg) {
+				this.$x.openModal({
+					content: msg,
+					confirmText: "确定",
+					zIndex: 99999,
+				})
 			},
-			/**
-			 * 获取考试列表
-			 */
-			getMeTestList() {
-				let _this = this;
-				this.APP.getUserInfo().then((data) => {
-					let login_token = uni.getStorageSync('login_token');
-					if (!login_token) {
-						uni.setStorageSync('login_token', null);
-					} else {
-						this.login_token = login_token;
-					}
-					uni.showLoading({
-						title: '请稍后...',
-						mask: true,
-					});
-					uni.request({
-						url: this.APP.globalData.basicUrl + "/Index/getMeTestList",
-						data: {
-							token: this.login_token
-						},
+			getStatusName(status) {
+				switch (status) {
+					case "finish":
+						return ["success", "考试结束"];
+						break;
+					case "not":
+						return ["warning", "已开放，未考试"];
+						break;
+					case "proceed":
+						return ["primary", "正在答题中"];
+						break;
+					case "wait":
+						return ["info", "等待开放"];
+						break;
+					case "error":
+						return ["error", "异常情况"];
+						break;
+				}
+			},
+			reload() {
+				if (this.load) {
+					return;
+				}
+				this.load = true;
+				//获取考试列表
+				APP.getUserInfo().then((user) => {
+					APP.request({
+						url: "/Index/getMeTestList",
+						data: {},
 						success: (res) => {
-							uni.hideLoading();
+							this.load = false;
 							if (res.data && res.data?.code && res.data.code * 1 === 1) {
-								this.list = res.data.data;
+								this.list = res.data.data
+								console.log("list", this.list);
 							} else {
-								this.loginLoading = false;
-								this.msg.type = "error";
-								this.msg.content = res.data.msg;
-								this.$refs.alertDialog.open()
+								this.$x.openModal({
+									content: res.data.msg,
+									confirmText: "确定",
+								})
 							}
 						},
 						fail() {
-							uni.hideLoading();
-							this.loginLoading = false;
-							this.msg.type = "error";
-							this.msg.content = "系统繁忙";
-							this.$refs.alertDialog.open()
+							this.load = false;
+							this.$x.openModal({
+								content: "系统繁忙，请稍后重试！",
+								confirmText: "确定",
+							})
 						}
 					})
-				}).catch((msg) => {
-					this.loginLoading = false;
-					this.msg.type = "error";
-					this.msg.content = msg;
-					this.msg.confirm_txt = "去登录";
-					this.msg.confirm = this.msg.close = function() {
-						uni.navigateTo({
-							url: '/pages/index/index'
-						});
-					}
-					this.$refs.alertDialog.open()
 
+				}).catch((msg) => {
+					uni.navigateTo({
+						url: '/pages/login/login'
+					});
 				})
 			},
-		},
-		onLoad() {
-			this.getMeTestList();
 		}
 	}
 </script>
 
 <style>
 	page {
-		width: 100%;
-		background: #282C35;
-	}
-
-	.refresh {
-		width: 90%;
-		margin: 10rpx auto;
-		margin-top: 20rpx;
-		border-radius: 50rpx;
-		padding: 12rpx 20rpx;
-		text-align: center;
-		font-size: 29rpx;
-		font-weight: 800;
-		background: #0048FE;
-		color: #fff;
-		letter-spacing: 7rpx;
-	}
-
-	.li {
-		border-radius: 12rpx;
-		color: #fff;
-		width: 95%;
-		margin: 20rpx auto;
-		background: #21242D;
-		padding-bottom: 20rpx;
-	}
-
-	.li>.status {
-		border-radius: 12rpx 0 12rpx 0;
-		background: #4B5364;
-		padding: 4rpx 10rpx;
-		font-size: 25rpx;
-		display: inline-block;
-	}
-
-	.li>.title {
-		font-weight: 800;
-		font-size: 35rpx;
-		margin: 10rpx 25rpx;
-	}
-
-	.li>.txt {
-		font-weight: 500;
-		font-size: 28rpx;
-		color: #ABB2BF;
-		margin: 5rpx 25rpx;
-	}
-
-	.li>.but {
-		width: 90%;
-		margin: 10rpx auto;
-		margin-top: 20rpx;
-		border-radius: 50rpx;
-		padding: 12rpx;
-		text-align: center;
-		font-size: 29rpx;
-		font-weight: 800;
-		background: #0048FE;
-		letter-spacing: 7rpx;
-	}
-
-	.brush-popup-view {
-		width: 100%;
-		background: #111316;
-		height: 650rpx;
-		border-radius: 30rpx 30rpx 0 0;
-		box-shadow: 0 2px 10px 0 rgba(255, 255, 255, 0.1);
-	}
-
-	.brush-popup-view {
-		padding-top: 25rpx;
-	}
-
-	.brush-popup-view .main {
-		width: 92%;
-		height: 610rpx;
-		background: #21252B;
-		border-radius: 30rpx;
-		margin: 0 auto;
-		padding-top: 15rpx;
-		position: relative;
-	}
-
-	.brush-popup-view .main .title {
-		color: #0048FE;
-		text-align: center;
-		font-size: 33rpx;
-		font-weight: 800;
-		margin-bottom: 10rpx;
-	}
-
-	.answer-list {
-		height: 540rpx;
-		overflow-y: scroll;
-		color: #fff;
-		padding: 5rpx 15rpx;
-	}
-
-	.answer-list>.item {
-		border-bottom: #282C35 solid 1rpx;
-		margin: 10rpx auto;
-		padding-bottom: 15rpx;
-	}
-
-	.answer-list>.item .topic {
-		font-size: 30rpx;
-		background: #1b212b;
-		border-radius: 12rpx;
-		padding: 8rpx 12rpx;
-		margin-bottom: 5rpx;
-	}
-
-	.answer-list>.item .topic>span {
-		color: #0048FE;
-		font-weight: 800;
-		font-size: 32rpx;
-	}
-
-	.answer-list>.item .answer {
-		font-size: 30rpx;
-		padding-left: 10rpx;
+		background: #f5f5f5;
 	}
 </style>

@@ -1,17 +1,27 @@
 <template>
-	<view class="liu-list">
+	<view class="liu-list" :style="{
+		top:menuButtonBoundingClientRect.top+topPx+'px',
+		paddingBottom:menuButtonBoundingClientRect.top+topPx+'px',
+		background:'#fff'
+	}">
+
+		<view class="liu-search" id="TOP" :style="{
+		width:widthPx - menuButtonBoundingClientRect.width + 'px',
+		height:menuButtonBoundingClientRect.height + 'px',
+	}">
+			<image class="liu-search-img" src="../../static/search.png"></image>
+			<input class="liu-input" @input="search" v-model="searchStr" placeholder="关键字..." maxlength="50"
+				placeholder-class="liu-placeholder" />
+		</view>
+
+
 		<scroll-view class="liu-scroll-left" scroll-y="true" :scroll-with-animation="true"
 			:scroll-into-view="scrollIntoView">
-			<view class="liu-search" id="TOP">
-				<image class="liu-search-img" src="../../static/search.png"></image>
-				<input class="liu-input" @input="search" v-model="searchStr" placeholder="请输入搜索信息" maxlength="50"
-					placeholder-class="liu-placeholder" />
-			</view>
 			<view class="left-list" v-for="(item,index) of scrollLeftObj" :key="index" :id="index!='#'?index:'BOTTOM'">
 				<view class="left-item-title" v-if="item && item.length">{{index}}</view>
 				<view class="left-item-card" v-for="(mess,inx) in item" @click.stop="chooseItem(mess)">
 					<image :style="'border-radius:'+radius" class="left-item-card-img img-info" :src="mess[imgKey]"
-						v-if="mess[imgKey]" @click.stop="preview(mess[imgKey])"></image>
+						v-if="mess[imgKey]"></image>
 					<view :style="'border-radius:'+radius" class="left-item-card-img" v-else>
 						{{mess[nameKey] && mess[nameKey].slice(0,1) || ''}}
 					</view>
@@ -37,6 +47,7 @@
 </template>
 
 <script>
+	const APP = getApp();
 	import {
 		pinyinUtil
 	} from './pinyinUtil.js';
@@ -83,7 +94,10 @@
 				scrollLeftObj: {},
 				oldObj: {},
 				scrollRightList: [],
-				hasData: true
+				hasData: true,
+				menuButtonBoundingClientRect: APP.globalData.menuButtonBoundingClientRect,
+				widthPx: uni.upx2px(548),
+				topPx: uni.upx2px(0),
 			};
 		},
 		watch: {
@@ -93,8 +107,9 @@
 				handler(newList) {
 					if (newList && newList.length) this.cleanData(newList)
 				},
-			},
+			}
 		},
+		created() {},
 		methods: {
 			search() {
 				if (this.searchStr) {
@@ -182,44 +197,46 @@
 <style lang="scss" scoped>
 	.liu-list {
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		background-color: #F4F4F4;
 		box-sizing: border-box;
-		padding-top: 1px;
+		position: fixed;
+		top:0;
+
+		.liu-search {
+			width: 100%;
+			height: 114rpx;
+			background-color: #FFFFFF;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			left:-20rpx;
+
+			.liu-search-img {
+				width: 32rpx;
+				height: 32rpx;
+				position: absolute;
+				left: 64rpx;
+			}
+
+			.liu-input {
+				width: calc(100% - 64rpx);
+				height: 72rpx;
+				background: #EEEEEE;
+				border-radius: 36rpx;
+				padding: 0 32rpx 0 80rpx;
+				box-sizing: border-box;
+				color: #aaa;
+			}
+
+			.liu-placeholder {
+				color: #777777;
+			}
+		}
 
 		.liu-scroll-left {
 			height: 100%;
-
-			.liu-search {
-				width: 100%;
-				height: 106rpx;
-				background-color: #FFFFFF;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: relative;
-
-				.liu-search-img {
-					width: 32rpx;
-					height: 32rpx;
-					position: absolute;
-					left: 64rpx;
-				}
-
-				.liu-input {
-					width: calc(100% - 64rpx);
-					height: 72rpx;
-					background: #EEEEEE;
-					border-radius: 36rpx;
-					padding: 0 32rpx 0 80rpx;
-					box-sizing: border-box;
-					color: #333333;
-				}
-
-				.liu-placeholder {
-					color: #777777;
-				}
-			}
 
 			.left-list {
 				height: auto;

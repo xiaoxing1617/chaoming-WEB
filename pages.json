@@ -5,24 +5,17 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, {
-			"path": "pages/classList/classList",
-			"style": {
-				"navigationBarBackgroundColor": "#111316",
-				"navigationBarTextColor": "#FFF",
-				"navigationBarTextStyle": "white",
-				"navigationBarTitleText": "课程列表",
-				"enablePullDownRefresh": false
-			}
 		},
 		{
 			"path": "pages/testList/testList",
 			"style": {
-				"navigationBarBackgroundColor": "#111316",
-				"navigationBarTextColor": "#FFF",
-				"navigationBarTextStyle": "white",
-				"navigationBarTitleText": "考试列表",
-				"enablePullDownRefresh": false
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		}
 	],
@@ -35,21 +28,27 @@
 	"tabBar": {
 		"color": "#BFBFBF",
 		"selectedColor": "#2595E8",
-		"backgroundColor": "#111316",
+		"backgroundColor": "#fff",
 		"list":[
 			{
-				"pagePath":"pages/classList/classList",
+				"pagePath":"pages/index/index",
 				"text":"课程",
-				"iconPath":"static/class_list_0.png",
-				"selectedIconPath":"static/class_list_1.png"
+				"iconPath":"static/tabBar/index_0.png",
+				"selectedIconPath":"static/tabBar/index_1.png"
 			},
 			{
 				"pagePath":"pages/testList/testList",
 				"text":"考试",
-				"iconPath":"static/test_list_0.png",
-				"selectedIconPath":"static/test_list_1.png"
+				"iconPath":"static/tabBar/test_0.png",
+				"selectedIconPath":"static/tabBar/test_1.png"
 			}
 		]
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"easycom": {
+	  "autoscan": true,
+	  "custom": {
+	    "^u-(.*)": "@/components/u-$1/u-$1.vue" // 匹配components目录内的vue文件
+	  }
+	}
 }

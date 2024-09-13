@@ -1,22 +1,18 @@
 import App from './App'
+import uView from './index.js'
+import './index.scss'
 
-// #ifndef VUE3
 import Vue from 'vue'
 import './uni.promisify.adaptor'
+import xingCommon from '@/components/xing-common.vue';
+Vue.component("xingCommon",xingCommon)
+import xText from '@/components/x-text.vue';
+Vue.component("x-text",xText)
+
 Vue.config.productionTip = false
+Vue.use(uView);
 App.mpType = 'app'
 const app = new Vue({
   ...App
 })
 app.$mount()
-// #endif
-
-// #ifdef VUE3
-import { createSSRApp } from 'vue'
-export function createApp() {
-  const app = createSSRApp(App)
-  return {
-    app
-  }
-}
-// #endif

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u-toast": "/components/u-toast/u-toast",
+    "u-modal": "/components/u-modal/u-modal"
+  },
+  "component": true
+}

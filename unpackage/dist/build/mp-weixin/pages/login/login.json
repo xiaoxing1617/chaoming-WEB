@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-icon": "/components/u-icon/u-icon",
+    "u-popup": "/components/u-popup/u-popup",
+    "liu-indexed-list": "/uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list",
+    "u-parse": "/components/u-parse/u-parse",
+    "u-grid": "/components/u-grid/u-grid",
+    "u-grid-item": "/components/u-grid-item/u-grid-item",
+    "u-section": "/components/u-section/u-section",
+    "u-read-more": "/components/u-read-more/u-read-more",
+    "u-line": "/components/u-line/u-line"
+  }
+}

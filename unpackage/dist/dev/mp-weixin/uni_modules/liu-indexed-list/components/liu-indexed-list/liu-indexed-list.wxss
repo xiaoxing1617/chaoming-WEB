@@ -34,40 +34,42 @@
 /* 文章场景相关 */
 .liu-list.data-v-304b60a1 {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #F4F4F4;
   box-sizing: border-box;
-  padding-top: 1px;
+  position: fixed;
+  top: 0;
 }
-.liu-list .liu-scroll-left.data-v-304b60a1 {
-  height: 100%;
-}
-.liu-list .liu-scroll-left .liu-search.data-v-304b60a1 {
+.liu-list .liu-search.data-v-304b60a1 {
   width: 100%;
-  height: 106rpx;
+  height: 114rpx;
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  left: -20rpx;
 }
-.liu-list .liu-scroll-left .liu-search .liu-search-img.data-v-304b60a1 {
+.liu-list .liu-search .liu-search-img.data-v-304b60a1 {
   width: 32rpx;
   height: 32rpx;
   position: absolute;
   left: 64rpx;
 }
-.liu-list .liu-scroll-left .liu-search .liu-input.data-v-304b60a1 {
+.liu-list .liu-search .liu-input.data-v-304b60a1 {
   width: calc(100% - 64rpx);
   height: 72rpx;
   background: #EEEEEE;
   border-radius: 36rpx;
   padding: 0 32rpx 0 80rpx;
   box-sizing: border-box;
-  color: #333333;
+  color: #aaa;
 }
-.liu-list .liu-scroll-left .liu-search .liu-placeholder.data-v-304b60a1 {
+.liu-list .liu-search .liu-placeholder.data-v-304b60a1 {
   color: #777777;
+}
+.liu-list .liu-scroll-left.data-v-304b60a1 {
+  height: 100%;
 }
 .liu-list .liu-scroll-left .left-list.data-v-304b60a1 {
   height: auto;

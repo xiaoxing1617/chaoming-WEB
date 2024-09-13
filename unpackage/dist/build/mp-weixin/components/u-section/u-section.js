@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/u-section/u-section"],{"1c19":function(t,e,n){"use strict";n.r(e);var i=n("bc16"),o=n.n(i);for(var u in i)["default"].indexOf(u)<0&&function(t){n.d(e,t,(function(){return i[t]}))}(u);e["default"]=o.a},bc16:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var i={name:"u-section",props:{title:{type:String,default:""},subTitle:{type:String,default:"更多"},right:{type:Boolean,default:!0},fontSize:{type:[Number,String],default:28},bold:{type:Boolean,default:!0},color:{type:String,default:"#303133"},subColor:{type:String,default:"#909399"},showLine:{type:Boolean,default:!0},lineColor:{type:String,default:""},arrow:{type:Boolean,default:!0}},computed:{lineStyle:function(){return{left:-.9*Number(this.fontSize)+"rpx",top:-Number(this.fontSize)*("ios"==this.$u.os()?.14:.15)+"rpx"}}},methods:{rightClick:function(){this.$emit("click")}}};e.default=i},c52b:function(t,e,n){"use strict";var i=n("dfe4"),o=n.n(i);o.a},d9bd:function(t,e,n){"use strict";n.r(e);var i=n("f232"),o=n("1c19");for(var u in o)["default"].indexOf(u)<0&&function(t){n.d(e,t,(function(){return o[t]}))}(u);n("c52b");var r=n("828b"),l=Object(r["a"])(o["default"],i["b"],i["c"],!1,null,"489e0461",null,!1,i["a"],void 0);e["default"]=l.exports},dfe4:function(t,e,n){},f232:function(t,e,n){"use strict";n.d(e,"b",(function(){return o})),n.d(e,"c",(function(){return u})),n.d(e,"a",(function(){return i}));var i={uIcon:function(){return n.e("components/u-icon/u-icon").then(n.bind(null,"c028"))}},o=function(){var t=this.$createElement,e=(this._self._c,this.showLine?this.__get_style([this.lineStyle]):null);this.$mp.data=Object.assign({},{$root:{s0:e}})},u=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/u-section/u-section-create-component',
+    {
+        'components/u-section/u-section-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('df3c')['createComponent'](__webpack_require__("d9bd"))
+        })
+    },
+    [['components/u-section/u-section-create-component']]
+]);
