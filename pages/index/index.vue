@@ -13,7 +13,11 @@
 					</view>
 				</u-col>
 				<u-col :span="12">
+					<view v-if="brushPopupAd">
+						<u-image @click="brushPopupAdClick" :show-menu-by-longpress="false" width="100%" height="260rpx" :src="brushPopupAd.image" mode="aspectFill" border-radius="10"></u-image>
+					</view>
 					<view
+					   v-else
 						style="display: flex;justify-content: center;align-items: center;height: 260rpx;border:solid 1px #eee;border-radius: 20rpx;">
 						<view class="height-title man">
 							<span>朝明辅助</span>
@@ -101,7 +105,7 @@
 												})" v-if="decimalToPercentage(min_item.rec.progress)<100" size="mini" type="primary" :ripple="true"
 													:custom-style="{background:'#0048FE',width: '100%',color:'#fff'}">立即学习</u-button>
 												<u-button v-else plain fill size="mini" type="success"
-													@click="tips('该视频课程已全部看完')">学习完成</u-button>
+													@click="tips('该视频课程已全部看完')">学习完成</u-button>	
 											</view>
 											<view style="margin-top: 10rpx;" v-else>
 												<!-- 作业 -->
@@ -166,7 +170,7 @@
 				<span>朝明辅助</span>
 			</view>
 			<view class="banner">
-				<u-swiper circular :border-radius="16" :list="swiperList" img-mode="aspectFill"></u-swiper>
+				<u-swiper circular :border-radius="16" :list="swiperList" @click="swiperClick" img-mode="aspectFill"></u-swiper>
 			</view>
 
 			<view class="user">
@@ -239,6 +243,7 @@
 											<x-text :size="29" :margin="[30,8,0,8]" value="/" color="#000"></x-text>
 											<x-text :size="29" :value="item.video_count" bold color="#0048FE"></x-text>
 											<x-text :margin="[0,0,0,5]" :size="29" value="节" color="#000"></x-text>
+											<x-text v-if="item.tips" :margin="[5,10,0,0]" :size="24" :value="item.tips" right color="#F4AB47" bold block=""></x-text>
 										</u-col>
 									</u-row>
 								</view>
@@ -255,6 +260,7 @@
 		
 		<u-back-top :top="0" :scroll-top="isShowShareAppMessageButton?1:0" mode="square" :bottom="300" icon="share-fill" tips="分享" open-type="share" @returnTop="shareApp"></u-back-top>
 		<u-back-top :top="0" :scroll-top="isShowWeixinFillButton?1:0" mode="square" :bottom="200" icon="weixin-fill" tips="客服" @returnTop="jumpWeixin"></u-back-top>
+		<u-back-top :top="0" :scroll-top="!listRefresher?1:0" mode="square" :bottom="100" icon="reload" tips="刷新" @returnTop="getClassList"></u-back-top>
 
 		<u-skeleton :loading="!user.is_login || getUserInfoLoad" :animation="true" bgColor="#fff"></u-skeleton>
 	</view>
@@ -265,13 +271,7 @@
 	export default {
 		data() {
 			return {
-				shareObj:{
-					withShareTicket:true,
-					title: "朝明辅助",
-					content:"给你分享一款“朝明在线”刷课刷作业的工具~",
-					imageUrl:"https://chaoming.96xy.cn/public/static/share/1.png",
-					path:"/pages/index/index",
-				},
+				brushPopupAd:null,
 				
 				isShowShareAppMessageButton:false,  //是否显示“分享朋友”的按钮
 				isShowWeixinFillButton:false,  //是否显示“联系客服”的按钮
@@ -293,9 +293,8 @@
 				},
 				selectIndex: 0,
 				swiperList: [{
-					image: require("@/static/swiper/1.png"),
-					name: "1"
-				}, ],
+					image: require("@/static/swiper/first.png"),
+				}],
 				menuButtonBoundingClientRect: APP.globalData.menuButtonBoundingClientRect,
 				active: 0,
 				list: [],
@@ -319,6 +318,22 @@
 			},
 		},
 		methods: {
+			brushPopupAdClick(){
+				if(this.brushPopupAd.weburl){
+					uni.navigateTo({
+						url: "/pages/webview/webview?src="+encodeURIComponent(this.brushPopupAd.weburl)
+					});
+				}
+			},
+			swiperClick(index){
+				let item = this.swiperList[index];
+				console.log(item);
+				if(item.weburl){
+					uni.navigateTo({
+						url: "/pages/webview/webview?src="+encodeURIComponent(item.weburl)
+					});
+				}
+			},
 			/**
 			 * 跳转微信客服页
 			 */
@@ -347,10 +362,10 @@
 			 * 分享小程序
 			 */
 			shareApp(){
-				uni.showShareMenu(this.shareObj)
+				uni.showShareMenu(APP.globalData.shareObj)
 			},
 			jumpLogin() {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/login/login'
 				});
 			},
@@ -422,10 +437,7 @@
 					data,
 					success: (res) => {
 						if (res.data && res.data?.code && res.data.code * 1 === 1) {
-							this.popup.transit.buttonText = "刷新中...";
-							this.$x.toast({
-								title: res.data.msg,
-							})
+							this.popup.transit.buttonText = "刷课成功";
 							this.getDetail(false);
 						} else {
 							this.popup.transit.load = false;
@@ -557,23 +569,35 @@
 				}];
 
 				this.listRefresher = true;
+				this.active = 0;
 				APP.request({
 					url: "/Index/getClassList",
 					data: {},
 					success: (res) => {
-						this.listRefresher = false;
 						if (res.data && res.data?.code && res.data.code * 1 === 1) {
 							res.data.data.forEach((item, index) => {
 								item.name = "第" + (index + 1) + "学期"
 								item.index = index;
+								
 								item.course.forEach((c_item) => {
+									if(c_item.tips){
+										//远程过来的有tips属性
+									}else{
+										//没有tips属性
+										if(c_item.rec_status !== "can study"){
+											c_item.tips = "暂不开放学习";
+										}
+									}
+									
 									c_item.picture = this.imgBasicUrl +
 										c_item.course_fm
 								})
 							})
+						    this.listRefresher = false;
 							this.list = res.data.data;
 							console.log("list", this.list);
 						} else {
+						    this.listRefresher = false;
 							this.$x.openModal({
 								content: res.data.msg,
 								confirmText: "确定",
@@ -591,10 +615,10 @@
 			},
 		},
 		onShareAppMessage(res) {
-			return this.shareObj
+			return APP.globalData.shareObj
 		},
 		onShareTimeline(res) {
-			return this.shareObj
+			return APP.globalData.shareObj
 		},
 		onShow() {
 			let that = this;
@@ -656,6 +680,16 @@
 				this.getUserInfoLoad = false;
 				this.jumpLogin()
 			})
+			
+			//获取广告数据
+			APP.getAdData().then((data) => {
+				if(data.swiperList){
+					this.swiperList = data.swiperList;
+				}
+				if(data.brushPopupAd){
+					this.brushPopupAd = data.brushPopupAd;
+				}
+			})
 		}
 	}
 </script>
@@ -664,17 +698,6 @@
 <style scoped lang="scss">
 	/deep/ .uni-scroll-view-content {
 		background: #fff !important;
-	}
-
-	@keyframes showName-c6c4a2ba {
-		0% {
-			letter-spacing: -1.25rem;
-			filter: blur(.625rem)
-		}
-
-		to {
-			letter-spacing: .1875rem
-		}
 	}
 
 	page {
@@ -690,21 +713,7 @@
 		height: 100%;
 
 
-		.height-title {
-			font-family: 'No.308-ShangShouJiSuTi-2', sans-serif;
-			/* 使用你定义的字体，并指定一个备选字体 */
-			text-align: center;
-			font-size: 100rpx;
-			animation: showName-c6c4a2ba 2.5s forwards;
-			background: linear-gradient(to right, #EF4E77, #F5669B, #F28C58);
-			// background: linear-gradient(to right, #3A0067, #4A0363, #E7233B);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-
-			&.man {
-				animation: showName-c6c4a2ba 1.5s forwards !important;
-			}
-		}
+		
 
 		.header {
 			padding-bottom: 10rpx;

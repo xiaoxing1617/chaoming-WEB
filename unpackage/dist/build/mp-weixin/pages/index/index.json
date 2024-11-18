@@ -4,6 +4,7 @@
     "u-popup": "/components/u-popup/u-popup",
     "u-row": "/components/u-row/u-row",
     "u-col": "/components/u-col/u-col",
+    "u-image": "/components/u-image/u-image",
     "u-button": "/components/u-button/u-button",
     "u-back-top": "/components/u-back-top/u-back-top",
     "u-line-progress": "/components/u-line-progress/u-line-progress",
@@ -13,7 +14,6 @@
     "u-avatar": "/components/u-avatar/u-avatar",
     "u-empty": "/components/u-empty/u-empty",
     "u-tabs-swiper": "/components/u-tabs-swiper/u-tabs-swiper",
-    "u-image": "/components/u-image/u-image",
     "u-skeleton": "/components/u-skeleton/u-skeleton"
   }
 }

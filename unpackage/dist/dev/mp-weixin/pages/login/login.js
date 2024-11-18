@@ -101,31 +101,40 @@ var components
 try {
   components = {
     uIcon: function () {
-      return __webpack_require__.e(/*! import() | components/u-icon/u-icon */ "components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/components/u-icon/u-icon.vue */ 141))
+      return __webpack_require__.e(/*! import() | components/u-icon/u-icon */ "components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/components/u-icon/u-icon.vue */ 154))
     },
     uPopup: function () {
-      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 99))
+      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 105))
     },
     liuIndexedList: function () {
-      return Promise.all(/*! import() | uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list")]).then(__webpack_require__.bind(null, /*! @/uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list.vue */ 218))
+      return Promise.all(/*! import() | uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list")]).then(__webpack_require__.bind(null, /*! @/uni_modules/liu-indexed-list/components/liu-indexed-list/liu-indexed-list.vue */ 224))
+    },
+    uImage: function () {
+      return __webpack_require__.e(/*! import() | components/u-image/u-image */ "components/u-image/u-image").then(__webpack_require__.bind(null, /*! @/components/u-image/u-image.vue */ 126))
+    },
+    uSwitch: function () {
+      return __webpack_require__.e(/*! import() | components/u-switch/u-switch */ "components/u-switch/u-switch").then(__webpack_require__.bind(null, /*! @/components/u-switch/u-switch.vue */ 234))
+    },
+    uButton: function () {
+      return __webpack_require__.e(/*! import() | components/u-button/u-button */ "components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/components/u-button/u-button.vue */ 133))
     },
     uParse: function () {
-      return Promise.all(/*! import() | components/u-parse/u-parse */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/u-parse/u-parse")]).then(__webpack_require__.bind(null, /*! @/components/u-parse/u-parse.vue */ 228))
+      return Promise.all(/*! import() | components/u-parse/u-parse */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/u-parse/u-parse")]).then(__webpack_require__.bind(null, /*! @/components/u-parse/u-parse.vue */ 249))
     },
     uGrid: function () {
-      return __webpack_require__.e(/*! import() | components/u-grid/u-grid */ "components/u-grid/u-grid").then(__webpack_require__.bind(null, /*! @/components/u-grid/u-grid.vue */ 329))
+      return __webpack_require__.e(/*! import() | components/u-grid/u-grid */ "components/u-grid/u-grid").then(__webpack_require__.bind(null, /*! @/components/u-grid/u-grid.vue */ 259))
     },
     uGridItem: function () {
-      return __webpack_require__.e(/*! import() | components/u-grid-item/u-grid-item */ "components/u-grid-item/u-grid-item").then(__webpack_require__.bind(null, /*! @/components/u-grid-item/u-grid-item.vue */ 336))
+      return __webpack_require__.e(/*! import() | components/u-grid-item/u-grid-item */ "components/u-grid-item/u-grid-item").then(__webpack_require__.bind(null, /*! @/components/u-grid-item/u-grid-item.vue */ 266))
     },
     uSection: function () {
-      return __webpack_require__.e(/*! import() | components/u-section/u-section */ "components/u-section/u-section").then(__webpack_require__.bind(null, /*! @/components/u-section/u-section.vue */ 305))
+      return __webpack_require__.e(/*! import() | components/u-section/u-section */ "components/u-section/u-section").then(__webpack_require__.bind(null, /*! @/components/u-section/u-section.vue */ 273))
     },
     uReadMore: function () {
-      return __webpack_require__.e(/*! import() | components/u-read-more/u-read-more */ "components/u-read-more/u-read-more").then(__webpack_require__.bind(null, /*! @/components/u-read-more/u-read-more.vue */ 312))
+      return __webpack_require__.e(/*! import() | components/u-read-more/u-read-more */ "components/u-read-more/u-read-more").then(__webpack_require__.bind(null, /*! @/components/u-read-more/u-read-more.vue */ 280))
     },
     uLine: function () {
-      return __webpack_require__.e(/*! import() | components/u-line/u-line */ "components/u-line/u-line").then(__webpack_require__.bind(null, /*! @/components/u-line/u-line.vue */ 321))
+      return __webpack_require__.e(/*! import() | components/u-line/u-line */ "components/u-line/u-line").then(__webpack_require__.bind(null, /*! @/components/u-line/u-line.vue */ 287))
     },
   }
 } catch (e) {
@@ -163,6 +172,9 @@ var render = function () {
     _vm.e3 = function ($event) {
       $event.stopPropagation()
       _vm.agreementPopup = true
+    }
+    _vm.e4 = function ($event) {
+      return _vm.loginPopup.confirm()
     }
   }
   _vm.$mp.data = Object.assign(
@@ -313,11 +325,49 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var APP = getApp();
 var _default = {
   data: function data() {
     return {
+      loginPopup: {
+        show: false,
+        content: "",
+        buttonText: "登录中...",
+        switch: false,
+        confirm: function confirm() {},
+        ad: null
+      },
       loginTipsShow: false,
       loginTipsList: [{
         title: "登录成功之后，我应该选择记住信息还是不记住直接进入？",
@@ -382,30 +432,44 @@ var _default = {
       }
     }
   },
+  onShareAppMessage: function onShareAppMessage(res) {
+    return APP.globalData.shareObj;
+  },
+  onShareTimeline: function onShareTimeline(res) {
+    return APP.globalData.shareObj;
+  },
   onLoad: function onLoad() {
     var _this3 = this;
     this.$nextTick(function () {
       _this3.$x = _this3.$refs.xingCommon;
     });
+    //获取广告数据
+    APP.getAdData().then(function (data) {
+      console.log("获取广告数据", data);
+      if (data.loginPopupAd) {
+        _this3.loginPopup.ad = data.loginPopupAd;
+      }
+    });
   },
   onShow: function onShow() {
     var _this4 = this;
     var _this = this;
-    uni.showLoading({
-      title: '请稍后...',
-      mask: true
-    });
+    this.loginLoading = true;
+    this.loginPopup.switch = false;
+    this.loginPopup.show = true;
+    this.loginPopup.content = "正在校验当前登录信息是否过期";
+    this.loginPopup.buttonText = "自动登录中...";
+    this.loginPopup.confirm = function () {};
     APP.getUserInfo().then(function (data) {
       _this4.$nextTick(function () {
-        uni.hideLoading();
         _this4.loginLoading = false;
-        _this4.$x.openModal({
-          content: "您已登录！欢迎回家，" + data.realname,
-          confirmText: "进入",
-          confirm: function confirm() {
-            _this.jumpClassList();
-          }
-        });
+        _this4.loginPopup.switch = false;
+        _this4.loginPopup.show = true;
+        _this4.loginPopup.content = "您已登录！欢迎回家，" + data.realname;
+        _this4.loginPopup.buttonText = "进入首页";
+        _this4.loginPopup.confirm = function () {
+          _this.jumpClassList();
+        };
       });
     }).catch(function (error) {
       var user_login = uni.getStorageSync('user_login');
@@ -423,8 +487,15 @@ var _default = {
               });
               _this4.schoolList = data_list;
               _this4.$nextTick(function () {
-                uni.hideLoading();
                 _this4.loginLoading = false;
+                _this4.loginPopup.switch = false;
+                _this4.loginPopup.show = true;
+                _this4.loginPopup.content = "当前登录信息已失效，请重新登录！";
+                _this4.loginPopup.buttonText = "好的";
+                _this4.loginPopup.confirm = function () {
+                  console.log("confirm");
+                  _this4.loginPopup.show = false;
+                };
                 if (!_this4.autoFill) {
                   _this4.autoFill = true;
                   _this4.account = user_login.account;
@@ -435,23 +506,30 @@ var _default = {
                 }
               });
             } else {
-              uni.hideLoading();
+              _this4.loginPopup.show = false;
               _this4.loginLoading = false;
             }
           },
           fail: function fail() {
-            uni.hideLoading();
+            _this4.loginPopup.show = false;
             _this4.loginLoading = false;
           }
         });
       } else {
-        uni.hideLoading();
+        _this4.loginPopup.show = false;
         _this4.loginLoading = false;
         uni.getStorageSync('user_login', null);
       }
     });
   },
   methods: {
+    loginPopupAdClick: function loginPopupAdClick() {
+      if (this.loginPopup.ad.weburl) {
+        uni.navigateTo({
+          url: "/pages/webview/webview?src=" + encodeURIComponent(this.loginPopup.ad.weburl)
+        });
+      }
+    },
     clearLogin: function clearLogin() {
       var _this5 = this;
       this.$x.openModal({
@@ -510,7 +588,6 @@ var _default = {
      * 登录
      */
     login: function login() {
-      var _this7 = this;
       var _this = this;
       if (this.loginLoading) {
         return;
@@ -540,7 +617,12 @@ var _default = {
         return;
       }
       this.loginLoading = true;
-      APP.getUserSystem().then(function (user_system) {
+      this.loginPopup.switch = false;
+      this.loginPopup.show = true;
+      this.loginPopup.content = "";
+      this.loginPopup.buttonText = "登录中...";
+      this.loginPopup.confirm = function () {};
+      APP.getUserSystem(true).then(function (user_system) {
         APP.request({
           url: "/User/login",
           method: "POST",
@@ -555,15 +637,13 @@ var _default = {
             var _res$data2;
             _this.loginLoading = false;
             if (res.data && (_res$data2 = res.data) !== null && _res$data2 !== void 0 && _res$data2.code && res.data.code * 1 === 1) {
-              _this.$x.openModal({
-                showTitle: true,
-                title: "登录成功",
-                content: "是否记住账号信息？下次登录时自动填写",
-                confirmText: "记住并进入",
-                cancelText: "否，直接进入",
-                showCancelButton: true,
-                confirm: function confirm() {
-                  _this.isRememberUserLogin = true;
+              _this.loginPopup.switch = true;
+              _this.loginPopup.show = true;
+              _this.loginPopup.content = "登录成功！";
+              _this.loginPopup.buttonText = "进入首页";
+              _this.loginPopup.confirm = function () {
+                if (_this.isRememberUserLogin) {
+                  //记住信息
                   uni.setStorageSync('user_login', {
                     account: _this.account,
                     password: _this.password,
@@ -571,25 +651,31 @@ var _default = {
                     type: _this.type,
                     agreement: true
                   });
-                  _this.jumpClassList();
-                },
-                cancel: function cancel() {
+                } else {
                   uni.setStorageSync('user_login', null);
-                  _this.jumpClassList();
                 }
-              });
+                _this.jumpClassList();
+              };
               uni.setStorageSync('login_token', res.data.data.XY_SYSTEM_USER_TOKEN);
             } else {
-              _this7.$x.openModal({
-                content: res.data.msg
-              });
+              _this.loginPopup.switch = false;
+              _this.loginPopup.show = true;
+              _this.loginPopup.content = res.data.msg;
+              _this.loginPopup.buttonText = "关闭";
+              _this.loginPopup.confirm = function () {
+                _this.loginPopup.show = false;
+              };
             }
           },
           fail: function fail(res) {
             _this.loginLoading = false;
-            _this7.$x.openModal({
-              content: "系统繁忙"
-            });
+            _this.loginPopup.switch = false;
+            _this.loginPopup.show = true;
+            _this.loginPopup.content = "系统繁忙";
+            _this.loginPopup.buttonText = "关闭";
+            _this.loginPopup.confirm = function () {
+              _this.loginPopup.show = false;
+            };
           }
         });
       });
@@ -619,7 +705,7 @@ var _default = {
      * 获取学校列表
      */
     openSchoolList: function openSchoolList() {
-      var _this8 = this;
+      var _this7 = this;
       this.popup.show = true;
       APP.request({
         url: "/Index/getSchoolList",
@@ -635,18 +721,18 @@ var _default = {
               element.img = "/static/logo.png";
               data_list.push(element);
             });
-            _this8.schoolList = data_list;
+            _this7.schoolList = data_list;
           } else {
-            _this8.popup.show = false;
-            _this8.$x.openModal({
+            _this7.popup.show = false;
+            _this7.$x.openModal({
               content: res.data.msg,
               confirmText: "确定"
             });
           }
         },
         fail: function fail(res) {
-          _this8.popup.show = false;
-          _this8.$x.openModal({
+          _this7.popup.show = false;
+          _this7.$x.openModal({
             content: "系统繁忙，请稍后重试！",
             confirmText: "确定"
           });

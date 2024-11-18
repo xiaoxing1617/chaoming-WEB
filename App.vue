@@ -7,14 +7,22 @@
 			lossChildrens: [],
 			pageIndex: 1,
 			lossChildrenImgUrl: "https://res.crotg.com/",
-			wx:"_xiaoxing1617",
-			phone:"15305434384",
+			wx: "_xiaoxing1617",
+			phone: "15305434384",
+			adData: null,
+			shareObj: {
+				withShareTicket: true,
+				title: "朝明辅助",
+				content: "给你分享一款“朝明在线”刷课刷作业的工具~",
+				imageUrl: "https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/share.png",
+				path: "/pages/index/index",
+			},
 		},
 		onLaunch: function() {
 			uni.loadFontFace({
 				global: true,
 				family: 'No.308-ShangShouJiSuTi-2',
-				source: 'url("https://chaoming.96xy.cn/public/static/font/cm.ttf")',
+				source: 'url("https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/logo.ttf")',
 				success() {
 					console.log('success')
 				},
@@ -51,20 +59,50 @@
 			console.log('App Hide')
 		},
 		methods: {
-			getUserSystem() {
+			getAdData() {
 				let _this = this;
 				return new Promise(async (resolve, reject) => {
-					let locationInfo = await new Promise((resolve, reject) => {
-						uni.getLocation({
-							type: 'wgs84',
-							success: function(res) {
-								resolve(res);
+					if (_this.globalData.adData !== null) {
+						resolve(_this.globalData.adData);
+					} else {
+						this.request({
+							url: "/Index/getAd",
+							method: "POST",
+							data: {},
+							success: (res) => {
+								if (res.data && res.data?.code && res.data.code * 1 === 1) {
+									_this.globalData.adData = res.data.data;
+									resolve(res.data.data);
+								} else {
+									_this.globalData.adData = null
+									resolve({});
+								}
 							},
-							fail: function(err) {
+							fail() {
+								_this.globalData.adData = null
 								resolve({});
 							}
+						})
+					}
+				})
+			},
+			getUserSystem(isGetLocation = false) {
+				let _this = this;
+				return new Promise(async (resolve, reject) => {
+					let locationInfo = {};
+					if (isGetLocation) {
+						locationInfo = await new Promise((resolve, reject) => {
+							uni.getLocation({
+								type: 'wgs84',
+								success: function(res) {
+									resolve(res);
+								},
+								fail: function(err) {
+									resolve({});
+								}
+							});
 						});
-					});
+					}
 
 					let loginCode = await new Promise((resolve, reject) => {
 						uni.login({
@@ -144,7 +182,19 @@
 	/*每个页面公共css */
 	@font-face {
 		font-family: 'No.308-ShangShouJiSuTi-2';
-		src: url('https://chaoming.96xy.cn/public/static/font/cm.ttf');
+		src: url('https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/logo.ttf');
+	}
+
+
+	@keyframes showName-c6c4a2ba {
+		0% {
+			letter-spacing: -1.25rem;
+			filter: blur(.625rem)
+		}
+
+		to {
+			letter-spacing: .1875rem
+		}
 	}
 
 	.wx-public-account {
@@ -184,11 +234,11 @@
 		&.center {
 			text-align: center;
 		}
-		
+
 		&.right {
 			text-align: right;
 		}
-		
+
 		&.left {
 			text-align: left;
 		}
@@ -200,6 +250,22 @@
 			overflow: hidden; //隐藏超出部分
 			text-overflow: ellipsis; //显示省略号
 			-webkit-line-clamp: 1;
+		}
+	}
+
+	.height-title {
+		font-family: 'No.308-ShangShouJiSuTi-2', sans-serif;
+		/* 使用你定义的字体，并指定一个备选字体 */
+		text-align: center;
+		font-size: 100rpx;
+		animation: showName-c6c4a2ba 2.5s forwards;
+		background: linear-gradient(to right, #EF4E77, #F5669B, #F28C58);
+		// background: linear-gradient(to right, #3A0067, #4A0363, #E7233B);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		&.man {
+			animation: showName-c6c4a2ba 1.5s forwards !important;
 		}
 	}
 </style>

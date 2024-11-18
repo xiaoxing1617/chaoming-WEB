@@ -27,7 +27,27 @@
 /*每个页面公共css */
 @font-face {
   font-family: 'No.308-ShangShouJiSuTi-2';
-  src: url("https://chaoming.96xy.cn/public/static/font/cm.ttf");
+  src: url("https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/logo.ttf");
+}
+@-webkit-keyframes showName-c6c4a2ba {
+0% {
+    letter-spacing: -1.25rem;
+    -webkit-filter: blur(0.625rem);
+            filter: blur(0.625rem);
+}
+to {
+    letter-spacing: .1875rem;
+}
+}
+@keyframes showName-c6c4a2ba {
+0% {
+    letter-spacing: -1.25rem;
+    -webkit-filter: blur(0.625rem);
+            filter: blur(0.625rem);
+}
+to {
+    letter-spacing: .1875rem;
+}
 }
 .wx-public-account {
   text-align: center;
@@ -74,6 +94,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+}
+.height-title {
+  font-family: 'No.308-ShangShouJiSuTi-2', sans-serif;
+  /* 使用你定义的字体，并指定一个备选字体 */
+  text-align: center;
+  font-size: 100rpx;
+  -webkit-animation: showName-c6c4a2ba 2.5s forwards;
+          animation: showName-c6c4a2ba 2.5s forwards;
+  background: linear-gradient(to right, #EF4E77, #F5669B, #F28C58);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.height-title.man {
+  -webkit-animation: showName-c6c4a2ba 1.5s forwards !important;
+          animation: showName-c6c4a2ba 1.5s forwards !important;
 }
 
 @charset "UTF-8";

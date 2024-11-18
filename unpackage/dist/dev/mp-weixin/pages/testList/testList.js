@@ -101,28 +101,28 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return __webpack_require__.e(/*! import() | components/u-navbar/u-navbar */ "components/u-navbar/u-navbar").then(__webpack_require__.bind(null, /*! @/components/u-navbar/u-navbar.vue */ 197))
+      return __webpack_require__.e(/*! import() | components/u-navbar/u-navbar */ "components/u-navbar/u-navbar").then(__webpack_require__.bind(null, /*! @/components/u-navbar/u-navbar.vue */ 203))
     },
     uLoading: function () {
-      return __webpack_require__.e(/*! import() | components/u-loading/u-loading */ "components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/components/u-loading/u-loading.vue */ 204))
+      return __webpack_require__.e(/*! import() | components/u-loading/u-loading */ "components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/components/u-loading/u-loading.vue */ 210))
     },
     uCard: function () {
-      return __webpack_require__.e(/*! import() | components/u-card/u-card */ "components/u-card/u-card").then(__webpack_require__.bind(null, /*! @/components/u-card/u-card.vue */ 155))
+      return __webpack_require__.e(/*! import() | components/u-card/u-card */ "components/u-card/u-card").then(__webpack_require__.bind(null, /*! @/components/u-card/u-card.vue */ 168))
     },
     uTag: function () {
-      return __webpack_require__.e(/*! import() | components/u-tag/u-tag */ "components/u-tag/u-tag").then(__webpack_require__.bind(null, /*! @/components/u-tag/u-tag.vue */ 211))
+      return __webpack_require__.e(/*! import() | components/u-tag/u-tag */ "components/u-tag/u-tag").then(__webpack_require__.bind(null, /*! @/components/u-tag/u-tag.vue */ 217))
     },
     uButton: function () {
-      return __webpack_require__.e(/*! import() | components/u-button/u-button */ "components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/components/u-button/u-button.vue */ 120))
+      return __webpack_require__.e(/*! import() | components/u-button/u-button */ "components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/components/u-button/u-button.vue */ 133))
     },
     uPopup: function () {
-      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 99))
+      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 105))
     },
     uRow: function () {
-      return __webpack_require__.e(/*! import() | components/u-row/u-row */ "components/u-row/u-row").then(__webpack_require__.bind(null, /*! @/components/u-row/u-row.vue */ 106))
+      return __webpack_require__.e(/*! import() | components/u-row/u-row */ "components/u-row/u-row").then(__webpack_require__.bind(null, /*! @/components/u-row/u-row.vue */ 112))
     },
     uCol: function () {
-      return __webpack_require__.e(/*! import() | components/u-col/u-col */ "components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/components/u-col/u-col.vue */ 113))
+      return __webpack_require__.e(/*! import() | components/u-col/u-col */ "components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/components/u-col/u-col.vue */ 119))
     },
   }
 } catch (e) {

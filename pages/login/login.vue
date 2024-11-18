@@ -53,6 +53,36 @@
 				</view>
 			</u-popup>
 
+			<!-- 登录中转 -->
+			<u-popup :closeable="false" :mask-close-able="false" v-model="loginPopup.show" :z-index="10076"
+				mode="bottom" border-radius="22" width="100%">
+				<view style="padding: 35rpx 20rpx;">
+					<view v-if="loginPopup.ad">
+						<u-image @click="loginPopupAdClick" :show-menu-by-longpress="false" width="100%" height="260rpx"
+							:src="loginPopup.ad.image" mode="aspectFill" border-radius="10"></u-image>
+					</view>
+					<view v-else
+						style="display: flex;justify-content: center;align-items: center;height: 260rpx;border:solid 1px #eee;border-radius: 20rpx;">
+						<view class="height-title man">
+							<span>朝明辅助</span>
+						</view>
+					</view>
+
+					<x-text :margin="[17,0,20,0]" :ellipsis="3" :size="35" center :value="loginPopup.content"
+						color="#000" style="border-bottom: solid #dcdfe6 2rpx;" block="" bold=""></x-text>
+					<view style="padding: 0 10rpx;display: flex;justify-content: center;margin-bottom: 5rpx;"
+						v-if="loginPopup.switch">
+						<u-switch v-model="isRememberUserLogin" active-color="#0048FE" :size="35"></u-switch>
+						<view style="margin-left: 10rpx;color: #aaa;font-size: 28rpx;">记住登录信息</view>
+					</view>
+
+					<u-button @click="loginPopup.confirm()" :loading="loginLoading" :disabled="loginLoading"
+						shape="circle" type="primary" fill
+						:custom-style="{marginTop:'8rpx',background:'#0048FE',width: '100%',color:'#fff'}">{{loginPopup.buttonText}}</u-button>
+
+				</view>
+			</u-popup>
+
 		</view>
 
 		<!-- 协议 -->
@@ -66,31 +96,31 @@
 		<!-- 登录遇到问题 -->
 		<u-popup v-model="loginTipsShow" mode="bottom" closeable border-radius="20">
 			<scroll-view scroll-y style="height: 500px;overflow-y: scroll;">
-				
+
 				<x-text :size="35" :margin="[30,0,15,0]" value="常用功能" bold block color="#000" center></x-text>
 				<u-grid :col="3" style="margin:2 2 15rpx 15rpx;">
-						<u-grid-item @click="copyWx">
-							<u-icon name="weixin-fill" :size="51"></u-icon>
-							<view class="grid-text">复制客服微信</view>
-						</u-grid-item>
-						<u-grid-item @click="callPhone">
-							<u-icon name="phone-fill" :size="50"></u-icon>
-							<view class="grid-text">拨打客服电话</view>
-						</u-grid-item>
-						<u-grid-item @click="clearLogin">
-							<u-icon name="trash-fill" :size="50"></u-icon>
-							<view class="grid-text">清除登录信息</view>
-						</u-grid-item>
-					</u-grid>
+					<u-grid-item @click="copyWx">
+						<u-icon name="weixin-fill" :size="51"></u-icon>
+						<view class="grid-text">复制客服微信</view>
+					</u-grid-item>
+					<u-grid-item @click="callPhone">
+						<u-icon name="phone-fill" :size="50"></u-icon>
+						<view class="grid-text">拨打客服电话</view>
+					</u-grid-item>
+					<u-grid-item @click="clearLogin">
+						<u-icon name="trash-fill" :size="50"></u-icon>
+						<view class="grid-text">清除登录信息</view>
+					</u-grid-item>
+				</u-grid>
 
 				<x-text :size="35" :margin="[30,0,15,0]" value="常见问题" bold block color="#000" center></x-text>
 
 				<view v-for="(item,index) of loginTipsList" style="margin: 15rpx 10rpx 25rpx 25rpx;">
 					<u-section :title="item.title" :right="false" bold font-size="30"></u-section>
-					<u-read-more :toggle="true" ref="uReadMore"  show-height="175" text-indent="10rpx">
+					<u-read-more :toggle="true" ref="uReadMore" show-height="175" text-indent="10rpx">
 						<rich-text :nodes="item.content"></rich-text>
 					</u-read-more>
-					
+
 					<u-line color="#e0e0e0" margin="10rpx 25rpx 0 0" length="90%"></u-line>
 				</view>
 			</scroll-view>
@@ -104,40 +134,47 @@
 	export default {
 		data() {
 			return {
+				loginPopup: {
+					show: false,
+					content: "",
+					buttonText: "登录中...",
+					switch: false,
+					confirm() {},
+					ad: null,
+				},
 				loginTipsShow: false,
-				loginTipsList: [
-				{
-					title: "登录成功之后，我应该选择记住信息还是不记住直接进入？",
-					content: "如果您选择记住信息，那么下次使用此设备打开我们的软件时，将会自动填写上次填写记住的账号密码和学校信息，但如果使用另外一个手机设备就需要再次输入账号密码了。如果选择不记住直接进入，同理，仅作为此次临时登录，如果登录失效还需要您重新输入账号密码登录进入系统！",
-				},
-				{
-					title: "什么是登录失效，失效会怎么样？",
-					content: "登录失效是指您本次登录之后，在一定的时间之内使用此手机设备直接打开软件就自动登录上了，无需反复输入账号密码登录。为了保证您的账号安全性，我们会在一定的时间后将您已登录的手机设备失效处理，失效并不会注销删除您的账号，仅是需要您重新再登录一下。",
-				},
-				{
-					title: "忘记了密码怎么办？",
-					content: "请前往登录“朝明在线”平台（https://pt.jinkex.com/app2/login）->忘记密码->按照要求填写信息->验证手机号->获得最新的密码。如有疑问可联系客服！",
-				},
-				{
-					title: "提示几分钟内禁止登录？",
-					content: "您可能是过于频繁的登录系统了，此项限制由朝明在线的规则，出于账号安全考虑，您在一定时间内多次输入错误密码登录才会触发。可以尝试稍后重试，并不是您的账号被封禁了。",
-				},
-				{
-					title: "密码是由什么组成的？",
-					content: "除了系统初始默认密码或者重置的密码以外，密码都是由包含大写字母、小写字母、数字和特殊符号（指.-*/+#&@等）。例如：Zhang666& 就是复杂密码",
-				},
-				{
-					title: "点击登录按钮之后出现白色空白提示？",
-					content: "可能是系统正在升级或者系统出现了问题，如果遇到此问题请及时联系我们反馈，感谢！我们将竭尽全力快速响应解决您的问题！",
-				},
-				{
-					title: "一直提示账号密码错误，但确定输入正确了？",
-					content: "遇到此问题不要着急，请先慢慢想想是不是大小写或者符号错了或少了，如果实在想不起来或者登录不上，您也可以重新忘记密码重置密码，前往登录“朝明在线”平台（https://pt.jinkex.com/app2/login）->忘记密码->按照要求填写信息->验证手机号->获得最新的密码。",
-				},
-				{
-					title: "登录之后我的账号密码会被泄露吗？",
-					content: "本程序严格遵守相关法律法规，最大限度保证您的数据安全及密码不被泄露。此外，为了您能稳定的完成刷课、刷作业等等操作，本程序会储存您的账号密码，作为在程序执行时或特定紧急情况下使用并操作，请知晓！同时，您也可以联系我们清除您在本程序内及服务端储存的隐私数据信息，致力于最大限度保障您的权益！",
-				},
+				loginTipsList: [{
+						title: "登录成功之后，我应该选择记住信息还是不记住直接进入？",
+						content: "如果您选择记住信息，那么下次使用此设备打开我们的软件时，将会自动填写上次填写记住的账号密码和学校信息，但如果使用另外一个手机设备就需要再次输入账号密码了。如果选择不记住直接进入，同理，仅作为此次临时登录，如果登录失效还需要您重新输入账号密码登录进入系统！",
+					},
+					{
+						title: "什么是登录失效，失效会怎么样？",
+						content: "登录失效是指您本次登录之后，在一定的时间之内使用此手机设备直接打开软件就自动登录上了，无需反复输入账号密码登录。为了保证您的账号安全性，我们会在一定的时间后将您已登录的手机设备失效处理，失效并不会注销删除您的账号，仅是需要您重新再登录一下。",
+					},
+					{
+						title: "忘记了密码怎么办？",
+						content: "请前往登录“朝明在线”平台（https://pt.jinkex.com/app2/login）->忘记密码->按照要求填写信息->验证手机号->获得最新的密码。如有疑问可联系客服！",
+					},
+					{
+						title: "提示几分钟内禁止登录？",
+						content: "您可能是过于频繁的登录系统了，此项限制由朝明在线的规则，出于账号安全考虑，您在一定时间内多次输入错误密码登录才会触发。可以尝试稍后重试，并不是您的账号被封禁了。",
+					},
+					{
+						title: "密码是由什么组成的？",
+						content: "除了系统初始默认密码或者重置的密码以外，密码都是由包含大写字母、小写字母、数字和特殊符号（指.-*/+#&@等）。例如：Zhang666& 就是复杂密码",
+					},
+					{
+						title: "点击登录按钮之后出现白色空白提示？",
+						content: "可能是系统正在升级或者系统出现了问题，如果遇到此问题请及时联系我们反馈，感谢！我们将竭尽全力快速响应解决您的问题！",
+					},
+					{
+						title: "一直提示账号密码错误，但确定输入正确了？",
+						content: "遇到此问题不要着急，请先慢慢想想是不是大小写或者符号错了或少了，如果实在想不起来或者登录不上，您也可以重新忘记密码重置密码，前往登录“朝明在线”平台（https://pt.jinkex.com/app2/login）->忘记密码->按照要求填写信息->验证手机号->获得最新的密码。",
+					},
+					{
+						title: "登录之后我的账号密码会被泄露吗？",
+						content: "本程序严格遵守相关法律法规，最大限度保证您的数据安全及密码不被泄露。此外，为了您能稳定的完成刷课、刷作业等等操作，本程序会储存您的账号密码，作为在程序执行时或特定紧急情况下使用并操作，请知晓！同时，您也可以联系我们清除您在本程序内及服务端储存的隐私数据信息，致力于最大限度保障您的权益！",
+					},
 				],
 
 				agreementContent: `
@@ -188,29 +225,44 @@
 				}
 			}
 		},
+		onShareAppMessage(res) {
+			return APP.globalData.shareObj
+		},
+		onShareTimeline(res) {
+			return APP.globalData.shareObj
+		},
 		onLoad() {
 			this.$nextTick(() => {
 				this.$x = this.$refs.xingCommon;
 			})
+			//获取广告数据
+			APP.getAdData().then((data) => {
+				console.log("获取广告数据", data);
+				if (data.loginPopupAd) {
+					this.loginPopup.ad = data.loginPopupAd;
+				}
+			})
 		},
 		onShow() {
 			let _this = this;
+			this.loginLoading = true;
+			this.loginPopup.switch = false;
+			this.loginPopup.show = true;
+			this.loginPopup.content = "正在校验当前登录信息是否过期";
+			this.loginPopup.buttonText = "自动登录中...";
+			this.loginPopup.confirm = () => {};
 
-			uni.showLoading({
-				title: '请稍后...',
-				mask: true,
-			});
 			APP.getUserInfo().then((data) => {
 				this.$nextTick(() => {
-					uni.hideLoading();
 					this.loginLoading = false;
-					this.$x.openModal({
-						content: "您已登录！欢迎回家，" + data.realname,
-						confirmText: "进入",
-						confirm() {
-							_this.jumpClassList()
-						}
-					})
+
+					this.loginPopup.switch = false;
+					this.loginPopup.show = true;
+					this.loginPopup.content = "您已登录！欢迎回家，" + data.realname;
+					this.loginPopup.buttonText = "进入首页";
+					this.loginPopup.confirm = () => {
+						_this.jumpClassList()
+					};
 				})
 			}).catch((error) => {
 				let user_login = uni.getStorageSync('user_login');
@@ -228,8 +280,17 @@
 								this.schoolList = data_list;
 
 								this.$nextTick(() => {
-									uni.hideLoading();
 									this.loginLoading = false;
+
+									this.loginPopup.switch = false;
+									this.loginPopup.show = true;
+									this.loginPopup.content = "当前登录信息已失效，请重新登录！";
+									this.loginPopup.buttonText = "好的";
+									this.loginPopup.confirm = () => {
+										console.log("confirm");
+										this.loginPopup.show = false;
+									};
+
 									if (!this.autoFill) {
 										this.autoFill = true;
 										this.account = user_login.account
@@ -241,24 +302,31 @@
 								})
 
 							} else {
-								uni.hideLoading();
+								this.loginPopup.show = false;
 								this.loginLoading = false;
 							}
 						},
 						fail: () => {
-							uni.hideLoading();
+							this.loginPopup.show = false;
 							this.loginLoading = false;
 						}
 					})
 				} else {
-					uni.hideLoading();
+					this.loginPopup.show = false;
 					this.loginLoading = false;
 					uni.getStorageSync('user_login', null);
 				}
 			})
 		},
 		methods: {
-			clearLogin(){
+			loginPopupAdClick() {
+				if (this.loginPopup.ad.weburl) {
+					uni.navigateTo({
+						url: "/pages/webview/webview?src=" + encodeURIComponent(this.loginPopup.ad.weburl)
+					});
+				}
+			},
+			clearLogin() {
 				this.$x.openModal({
 					showTitle: true,
 					title: "清除登录信息",
@@ -266,8 +334,8 @@
 					confirmText: "确认清除",
 					cancelText: "取消",
 					showCancelButton: true,
-					zIndex:10076,
-					confirm:()=> {
+					zIndex: 10076,
+					confirm: () => {
 						this.account = ""
 						this.password = ""
 						this.type = 'num'
@@ -277,28 +345,28 @@
 						this.loginTipsShow = false
 					},
 					cancel() {
-						
+
 					},
 				})
-				
+
 			},
-			copyWx(){
+			copyWx() {
 				//复制微信号
 				uni.setClipboardData({
 					data: APP.globalData.wx
 				});
 			},
-			callPhone(){
+			callPhone() {
 				//拨打电话
 				uni.makePhoneCall({
 					phoneNumber: APP.globalData.phone
 				});
 			},
-			openLoginTipsShow(){
+			openLoginTipsShow() {
 				console.log("loginTipsShow")
 				this.loginTipsShow = true;
-				this.$nextTick(()=>{
-					this.$refs.uReadMore.forEach((item,index)=>{
+				this.$nextTick(() => {
+					this.$refs.uReadMore.forEach((item, index) => {
 						item.init();
 					})
 				})
@@ -347,10 +415,13 @@
 					return;
 				}
 				this.loginLoading = true;
+				this.loginPopup.switch = false;
+				this.loginPopup.show = true;
+				this.loginPopup.content = "";
+				this.loginPopup.buttonText = "登录中...";
+				this.loginPopup.confirm = () => {};
 
-
-
-				APP.getUserSystem().then((user_system) => {
+				APP.getUserSystem(true).then((user_system) => {
 
 
 					APP.request({
@@ -367,15 +438,13 @@
 							_this.loginLoading = false;
 							if (res.data && res.data?.code && res.data.code * 1 === 1) {
 
-								_this.$x.openModal({
-									showTitle: true,
-									title: "登录成功",
-									content: "是否记住账号信息？下次登录时自动填写",
-									confirmText: "记住并进入",
-									cancelText: "否，直接进入",
-									showCancelButton: true,
-									confirm() {
-										_this.isRememberUserLogin = true;
+								_this.loginPopup.switch = true;
+								_this.loginPopup.show = true;
+								_this.loginPopup.content = "登录成功！";
+								_this.loginPopup.buttonText = "进入首页";
+								_this.loginPopup.confirm = () => {
+									if (_this.isRememberUserLogin) {
+										//记住信息
 										uni.setStorageSync('user_login', {
 											account: _this.account,
 											password: _this.password,
@@ -383,26 +452,32 @@
 											type: _this.type,
 											agreement: true,
 										});
-										_this.jumpClassList()
-									},
-									cancel() {
+									} else {
 										uni.setStorageSync('user_login', null);
-										_this.jumpClassList()
-									},
-								})
+									}
+									_this.jumpClassList()
+								};
 								uni.setStorageSync('login_token', res.data.data
 									.XY_SYSTEM_USER_TOKEN);
 							} else {
-								this.$x.openModal({
-									content: res.data.msg,
-								})
+								_this.loginPopup.switch = false;
+								_this.loginPopup.show = true;
+								_this.loginPopup.content = res.data.msg;
+								_this.loginPopup.buttonText = "关闭";
+								_this.loginPopup.confirm = () => {
+									_this.loginPopup.show = false;
+								};
 							}
 						},
 						fail: (res) => {
 							_this.loginLoading = false;
-							this.$x.openModal({
-								content: "系统繁忙",
-							})
+							_this.loginPopup.switch = false;
+							_this.loginPopup.show = true;
+							_this.loginPopup.content = "系统繁忙";
+							_this.loginPopup.buttonText = "关闭";
+							_this.loginPopup.confirm = () => {
+								_this.loginPopup.show = false;
+							};
 						},
 					})
 
@@ -452,10 +527,10 @@
 							this.schoolList = data_list;
 						} else {
 							this.popup.show = false;
-								this.$x.openModal({
-									content: res.data.msg,
-									confirmText: "确定",
-								})
+							this.$x.openModal({
+								content: res.data.msg,
+								confirmText: "确定",
+							})
 						}
 					},
 					fail: (res) => {

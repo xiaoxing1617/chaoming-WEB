@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/testList/testList",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/webview/webview"
   ],
   "subPackages": [],
   "window": {

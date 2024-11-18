@@ -24,41 +24,4 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.u-collapse-head.data-v-f25b8088 {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: #303133;
-  font-size: 30rpx;
-  line-height: 1;
-  padding: 24rpx 0;
-  text-align: left;
-}
-.u-collapse-title.data-v-f25b8088 {
-  flex: 1;
-  overflow: hidden;
-}
-.u-arrow-down-icon.data-v-f25b8088 {
-  transition: all 0.3s;
-  margin-right: 20rpx;
-  margin-left: 14rpx;
-}
-.u-arrow-down-icon-active.data-v-f25b8088 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-.u-collapse-body.data-v-f25b8088 {
-  overflow: hidden;
-  transition: all 0.3s;
-}
-.u-collapse-content.data-v-f25b8088 {
-  overflow: hidden;
-  font-size: 28rpx;
-  color: #909399;
-  text-align: left;
-}
 

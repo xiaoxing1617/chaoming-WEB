@@ -101,46 +101,46 @@ var components
 try {
   components = {
     uPopup: function () {
-      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 99))
+      return __webpack_require__.e(/*! import() | components/u-popup/u-popup */ "components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-popup/u-popup.vue */ 105))
     },
     uRow: function () {
-      return __webpack_require__.e(/*! import() | components/u-row/u-row */ "components/u-row/u-row").then(__webpack_require__.bind(null, /*! @/components/u-row/u-row.vue */ 106))
+      return __webpack_require__.e(/*! import() | components/u-row/u-row */ "components/u-row/u-row").then(__webpack_require__.bind(null, /*! @/components/u-row/u-row.vue */ 112))
     },
     uCol: function () {
-      return __webpack_require__.e(/*! import() | components/u-col/u-col */ "components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/components/u-col/u-col.vue */ 113))
-    },
-    uButton: function () {
-      return __webpack_require__.e(/*! import() | components/u-button/u-button */ "components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/components/u-button/u-button.vue */ 120))
-    },
-    uBackTop: function () {
-      return __webpack_require__.e(/*! import() | components/u-back-top/u-back-top */ "components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! @/components/u-back-top/u-back-top.vue */ 127))
-    },
-    uLineProgress: function () {
-      return __webpack_require__.e(/*! import() | components/u-line-progress/u-line-progress */ "components/u-line-progress/u-line-progress").then(__webpack_require__.bind(null, /*! @/components/u-line-progress/u-line-progress.vue */ 134))
-    },
-    uIcon: function () {
-      return __webpack_require__.e(/*! import() | components/u-icon/u-icon */ "components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/components/u-icon/u-icon.vue */ 141))
-    },
-    uSwiper: function () {
-      return __webpack_require__.e(/*! import() | components/u-swiper/u-swiper */ "components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! @/components/u-swiper/u-swiper.vue */ 148))
-    },
-    uCard: function () {
-      return __webpack_require__.e(/*! import() | components/u-card/u-card */ "components/u-card/u-card").then(__webpack_require__.bind(null, /*! @/components/u-card/u-card.vue */ 155))
-    },
-    uAvatar: function () {
-      return __webpack_require__.e(/*! import() | components/u-avatar/u-avatar */ "components/u-avatar/u-avatar").then(__webpack_require__.bind(null, /*! @/components/u-avatar/u-avatar.vue */ 162))
-    },
-    uEmpty: function () {
-      return __webpack_require__.e(/*! import() | components/u-empty/u-empty */ "components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/components/u-empty/u-empty.vue */ 169))
-    },
-    uTabsSwiper: function () {
-      return Promise.all(/*! import() | components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/components/u-tabs-swiper/u-tabs-swiper.vue */ 176))
+      return __webpack_require__.e(/*! import() | components/u-col/u-col */ "components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/components/u-col/u-col.vue */ 119))
     },
     uImage: function () {
-      return __webpack_require__.e(/*! import() | components/u-image/u-image */ "components/u-image/u-image").then(__webpack_require__.bind(null, /*! @/components/u-image/u-image.vue */ 183))
+      return __webpack_require__.e(/*! import() | components/u-image/u-image */ "components/u-image/u-image").then(__webpack_require__.bind(null, /*! @/components/u-image/u-image.vue */ 126))
+    },
+    uButton: function () {
+      return __webpack_require__.e(/*! import() | components/u-button/u-button */ "components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/components/u-button/u-button.vue */ 133))
+    },
+    uBackTop: function () {
+      return __webpack_require__.e(/*! import() | components/u-back-top/u-back-top */ "components/u-back-top/u-back-top").then(__webpack_require__.bind(null, /*! @/components/u-back-top/u-back-top.vue */ 140))
+    },
+    uLineProgress: function () {
+      return __webpack_require__.e(/*! import() | components/u-line-progress/u-line-progress */ "components/u-line-progress/u-line-progress").then(__webpack_require__.bind(null, /*! @/components/u-line-progress/u-line-progress.vue */ 147))
+    },
+    uIcon: function () {
+      return __webpack_require__.e(/*! import() | components/u-icon/u-icon */ "components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/components/u-icon/u-icon.vue */ 154))
+    },
+    uSwiper: function () {
+      return __webpack_require__.e(/*! import() | components/u-swiper/u-swiper */ "components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! @/components/u-swiper/u-swiper.vue */ 161))
+    },
+    uCard: function () {
+      return __webpack_require__.e(/*! import() | components/u-card/u-card */ "components/u-card/u-card").then(__webpack_require__.bind(null, /*! @/components/u-card/u-card.vue */ 168))
+    },
+    uAvatar: function () {
+      return __webpack_require__.e(/*! import() | components/u-avatar/u-avatar */ "components/u-avatar/u-avatar").then(__webpack_require__.bind(null, /*! @/components/u-avatar/u-avatar.vue */ 175))
+    },
+    uEmpty: function () {
+      return __webpack_require__.e(/*! import() | components/u-empty/u-empty */ "components/u-empty/u-empty").then(__webpack_require__.bind(null, /*! @/components/u-empty/u-empty.vue */ 182))
+    },
+    uTabsSwiper: function () {
+      return Promise.all(/*! import() | components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/components/u-tabs-swiper/u-tabs-swiper.vue */ 189))
     },
     uSkeleton: function () {
-      return __webpack_require__.e(/*! import() | components/u-skeleton/u-skeleton */ "components/u-skeleton/u-skeleton").then(__webpack_require__.bind(null, /*! @/components/u-skeleton/u-skeleton.vue */ 190))
+      return __webpack_require__.e(/*! import() | components/u-skeleton/u-skeleton */ "components/u-skeleton/u-skeleton").then(__webpack_require__.bind(null, /*! @/components/u-skeleton/u-skeleton.vue */ 196))
     },
   }
 } catch (e) {
@@ -531,18 +531,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 var APP = getApp();
 var _default = {
   data: function data() {
     return {
-      shareObj: {
-        withShareTicket: true,
-        title: "朝明辅助",
-        content: "给你分享一款“朝明在线”刷课刷作业的工具~",
-        imageUrl: "https://chaoming.96xy.cn/public/static/share/1.png",
-        path: "/pages/index/index"
-      },
+      brushPopupAd: null,
       isShowShareAppMessageButton: false,
       //是否显示“分享朋友”的按钮
       isShowWeixinFillButton: false,
@@ -565,8 +565,7 @@ var _default = {
       },
       selectIndex: 0,
       swiperList: [{
-        image: __webpack_require__(/*! @/static/swiper/1.png */ 70),
-        name: "1"
+        image: __webpack_require__(/*! @/static/swiper/first.png */ 70)
       }],
       menuButtonBoundingClientRect: APP.globalData.menuButtonBoundingClientRect,
       active: 0,
@@ -591,6 +590,22 @@ var _default = {
     }
   },
   methods: {
+    brushPopupAdClick: function brushPopupAdClick() {
+      if (this.brushPopupAd.weburl) {
+        uni.navigateTo({
+          url: "/pages/webview/webview?src=" + encodeURIComponent(this.brushPopupAd.weburl)
+        });
+      }
+    },
+    swiperClick: function swiperClick(index) {
+      var item = this.swiperList[index];
+      console.log(item);
+      if (item.weburl) {
+        uni.navigateTo({
+          url: "/pages/webview/webview?src=" + encodeURIComponent(item.weburl)
+        });
+      }
+    },
     /**
      * 跳转微信客服页
      */
@@ -619,10 +634,10 @@ var _default = {
      * 分享小程序
      */
     shareApp: function shareApp() {
-      uni.showShareMenu(this.shareObj);
+      uni.showShareMenu(APP.globalData.shareObj);
     },
     jumpLogin: function jumpLogin() {
-      uni.navigateTo({
+      uni.redirectTo({
         url: '/pages/login/login'
       });
     },
@@ -697,10 +712,7 @@ var _default = {
         success: function success(res) {
           var _res$data;
           if (res.data && (_res$data = res.data) !== null && _res$data !== void 0 && _res$data.code && res.data.code * 1 === 1) {
-            _this3.popup.transit.buttonText = "刷新中...";
-            _this3.$x.toast({
-              title: res.data.msg
-            });
+            _this3.popup.transit.buttonText = "刷课成功";
             _this3.getDetail(false);
           } else {
             _this3.popup.transit.load = false;
@@ -831,23 +843,33 @@ var _default = {
         count: "获取中"
       }];
       this.listRefresher = true;
+      this.active = 0;
       APP.request({
         url: "/Index/getClassList",
         data: {},
         success: function success(res) {
           var _res$data3;
-          _this7.listRefresher = false;
           if (res.data && (_res$data3 = res.data) !== null && _res$data3 !== void 0 && _res$data3.code && res.data.code * 1 === 1) {
             res.data.data.forEach(function (item, index) {
               item.name = "第" + (index + 1) + "学期";
               item.index = index;
               item.course.forEach(function (c_item) {
+                if (c_item.tips) {
+                  //远程过来的有tips属性
+                } else {
+                  //没有tips属性
+                  if (c_item.rec_status !== "can study") {
+                    c_item.tips = "暂不开放学习";
+                  }
+                }
                 c_item.picture = _this7.imgBasicUrl + c_item.course_fm;
               });
             });
+            _this7.listRefresher = false;
             _this7.list = res.data.data;
             console.log("list", _this7.list);
           } else {
+            _this7.listRefresher = false;
             _this7.$x.openModal({
               content: res.data.msg,
               confirmText: "确定"
@@ -865,10 +887,10 @@ var _default = {
     }
   },
   onShareAppMessage: function onShareAppMessage(res) {
-    return this.shareObj;
+    return APP.globalData.shareObj;
   },
   onShareTimeline: function onShareTimeline(res) {
-    return this.shareObj;
+    return APP.globalData.shareObj;
   },
   onShow: function onShow() {
     var _this8 = this;
@@ -927,6 +949,16 @@ var _default = {
       _this9.user.is_login = false;
       _this9.getUserInfoLoad = false;
       _this9.jumpLogin();
+    });
+
+    //获取广告数据
+    APP.getAdData().then(function (data) {
+      if (data.swiperList) {
+        _this9.swiperList = data.swiperList;
+      }
+      if (data.brushPopupAd) {
+        _this9.brushPopupAd = data.brushPopupAd;
+      }
     });
   }
 };

@@ -24,13 +24,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 var xingCommon = function xingCommon() {
   __webpack_require__.e(/*! require.ensure | components/xing-common */ "components/xing-common").then((function () {
-    return resolve(__webpack_require__(/*! @/components/xing-common.vue */ 89));
+    return resolve(__webpack_require__(/*! @/components/xing-common.vue */ 95));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 _vue.default.component("xingCommon", xingCommon);
 var xText = function xText() {
   __webpack_require__.e(/*! require.ensure | components/x-text */ "components/x-text").then((function () {
-    return resolve(__webpack_require__(/*! @/components/x-text.vue */ 94));
+    return resolve(__webpack_require__(/*! @/components/x-text.vue */ 100));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 _vue.default.component("x-text", xText);
@@ -128,14 +128,22 @@ var _default = {
     pageIndex: 1,
     lossChildrenImgUrl: "https://res.crotg.com/",
     wx: "_xiaoxing1617",
-    phone: "15305434384"
+    phone: "15305434384",
+    adData: null,
+    shareObj: {
+      withShareTicket: true,
+      title: "朝明辅助",
+      content: "给你分享一款“朝明在线”刷课刷作业的工具~",
+      imageUrl: "https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/share.png",
+      path: "/pages/index/index"
+    }
   },
   onLaunch: function onLaunch() {
     var _this2 = this;
     uni.loadFontFace({
       global: true,
       family: 'No.308-ShangShouJiSuTi-2',
-      source: 'url("https://chaoming.96xy.cn/public/static/font/cm.ttf")',
+      source: 'url("https://chaomingfuzhu.oss-cn-shanghai.aliyuncs.com/logo.ttf")',
       success: function success() {
         console.log('success');
       },
@@ -170,16 +178,66 @@ var _default = {
     console.log('App Hide');
   },
   methods: {
-    getUserSystem: function getUserSystem() {
+    getAdData: function getAdData() {
+      var _this3 = this;
       var _this = this;
       return new Promise( /*#__PURE__*/function () {
         var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve, reject) {
-          var locationInfo, loginCode;
           return _regenerator.default.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  _context.next = 2;
+                  if (_this.globalData.adData !== null) {
+                    resolve(_this.globalData.adData);
+                  } else {
+                    _this3.request({
+                      url: "/Index/getAd",
+                      method: "POST",
+                      data: {},
+                      success: function success(res) {
+                        var _res$data;
+                        if (res.data && (_res$data = res.data) !== null && _res$data !== void 0 && _res$data.code && res.data.code * 1 === 1) {
+                          _this.globalData.adData = res.data.data;
+                          resolve(res.data.data);
+                        } else {
+                          _this.globalData.adData = null;
+                          resolve({});
+                        }
+                      },
+                      fail: function fail() {
+                        _this.globalData.adData = null;
+                        resolve({});
+                      }
+                    });
+                  }
+                case 1:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+        return function (_x, _x2) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    },
+    getUserSystem: function getUserSystem() {
+      var isGetLocation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var _this = this;
+      return new Promise( /*#__PURE__*/function () {
+        var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(resolve, reject) {
+          var locationInfo, loginCode;
+          return _regenerator.default.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  locationInfo = {};
+                  if (!isGetLocation) {
+                    _context2.next = 5;
+                    break;
+                  }
+                  _context2.next = 4;
                   return new Promise(function (resolve, reject) {
                     uni.getLocation({
                       type: 'wgs84',
@@ -191,9 +249,10 @@ var _default = {
                       }
                     });
                   });
-                case 2:
-                  locationInfo = _context.sent;
-                  _context.next = 5;
+                case 4:
+                  locationInfo = _context2.sent;
+                case 5:
+                  _context2.next = 7;
                   return new Promise(function (resolve, reject) {
                     uni.login({
                       provider: 'weixin',
@@ -206,22 +265,22 @@ var _default = {
                       }
                     });
                   });
-                case 5:
-                  loginCode = _context.sent;
+                case 7:
+                  loginCode = _context2.sent;
                   resolve({
                     systemInfo: uni.getSystemInfoSync(),
                     loginCode: loginCode,
                     locationInfo: locationInfo
                   });
-                case 7:
+                case 9:
                 case "end":
-                  return _context.stop();
+                  return _context2.stop();
               }
             }
-          }, _callee);
+          }, _callee2);
         }));
-        return function (_x, _x2) {
-          return _ref.apply(this, arguments);
+        return function (_x3, _x4) {
+          return _ref2.apply(this, arguments);
         };
       }());
     },
@@ -245,18 +304,18 @@ var _default = {
      * 获取用户信息
      */
     getUserInfo: function getUserInfo() {
-      var _this3 = this;
+      var _this4 = this;
       var _this = this;
       return new Promise(function (resolve, reject) {
         var login_token = uni.getStorageSync('login_token');
         if (!login_token) {
           reject("请先登录");
         }
-        _this3.request({
+        _this4.request({
           url: "/User/getUserInfo",
           success: function success(res) {
-            var _res$data;
-            if (res.data && (_res$data = res.data) !== null && _res$data !== void 0 && _res$data.code && res.data.code * 1 === 1) {
+            var _res$data2;
+            if (res.data && (_res$data2 = res.data) !== null && _res$data2 !== void 0 && _res$data2.code && res.data.code * 1 === 1) {
               resolve(res.data.data);
             } else {
               uni.setStorageSync('login_token', null);
